@@ -1,8 +1,9 @@
 package com.example.sundmadnepal
 
-import androidx.activity.viewModels
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -21,23 +22,54 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 
 @Composable
-fun HomeScreen(navController: NavController){
+fun RecipeScreen(navController: NavController){
 
-        HomeScreenScaffold(navController)
+    val factory = object : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T{
+            val repository = inMemoryRecipeService()
+
+                @Suppress("UNCHECKED_CAST")
+                return HViewModel(
+                    recipesRepository = repository
+                ) as T
+        }
+    }
+
+    val recipeViewModel : HViewModel = viewModel(factory = factory)
+
+    val currentState: State<HViewState> = recipeViewModel.viewState.collectAsState()
+
+        RecipeScreenScaffold(navController)
+
 }
 
 @Composable
-private fun HomeScreenScaffold(
-    navController: NavController
-) {
+fun RecipeScreenScaffold(navController: NavController){
     Scaffold(
         bottomBar = {
             NepalToolBar(navController)
         }
-    ) {
-
+    ){
+        RecipeScreenContent()
     }
 }
+
+@Composable
+private fun RecipeScreenContent(){
+    Surface(
+        color = MaterialTheme.colors.background,
+        modifier = Modifier.fillMaxSize()
+    ){
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+
+        }
+    }
+}
+
+
 
 @Composable
 private fun NepalToolBar(navController: NavController){
@@ -48,14 +80,14 @@ private fun NepalToolBar(navController: NavController){
             navController,
             labelText = "Home",
             route = "HomeScreen",
-            selected = true,
+            selected = false,
             icon = Icons.Default.Home
         )
         NepalToolButton(
             navController,
             labelText = "Recipes",
             route = "RecipeScreen",
-            selected = false,
+            selected = true,
             icon = Icons.Default.Build
         )
         NepalToolButton(
@@ -75,6 +107,8 @@ private fun NepalToolBar(navController: NavController){
         )
     }
 }
+
+
 @Composable
 private fun RowScope.NepalToolButton(
     navController: NavController,
@@ -87,7 +121,7 @@ private fun RowScope.NepalToolButton(
         selected = selected,
         onClick = {
             navController.navigate(route)
-                  },
+        },
         icon = {
             Icon(
                 icon,
@@ -99,14 +133,3 @@ private fun RowScope.NepalToolButton(
         }
     )
 }
-
-@Composable
-private fun HomeScreenContent(){
-    Surface(
-        color = MaterialTheme.colors.background,
-        modifier = Modifier.fillMaxSize()
-    ){
-
-    }
-}
-

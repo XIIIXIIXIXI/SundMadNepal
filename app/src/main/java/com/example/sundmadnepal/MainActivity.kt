@@ -24,6 +24,9 @@ class MainActivity : ComponentActivity() {
                     composable("HomeScreen"){
                         HomeScreen(navController = navController)
                     }
+                    composable("RecipeScreen"){
+                        RecipeScreen(navController)
+                    }
                 }
             }
         }
