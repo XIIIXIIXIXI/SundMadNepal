@@ -1,9 +1,8 @@
 package com.example.sundmadnepal
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -16,6 +15,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -39,23 +39,23 @@ fun RecipeScreen(navController: NavController){
 
     val currentState: State<HViewState> = recipeViewModel.viewState.collectAsState()
 
-        RecipeScreenScaffold(navController)
+        RecipeScreenScaffold(navController, currentState.value)
 
 }
 
 @Composable
-fun RecipeScreenScaffold(navController: NavController){
+fun RecipeScreenScaffold(navController: NavController, state: HViewState){
     Scaffold(
         bottomBar = {
             NepalToolBar(navController)
         }
     ){
-        RecipeScreenContent()
+        RecipeScreenContent(state)
     }
 }
 
 @Composable
-private fun RecipeScreenContent(){
+private fun RecipeScreenContent(state: HViewState){
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
@@ -64,11 +64,26 @@ private fun RecipeScreenContent(){
             modifier = Modifier
                 .fillMaxWidth()
         ) {
+            RecipesPrim(state.recipesTh)
 
         }
     }
 }
 
+@Composable
+private fun RecipesPrim(recipes: List<Recipes>){
+    var loopCount : Int = 1
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier
+            .horizontalScroll(rememberScrollState())
+    ){
+        recipes.forEach{ recipes ->
+            RecipesThemeCard(recipes, loopCount)
+            loopCount++
+        }
+    }
+}
 
 
 @Composable
