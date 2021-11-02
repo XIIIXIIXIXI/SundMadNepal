@@ -1,9 +1,8 @@
 package com.example.sundmadnepal
 
-import androidx.activity.viewModels
+
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -11,13 +10,10 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
+
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
+
 import androidx.navigation.NavController
 
 @Composable
@@ -61,7 +57,7 @@ private fun NepalToolBar(navController: NavController){
         NepalToolButton(
             navController,
             labelText = "HealthInfo",
-            route = "HealthInfoscreen",
+            route = "HealthInfoScreen",
             icon = Icons.Default.Favorite,
             selected = false
         )
