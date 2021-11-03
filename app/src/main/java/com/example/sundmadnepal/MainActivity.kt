@@ -27,6 +27,18 @@ class MainActivity : ComponentActivity() {
                     composable("RecipeScreen"){
                         RecipeScreen(navController)
                     }
+                    /*composable("FoodScreen"){
+                        FoodScreen(navController)
+                    }*/
+                    composable("AboutScreen"){
+                        AboutScreen(navController)
+                    }
+                    composable("IngrediensScreen"){
+                        IngrediensScreen(navController)
+                    }
+                    composable("StepsScreen"){
+                        StepsScreen(navController)
+                    }
                 }
             }
         }

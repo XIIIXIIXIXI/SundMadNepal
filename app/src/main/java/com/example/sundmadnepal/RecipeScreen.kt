@@ -50,12 +50,12 @@ fun RecipeScreenScaffold(navController: NavController, state: HViewState){
             NepalToolBar(navController)
         }
     ){
-        RecipeScreenContent(state)
+        RecipeScreenContent(state, navController)
     }
 }
 
 @Composable
-private fun RecipeScreenContent(state: HViewState){
+private fun RecipeScreenContent(state: HViewState, navController: NavController){
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
@@ -64,22 +64,22 @@ private fun RecipeScreenContent(state: HViewState){
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            RecipesPrim(state.recipesTh)
+            RecipesPrim(state.recipesTh, navController)
 
         }
     }
 }
 
 @Composable
-private fun RecipesPrim(recipes: List<Recipes>){
-    var loopCount : Int = 1
+private fun RecipesPrim(recipes: List<Recipes>, navController: NavController){
+    var loopCount = 1
     Row(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         modifier = Modifier
             .horizontalScroll(rememberScrollState())
     ){
         recipes.forEach{ recipes ->
-            RecipesThemeCard(recipes, loopCount)
+            RecipesThemeCard(recipes, loopCount, navController)
             loopCount++
         }
     }
