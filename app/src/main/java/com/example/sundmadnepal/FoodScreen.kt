@@ -37,7 +37,7 @@ fun AboutScreen(navController: NavController) {
             Text(text = "About", color = Color.Black, fontSize = 500.sp)
         }
         BottomNavigationBar(navController = navController)
-        Text(text = "Ingrediens")
+        Text(text = "About")
     }
    /* Surface(
         color = MaterialTheme.colors.background,

@@ -45,12 +45,13 @@ private fun HealthScreenScaffold(
             NepalToolBar(navController)
         }
     ) {
-        HealthScreenContent(navController)
+        HealthScreenContent()
     }
 }
-@Preview
+
+
 @Composable
-private fun HealthScreenContent(navController: NavController){
+private fun HealthScreenContent(){
     val padding = 12.dp
     val size = 180.dp
     Column() {
@@ -74,9 +75,9 @@ private fun HealthScreenContent(navController: NavController){
     }
         Row(){
             Text("Hey",modifier = Modifier
-                .absolutePadding(90.dp,0.dp,75.dp));
+                .absolutePadding(90.dp,0.dp,75.dp))
             Text("Hey",modifier = Modifier
-                .absolutePadding(100.dp));
+                .absolutePadding(100.dp))
         }
         Row(verticalAlignment = Alignment.CenterVertically) {
         Image(
@@ -98,13 +99,15 @@ private fun HealthScreenContent(navController: NavController){
         }
         Row(){
             Text("Hey",modifier = Modifier
-                .absolutePadding(90.dp,0.dp,75.dp));
+                .absolutePadding(90.dp,0.dp,75.dp))
             Text("Hey",modifier = Modifier
-                .absolutePadding(100.dp));
+                .absolutePadding(100.dp))
         }
     }
 
 }
+
+
 @Composable
 private fun AdultScreenScaffold(
     navController: NavController
@@ -179,13 +182,14 @@ private fun RowScope.NepalToolButton(
     )
 }
 
+/*
 @Composable
-private fun HealthScreenContent(){
+private fun HealthScreenContent(navController: NavController){
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
     ){
 
     }
-}
+}*/
 
