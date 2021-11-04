@@ -1,8 +1,9 @@
-package com.example.sundmadnepal
+import android.media.Image
+import android.text.Layout
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -10,28 +11,112 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
+
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+
 import androidx.navigation.NavController
+import androidx.navigation.compose.composable
+import com.example.sundmadnepal.AboutScreen
+import com.example.sundmadnepal.HViewState
+import com.example.sundmadnepal.R
+
 
 @Composable
 fun HealthInfoScreen(navController: NavController){
+
+        HealthScreenScaffold(navController)
+}
+
+@Composable
+private fun HealthScreenScaffold(
+    navController: NavController
+) {
     Scaffold(
         bottomBar = {
             NepalToolBar(navController)
         }
-    ){
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            BottomNavigationBar(navController = navController)
-            Text(text = "HealthInfo")
-        }
+    ) {
+        HealthScreenContent(navController)
     }
 }
+@Preview
+@Composable
+private fun HealthScreenContent(navController: NavController){
+    val padding = 12.dp
+    val size = 180.dp
+    Column() {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Image(
+            painterResource(R.drawable.adult),
+            contentDescription = "dada",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(padding)
+                .size(size)
+        )
+        Image(
+            painterResource(R.drawable.pregnant),
+            contentDescription = "dada",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(padding)
+                .size(size)
+        )
+    }
+        Row(){
+            Text("Hey",modifier = Modifier
+                .absolutePadding(90.dp,0.dp,75.dp));
+            Text("Hey",modifier = Modifier
+                .absolutePadding(100.dp));
+        }
+        Row(verticalAlignment = Alignment.CenterVertically) {
+        Image(
+            painterResource(R.drawable.baby),
+            contentDescription = "dada",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(padding)
+                .size(size)
+        )
+            Image(
+                painterResource(R.drawable.children),
+            contentDescription = "dada",
+            contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .padding(padding)
+                    .size(size)
+            )
+        }
+        Row(){
+            Text("Hey",modifier = Modifier
+                .absolutePadding(90.dp,0.dp,75.dp));
+            Text("Hey",modifier = Modifier
+                .absolutePadding(100.dp));
+        }
+    }
 
+}
+@Composable
+private fun AdultScreenScaffold(
+    navController: NavController
+) {
+    Scaffold(
+        bottomBar = {
+            NepalToolBar(navController)
+        }
+    ) {
+
+    }
+}
 
 @Composable
 private fun NepalToolBar(navController: NavController){
@@ -81,7 +166,7 @@ private fun RowScope.NepalToolButton(
         selected = selected,
         onClick = {
             navController.navigate(route)
-        },
+                  },
         icon = {
             Icon(
                 icon,
@@ -93,3 +178,14 @@ private fun RowScope.NepalToolButton(
         }
     )
 }
+
+@Composable
+private fun HealthScreenContent(){
+    Surface(
+        color = MaterialTheme.colors.background,
+        modifier = Modifier.fillMaxSize()
+    ){
+
+    }
+}
+

@@ -1,5 +1,6 @@
 package com.example.sundmadnepal
 
+import HealthInfoScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,6 +27,9 @@ class MainActivity : ComponentActivity() {
                     }
                     composable("RecipeScreen"){
                         RecipeScreen(navController)
+                    }
+                    composable("HealthInfoScreen"){
+                        HealthInfoScreen(navController)
                     }
                     /*composable("FoodScreen"){
                         FoodScreen(navController)
