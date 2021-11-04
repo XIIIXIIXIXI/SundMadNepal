@@ -1,5 +1,6 @@
 package com.example.sundmadnepal
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
@@ -28,35 +29,25 @@ fun FoodScreen(navController: NavController) {
 
 @Composable
 fun AboutScreen(navController: NavController) {
-    Box(
-        modifier = androidx.compose.ui.Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        BottomNavigationBar(navController = navController)
-        Text(text = "About")
-    }
-}
-
-@Composable
-fun IngrediensScreen(navController: NavController) {
-    Box(
-        modifier = androidx.compose.ui.Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        BottomNavigationBar(navController = navController)
-        Text(text = "Ingrediens")
-    }
-}
-
-@Composable
-fun StepsScreen(navController: NavController) {
-    Box(
+    Box (
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
+        Column {
+            Text(text = "About", color = Color.Black, fontSize = 500.sp)
+        }
         BottomNavigationBar(navController = navController)
-        Text(text = "HowTo")
+        Text(text = "Ingrediens")
     }
+   /* Surface(
+        color = MaterialTheme.colors.background,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column {
+            BottomNavigationBar(navController = navController)
+            Text(text = "About", color = Color.Black)
+        }
+    }*/
 }
 
 
@@ -100,7 +91,7 @@ fun BottomNavigationBar(
 }
 
 @Composable
-private fun BottomNavigationBar(navController: NavController){
+fun BottomNavigationBar(navController: NavController) {
     Scaffold(
         bottomBar = {
             BottomNavigationBar(
@@ -126,7 +117,7 @@ private fun BottomNavigationBar(navController: NavController){
                 }
             )
         }
-    ){
+    ) {
 
     }
 }

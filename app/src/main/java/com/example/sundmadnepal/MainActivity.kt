@@ -39,6 +39,12 @@ class MainActivity : ComponentActivity() {
                     composable("StepsScreen"){
                         StepsScreen(navController)
                     }
+                    composable("HealthInfoScreen"){
+                        HealthInfoScreen(navController)
+                    }
+                    composable("ProfileScreen"){
+                        ProfileScreen(navController)
+                    }
                 }
             }
         }
