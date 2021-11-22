@@ -15,12 +15,14 @@ import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.sundmadnepal.SundNepal.domain.model.Recipes
+import com.example.sundmadnepal.SundNepal.domain.model.allRecipes
 
 @Composable
 fun RecipesThemeCard(
     recipes: Recipes,
-thisRecipeNumber: Int,
-navController: NavController){
+    thisRecipeNumber: Int,
+    navController: NavController){
     Column(horizontalAlignment = Alignment.Start, modifier = Modifier
         .background(color = MaterialTheme.colors.primaryVariant)
         .fillMaxSize()) {
