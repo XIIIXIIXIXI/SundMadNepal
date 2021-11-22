@@ -1,4 +1,6 @@
-package com.example.sundmadnepal
+package com.example.sundmadnepal.SundNepal.domain.model
+
+import com.example.sundmadnepal.R
 
 data class Recipes(
     val imageRes: Int,

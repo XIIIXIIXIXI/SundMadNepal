@@ -3,7 +3,6 @@ package com.example.sundmadnepal
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -20,13 +19,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.sundmadnepal.SundNepal.domain.model.Recipes
+import com.example.sundmadnepal.SundNepal.domain.use_case.ShowRecipes
+import com.example.sundmadnepal.SundNepal.presentation.RecipeViewState
 
 @Composable
 fun RecipeScreen(navController: NavController){
 
     val factory = object : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T{
-            val repository = inMemoryRecipeService()
+            val repository = ShowRecipes()
 
                 @Suppress("UNCHECKED_CAST")
                 return HViewModel(
@@ -37,14 +39,14 @@ fun RecipeScreen(navController: NavController){
 
     val recipeViewModel : HViewModel = viewModel(factory = factory)
 
-    val currentState: State<HViewState> = recipeViewModel.viewState.collectAsState()
+    val currentState: State<RecipeViewState> = recipeViewModel.viewState.collectAsState()
 
         RecipeScreenScaffold(navController, currentState.value)
 
 }
 
 @Composable
-fun RecipeScreenScaffold(navController: NavController, state: HViewState){
+fun RecipeScreenScaffold(navController: NavController, state: RecipeViewState){
     Scaffold(
         bottomBar = {
             NepalToolBar(navController)
@@ -55,7 +57,7 @@ fun RecipeScreenScaffold(navController: NavController, state: HViewState){
 }
 
 @Composable
-private fun RecipeScreenContent(state: HViewState, navController: NavController){
+private fun RecipeScreenContent(state: RecipeViewState, navController: NavController){
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
