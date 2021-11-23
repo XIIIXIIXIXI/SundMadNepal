@@ -3,7 +3,7 @@ package com.example.sundmadnepal
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sundmadnepal.SundNepal.domain.repository.RecipesRepository
-import com.example.sundmadnepal.SundNepal.presentation.RecipeViewState
+import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeViewState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

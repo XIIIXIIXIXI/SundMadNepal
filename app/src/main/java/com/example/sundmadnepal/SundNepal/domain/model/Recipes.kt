@@ -10,5 +10,5 @@ data class Recipes(
 
 val allRecipes = listOf(
     Recipes(R.drawable.lasagna, "Vegetable lasagna", listOf(R.drawable.carrot, R.drawable.onion, R.drawable.spinach)),
-    Recipes(R.drawable.pasta, "Pasta", listOf(R.drawable.garlic, R.drawable.tomato))
+    Recipes(R.drawable.pasta, "Pasta", listOf(R.drawable.garlic, R.drawable.tomato)),
 )

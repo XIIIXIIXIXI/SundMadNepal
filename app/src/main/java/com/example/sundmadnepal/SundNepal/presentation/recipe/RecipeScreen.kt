@@ -21,7 +21,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.domain.model.Recipes
 import com.example.sundmadnepal.SundNepal.domain.use_case.ShowRecipes
-import com.example.sundmadnepal.SundNepal.presentation.RecipeViewState
+import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeViewState
 
 @Composable
 fun RecipeScreen(navController: NavController){

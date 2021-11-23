@@ -1,4 +1,4 @@
-package com.example.sundmadnepal.SundNepal.presentation
+package com.example.sundmadnepal.SundNepal.presentation.recipe
 
 import com.example.sundmadnepal.SundNepal.domain.model.Recipes
 
