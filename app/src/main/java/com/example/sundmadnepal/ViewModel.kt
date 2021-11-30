@@ -1,31 +1,32 @@
 package com.example.sundmadnepal
 
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sundmadnepal.SundNepal.domain.repository.RecipesRepository
 import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeViewState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HViewModel(
+@HiltViewModel
+class HViewModel @Inject constructor(
     private val recipesRepository: RecipesRepository,
 ) : ViewModel() {
 
-    private val _viewState = MutableStateFlow(RecipeViewState())
-    val viewState: StateFlow<RecipeViewState> = _viewState
+    private val _stateRecipe = mutableStateOf(RecipeViewState())
+    val stateRecipe: State<RecipeViewState> = _stateRecipe
 
     init {
         fetchRecipes()
     }
 
     private fun fetchRecipes(){
-        viewModelScope.launch {
-            val recipes = recipesRepository.fetchRecipes()
-
-            _viewState.value = _viewState.value.copy(
-                recipesTh = recipes
-            )
-        }
+        _stateRecipe.value = _stateRecipe.value.copy(
+            recipesTh = recipesRepository.fetchRecipes()
+        )
     }
 }

@@ -9,24 +9,27 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SundMadNepalTheme {
                 val navController = rememberNavController()
-
+                val view = hiltViewModel<HViewModel>()
                 NavHost(navController, "HomeScreen"){
                     composable("HomeScreen"){
                         HomeScreen(navController = navController)
                     }
                     composable("RecipeScreen"){
-                        RecipeScreen(navController)
+                        RecipeScreen(navController, view)
                     }
                     composable("HealthInfoScreen"){
                         HealthInfoScreen(navController)

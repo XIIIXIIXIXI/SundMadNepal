@@ -15,6 +15,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -24,40 +25,25 @@ import com.example.sundmadnepal.SundNepal.domain.use_case.ShowRecipes
 import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeViewState
 
 @Composable
-fun RecipeScreen(navController: NavController){
+fun RecipeScreen(navController: NavController, viewModel: HViewModel = hiltViewModel()){
 
-    val factory = object : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T{
-            val repository = ShowRecipes()
-
-                @Suppress("UNCHECKED_CAST")
-                return HViewModel(
-                    recipesRepository = repository
-                ) as T
-        }
-    }
-
-    val recipeViewModel : HViewModel = viewModel(factory = factory)
-
-    val currentState: State<RecipeViewState> = recipeViewModel.viewState.collectAsState()
-
-        RecipeScreenScaffold(navController, currentState.value)
+        RecipeScreenScaffold(navController, viewModel)
 
 }
 
 @Composable
-fun RecipeScreenScaffold(navController: NavController, state: RecipeViewState){
+fun RecipeScreenScaffold(navController: NavController, viewModel : HViewModel){
     Scaffold(
         bottomBar = {
             NepalToolBar(navController)
         }
     ){
-        RecipeScreenContent(state, navController)
+        RecipeScreenContent(viewModel, navController)
     }
 }
 
 @Composable
-private fun RecipeScreenContent(state: RecipeViewState, navController: NavController){
+private fun RecipeScreenContent(viewModel: HViewModel, navController: NavController){
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
@@ -66,7 +52,7 @@ private fun RecipeScreenContent(state: RecipeViewState, navController: NavContro
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            RecipesPrim(state.recipesTh, navController)
+            RecipesPrim(viewModel.stateRecipe.value.recipesTh, navController)
 
         }
     }
