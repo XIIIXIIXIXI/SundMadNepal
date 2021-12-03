@@ -61,8 +61,8 @@ private fun HealthScreenContent(){
         imageImport(image = R.drawable.pregnant)
     }
         Row(){
-            Text("Male/Female",modifier = Modifier
-                .absolutePadding(50.dp,0.dp,50.dp))
+            Text("Adult",modifier = Modifier
+                .absolutePadding(80.dp,0.dp,80.dp))
             Text("While pregnant",modifier = Modifier
                 .absolutePadding(60.dp))
         }

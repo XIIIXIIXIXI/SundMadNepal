@@ -1,6 +1,8 @@
 package com.example.sundmadnepal
 
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 
 import androidx.compose.material.*
@@ -12,20 +14,26 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 import androidx.navigation.NavController
 
 @Composable
 fun HomeScreen(navController: NavController){
-
         HomeScreenScaffold(navController)
+    HomeScreenContent()
 }
 
 @Composable
 private fun HomeScreenScaffold(
     navController: NavController
 ) {
+
     Scaffold(
         bottomBar = {
             NepalToolBar(navController)
@@ -99,10 +107,26 @@ private fun RowScope.NepalToolButton(
 @Composable
 private fun HomeScreenContent(){
     Surface(
-        color = MaterialTheme.colors.background,
-        modifier = Modifier.fillMaxSize()
+        color = Color.Black,
+        //modifier = Modifier.fillMaxSize()
     ){
 
+    }
+    Column {
+        Box(modifier = Modifier
+            .border(10.dp, Color.Black)){
+            Image(
+                painterResource(R.drawable.lasagna),
+                contentDescription = "Lasagna",
+                //contentScale = ContentScale.Crop,
+                modifier = Modifier
+                //.fillMaxWidth()
+                //.fillMaxHeight()
+            )
+
+        }
+        Text(text = "Recipe of the week: Lasagna", fontSize = 30.sp)
+        Text(text = "About:\n Lasagna originates from the city of Naples, Italy. \n The very first mention of lasagna is from the 14th-century.\n This recipe combines the lovely ingrediens of: garlic and tomato, to make the perfect lasagna")
     }
 }
 
