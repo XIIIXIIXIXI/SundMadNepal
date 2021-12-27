@@ -23,12 +23,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             SundMadNepalTheme {
                 val navController = rememberNavController()
-                val view = hiltViewModel<HViewModel>()
+
                 NavHost(navController, "HomeScreen"){
                     composable("HomeScreen"){
                         HomeScreen(navController = navController)
                     }
-                    composable("RecipeScreen"){
+                    composable("RecipeScreen"){backStackEntry ->
+                        val view = hiltViewModel<HViewModel>()
                         RecipeScreen(navController, view)
                     }
                     composable("HealthInfoScreen"){

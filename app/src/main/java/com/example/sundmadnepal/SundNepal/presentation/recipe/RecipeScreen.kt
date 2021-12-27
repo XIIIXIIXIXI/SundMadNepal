@@ -10,19 +10,12 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.domain.model.Recipes
-import com.example.sundmadnepal.SundNepal.domain.use_case.ShowRecipes
-import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeViewState
 
 @Composable
 fun RecipeScreen(navController: NavController, viewModel: HViewModel = hiltViewModel()){
