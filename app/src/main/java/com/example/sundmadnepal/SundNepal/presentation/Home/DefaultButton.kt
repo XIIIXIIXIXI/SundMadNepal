@@ -1,16 +1,14 @@
 package com.example.sundmadnepal.SundNepal.presentation.Home
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -22,12 +20,13 @@ fun DefaultButton(
 
 ) {
     Button(onClick,
-        modifier = Modifier.fillMaxWidth(0.5f)
+        modifier = Modifier.fillMaxWidth(0.5f),
+        colors = ButtonDefaults.buttonColors(MaterialTheme.colors.onBackground)
     ) {
         Row(
             modifier = Modifier.align(alignment = CenterVertically).fillMaxWidth(0.9f), Arrangement.SpaceBetween
         ){
-            Text(text)
+            Text(text, color = MaterialTheme.colors.primary)
             Spacer(Modifier.size(ButtonDefaults.IconSpacing))
             Icon(
                 icon,
