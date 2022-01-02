@@ -10,12 +10,9 @@ import androidx.room.RoomDatabase
  * connection to the app's persisted, relational data.
  */
 
-@Database(entities = [Recipe::class], version = 1, exportSchema = false)
+@Database(entities = [Recipe::class], version = 1)
 abstract class RecipeDatabase: RoomDatabase() {
 
-        abstract val recipeDao: RecipeDao
+        abstract val dao: RecipeDao
 
-        companion object {
-                const  val DATABASE_NAME = "recipes_db"
-        }
 }

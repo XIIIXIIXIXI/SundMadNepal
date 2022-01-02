@@ -4,7 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.lang.Exception
 
-@Entity(tableName = "recipe_table")
+/**
+ * Define what kind of data we have
+ */
+
+@Entity(tableName = "recipe")
 data class Recipe(
     @PrimaryKey(autoGenerate = true)
     val id: Int,

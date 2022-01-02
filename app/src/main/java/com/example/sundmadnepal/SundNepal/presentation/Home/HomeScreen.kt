@@ -19,16 +19,40 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 
 import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.presentation.Home.DefaultButton
+import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipesViewModel
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 
 @Composable
-fun HomeScreen(navController: NavController){
-    BottomNavigationBarHome(navController = navController)
-    HomeScreenContent(navController)
+fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltViewModel()){
+    //BottomNavigationBarHome(navController = navController)
+    //HomeScreenContent(navController)
+    val result = viewModel.state.value
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        if (result.recipes.isNotEmpty()){
+            for (recipe in result.recipes){
+                Text(
+                    text = recipe.name,
+                    fontSize = 60.sp
+                )
+            }
+        } else {
+            Text(
+                text = "Empty Database",
+                fontSize = 60.sp
+            )
+        }
+
+    }
 
 
 }
@@ -105,7 +129,8 @@ private fun HomeScreenContent(navController: NavController){
     Column(
         Modifier
             .background(MaterialTheme.colors.background)
-            .fillMaxWidth().fillMaxSize(0.9f)) {
+            .fillMaxWidth()
+            .fillMaxSize(0.9f)) {
     }
 
     /*

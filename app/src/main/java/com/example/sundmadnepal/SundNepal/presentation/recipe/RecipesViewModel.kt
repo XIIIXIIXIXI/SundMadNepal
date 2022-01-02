@@ -4,33 +4,32 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.sundmadnepal.SundNepal.data.Recipe
+import com.example.sundmadnepal.SundNepal.data.RecipeRepositoryImpl
 import com.example.sundmadnepal.SundNepal.domain.repository.RecipeRepository
-import com.example.sundmadnepal.SundNepal.domain.use_case.RecipeUseCases
-import com.example.sundmadnepal.SundNepal.domain.util.OrderType
-import com.example.sundmadnepal.SundNepal.domain.util.RecipeOrder
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class RecipesViewModel @Inject constructor(
-    private val recipeUseCases: RecipeUseCases
+    private val repository: RecipeRepository
 ): ViewModel(){
 
     private val _state = mutableStateOf(RecipeState())
     val state: State<RecipeState> = _state
 
-    private var getRecipesJob: Job? = null
 
     init {
-        getRecipes(RecipeOrder.Id(OrderType.Descending))
+        addRecipe()
+        getRecipes()
     }
     /**
      * this function will trigger get triggered from the UI
      */
+    /*
     fun onEvent(event: RecipesEvent){
         when (event) {
             is RecipesEvent.Order -> {
@@ -44,19 +43,24 @@ class RecipesViewModel @Inject constructor(
             //is .. etc
         }
     }
-
+*/
     /**
      * Without [getRecipesJob] every single time we call this function we get a new
      * instance of that flow because we call [getRecipes] function every single time.
      *
      */
-    private fun getRecipes(recipeOrder: RecipeOrder){
-        getRecipesJob?.cancel()
-        getRecipesJob = recipeUseCases.getRecipes(recipeOrder)
+    private fun addRecipe(){
+        viewModelScope.launch {
+            val recipe: Recipe = Recipe(0, "lasagna", 24)
+            repository.addRecipe(recipe)
+        }
+    }
+
+    private fun getRecipes() {
+            repository.getRecipes()
             .onEach { recipe ->
-                _state.value = state.value.copy(
-                    recipes = recipe,
-                    recipeOrder = recipeOrder
+                _state.value = _state.value.copy(
+                    recipes = recipe
                 )
             }
             .launchIn(viewModelScope)

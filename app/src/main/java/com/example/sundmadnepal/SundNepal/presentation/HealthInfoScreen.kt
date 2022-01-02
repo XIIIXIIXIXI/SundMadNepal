@@ -30,9 +30,8 @@ import java.util.*
 
 @Composable
 fun HealthInfoScreen(navController: NavController){
-        //HealthScreenContent()
+        HealthScreenContent()
         BottomNavigationBarHome(navController = navController)
-
 }
 
 
