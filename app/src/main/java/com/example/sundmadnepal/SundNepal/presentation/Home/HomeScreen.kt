@@ -7,11 +7,9 @@ import androidx.compose.foundation.layout.*
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Build
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,11 +20,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 import androidx.navigation.NavController
+import com.example.sundmadnepal.SundNepal.presentation.Home.DefaultButton
+import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 
 @Composable
 fun HomeScreen(navController: NavController){
-        HomeScreenScaffold(navController)
-    HomeScreenContent()
+    HomeScreenScaffold(navController = navController)
 }
 
 @Composable
@@ -58,7 +57,7 @@ private fun NepalToolBar(navController: NavController){
         NepalToolButton(
             navController,
             labelText = "Recipes",
-            route = "RecipeScreen",
+            route = "RecipeMenu",
             selected = false,
             icon = Icons.Default.Build
         )

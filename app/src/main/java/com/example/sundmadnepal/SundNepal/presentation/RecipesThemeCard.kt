@@ -1,5 +1,5 @@
 package com.example.sundmadnepal
-
+/*
 import android.content.res.Configuration
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.domain.model.Recipes
 import com.example.sundmadnepal.SundNepal.domain.model.allRecipes
+
 
 @Composable
 fun RecipesThemeCard(
@@ -79,4 +80,4 @@ fun RecipesThemeCard(
             }
         }
     }
-}
+}*/

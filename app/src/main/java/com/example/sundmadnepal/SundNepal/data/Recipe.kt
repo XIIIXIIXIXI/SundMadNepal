@@ -10,7 +10,7 @@ data class Recipe(
     val id: Int,
     val name: String,
     val image: Int,
-    val keyIngrediens: List<Int>
+    //val keyIngrediens: List<Int>
 )
 
 class InvalidRecipeException(message: String): Exception(message)

@@ -10,9 +10,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +24,28 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SundMadNepalTheme {
-                val navController = rememberNavController()
+                Surface(
+                    color = MaterialTheme.colors.background
+                ){
+                    val navController = rememberNavController()
+                    NavHost(navController = navController,
+                        startDestination = Screen.HomeScreen.route
+                    ){
+                        composable(route = Screen.HomeScreen.route){
+                            HomeScreen(navController = navController)
+                        }
+                        composable(route = Screen.RecipeScreen.route){
+                            RecipeScreen(navController = navController)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+val navController = rememberNavController()
 
                 NavHost(navController, "HomeScreen"){
                     composable("HomeScreen"){
@@ -54,20 +77,4 @@ class MainActivity : ComponentActivity() {
                         ProfileScreen(navController)
                     }
                 }
-            }
-        }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SundMadNepalTheme {
-        Greeting("Android")
-    }
-}
+ */

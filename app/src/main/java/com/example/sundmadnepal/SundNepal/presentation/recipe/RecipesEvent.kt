@@ -8,5 +8,4 @@ import com.example.sundmadnepal.SundNepal.domain.util.RecipeOrder
 
 sealed class RecipesEvent{
     data class Order(val recipeOrder: RecipeOrder): RecipesEvent()
-
 }

@@ -15,17 +15,19 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.sundmadnepal.SundNepal.domain.model.Recipes
+import com.example.sundmadnepal.SundNepal.data.Recipe
+import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipesViewModel
 
 @Composable
-fun RecipeScreen(navController: NavController, viewModel: HViewModel = hiltViewModel()){
+fun RecipeScreen(navController: NavController,
+                 viewModel: RecipesViewModel = hiltViewModel()){
 
         RecipeScreenScaffold(navController, viewModel)
 
 }
 
 @Composable
-fun RecipeScreenScaffold(navController: NavController, viewModel : HViewModel){
+fun RecipeScreenScaffold(navController: NavController, viewModel: RecipesViewModel){
     Scaffold(
         bottomBar = {
             NepalToolBar(navController)
@@ -36,7 +38,7 @@ fun RecipeScreenScaffold(navController: NavController, viewModel : HViewModel){
 }
 
 @Composable
-private fun RecipeScreenContent(viewModel: HViewModel, navController: NavController){
+private fun RecipeScreenContent(viewModel: RecipesViewModel, navController: NavController){
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier.fillMaxSize()
@@ -45,14 +47,15 @@ private fun RecipeScreenContent(viewModel: HViewModel, navController: NavControl
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            RecipesPrim(viewModel.stateRecipe.value.recipesTh, navController)
+            //RecipesPrim(viewModel.state.value.recipes, navController)
 
         }
     }
 }
 
+/*
 @Composable
-private fun RecipesPrim(recipes: List<Recipes>, navController: NavController){
+private fun RecipesPrim(recipes: List<Recipe>, navController: NavController){
     var loopCount = 1
     Row(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -65,7 +68,7 @@ private fun RecipesPrim(recipes: List<Recipes>, navController: NavController){
         }
     }
 }
-
+*/
 
 @Composable
 private fun NepalToolBar(navController: NavController){
@@ -129,3 +132,4 @@ private fun RowScope.NepalToolButton(
         }
     )
 }
+
