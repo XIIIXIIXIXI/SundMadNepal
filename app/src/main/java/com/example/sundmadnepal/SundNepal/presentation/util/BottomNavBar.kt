@@ -1,14 +1,12 @@
-package com.example.sundmadnepal
+package com.example.sundmadnepal.SundNepal.presentation.util
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
@@ -16,37 +14,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavItem
-
-
-/*@Composable
-fun FoodScreen(navController: NavController) {
-    AboutScreen(navController)
-}*/
-
-@Composable
-fun AboutScreen(navController: NavController) {
-    Box (
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Column {
-            Text(text = "About", color = Color.Black, fontSize = 500.sp)
-        }
-        BottomNavigationBar(navController = navController)
-        Text(text = "About")
-    }
-   /* Surface(
-        color = MaterialTheme.colors.background,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Column {
-            BottomNavigationBar(navController = navController)
-            Text(text = "About", color = Color.Black)
-        }
-    }*/
-}
-
 
 @Composable
 fun BottomNavigationBar(
@@ -59,17 +26,17 @@ fun BottomNavigationBar(
     val backStackEntry = navController.currentBackStackEntryAsState()
     BottomNavigation(
         modifier = modifier,
-        backgroundColor = MaterialTheme.colors.primary,
+        backgroundColor = MaterialTheme.colors.onBackground,
         elevation = 5.dp
     ) {
         items.forEach {
             val selected = it.route == backStackEntry.value?.destination?.route
             //checks if the destination route is the same as "this" route item
             BottomNavigationItem(selected = selected, onClick = { onItemClick(it) },
-                selectedContentColor = Color.Gray,
-                unselectedContentColor = MaterialTheme.colors.primaryVariant,
+                selectedContentColor = Color.Black,
+                unselectedContentColor = Color.Gray,
                 icon = {
-                    Column(horizontalAlignment = CenterHorizontally) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(
                             imageVector = it.icon,
                             contentDescription = it.name
@@ -88,7 +55,7 @@ fun BottomNavigationBar(
 }
 
 @Composable
-fun BottomNavigationBar(navController: NavController) {
+fun BottomNavigationBarRecipe(navController: NavController) {
     Scaffold(
         bottomBar = {
             BottomNavigationBar(
@@ -117,3 +84,40 @@ fun BottomNavigationBar(navController: NavController) {
     ) {
     }
 }
+
+@Composable
+fun BottomNavigationBarHome(navController: NavController) {
+    Scaffold(
+        bottomBar = {
+            BottomNavigationBar(
+                items = listOf(
+                    BottomNavItem(
+                        name = "Home",
+                        route = "home_screen",
+                        icon = Icons.Default.Home
+                    ),
+                    BottomNavItem(
+                        name = "Recipes",
+                        route = "recipeMenu_screen",
+                        icon = Icons.Default.Build
+                    ),
+                    BottomNavItem(
+                        name = "HealthInfo",
+                        route = "HealthInfo_screen",
+                        icon = Icons.Default.Favorite
+                    ),
+                    BottomNavItem(
+                        name = "Profile",
+                        route = "profile_screen",
+                        icon = Icons.Default.Person
+                    )
+                ), navController,
+                onItemClick = {
+                    navController.navigate(it.route)
+                }
+            )
+        }
+    ) {
+    }
+}
+

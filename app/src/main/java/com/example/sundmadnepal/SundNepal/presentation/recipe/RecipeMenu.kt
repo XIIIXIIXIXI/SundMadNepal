@@ -12,10 +12,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.presentation.Home.DefaultButton
+import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 
 @Composable
 fun RecipeMenu(navController: NavController){
+    BottomNavigationBarHome(navController = navController)
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center   ) {
         Text(text = "Cook Nepal")
         Spacer(modifier = Modifier.height(20.dp))

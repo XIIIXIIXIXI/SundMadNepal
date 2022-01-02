@@ -2,6 +2,7 @@ package com.example.sundmadnepal
 
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 
@@ -21,27 +22,20 @@ import androidx.compose.ui.unit.sp
 
 import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.presentation.Home.DefaultButton
+import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 
 @Composable
 fun HomeScreen(navController: NavController){
-    HomeScreenScaffold(navController = navController)
+    BottomNavigationBarHome(navController = navController)
+    HomeScreenContent(navController)
+
+
 }
 
-@Composable
-private fun HomeScreenScaffold(
-    navController: NavController
-) {
 
-    Scaffold(
-        bottomBar = {
-            NepalToolBar(navController)
-        }
-    ) {
 
-    }
-}
-
+/*
 @Composable
 private fun NepalToolBar(navController: NavController){
     BottomAppBar(
@@ -50,34 +44,35 @@ private fun NepalToolBar(navController: NavController){
         NepalToolButton(
             navController,
             labelText = "Home",
-            route = "HomeScreen",
+            route = "home_screen",
             selected = true,
             icon = Icons.Default.Home
         )
         NepalToolButton(
             navController,
             labelText = "Recipes",
-            route = "RecipeMenu",
+            route = "recipeMenu_screen",
             selected = false,
             icon = Icons.Default.Build
         )
         NepalToolButton(
             navController,
             labelText = "HealthInfo",
-            route = "HealthInfoScreen",
+            route = "HealthInfo_screen",
             icon = Icons.Default.Favorite,
             selected = false
         )
         NepalToolButton(
             navController,
             labelText = "Profile",
-            route = "ProfileScreen",
+            route = "Profile_screen",
             selected = false,
             icon = Icons.Default.Person
 
         )
     }
 }
+
 @Composable
 private fun RowScope.NepalToolButton(
     navController: NavController,
@@ -102,30 +97,34 @@ private fun RowScope.NepalToolButton(
         }
     )
 }
+*/
+
 
 @Composable
-private fun HomeScreenContent(){
-    Surface(
-        color = Color.Black,
-        //modifier = Modifier.fillMaxSize()
-    ){
-
+private fun HomeScreenContent(navController: NavController){
+    Column(
+        Modifier
+            .background(MaterialTheme.colors.background)
+            .fillMaxWidth().fillMaxSize(0.9f)) {
     }
-    Column {
-        Box(modifier = Modifier
-            .border(10.dp, Color.Black)){
-            Image(
-                painterResource(R.drawable.lasagna),
-                contentDescription = "Lasagna",
-                //contentScale = ContentScale.Crop,
-                modifier = Modifier
-                //.fillMaxWidth()
-                //.fillMaxHeight()
-            )
 
-        }
-        Text(text = "Recipe of the week: Lasagna", fontSize = 30.sp)
-        Text(text = "About:\n Lasagna originates from the city of Naples, Italy. \n The very first mention of lasagna is from the 14th-century.\n This recipe combines the lovely ingrediens of: garlic and tomato, to make the perfect lasagna")
+    /*
+        Column(modifier = Modifier.background(MaterialTheme.colors.onSecondary)) {
+            Box(modifier = Modifier
+                .border(10.dp, Color.Black)){
+                Image(
+                    painterResource(R.drawable.lasagna),
+                    contentDescription = "Lasagna",
+                    //contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                    //.fillMaxWidth()
+                    //.fillMaxHeight()
+                )
+
+            }
+            Text(text = "Recipe of the week: Lasagna", fontSize = 30.sp)
+            Text(text = "About:\n Lasagna originates from the city of Naples, Italy. \n The very first mention of lasagna is from the 14th-century.\n This recipe combines the lovely ingrediens of: garlic and tomato, to make the perfect lasagna")
+        }*/
     }
-}
+
 

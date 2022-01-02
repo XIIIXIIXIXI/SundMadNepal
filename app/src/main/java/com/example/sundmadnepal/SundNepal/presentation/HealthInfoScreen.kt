@@ -23,33 +23,23 @@ import androidx.compose.ui.unit.sp
 
 import androidx.navigation.NavController
 import com.example.sundmadnepal.R
+import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
 import org.intellij.lang.annotations.JdkConstants
 import java.util.*
 
 
 @Composable
 fun HealthInfoScreen(navController: NavController){
+        //HealthScreenContent()
+        BottomNavigationBarHome(navController = navController)
 
-        HealthScreenScaffold(navController)
 }
 
-@Composable
-private fun HealthScreenScaffold(
-    navController: NavController
-) {
-    Scaffold(
-        bottomBar = {
-            NepalToolBar(navController)
-        }
-    ) {
-        HealthScreenContent()
-    }
-}
+
 
 
 @Composable
 private fun HealthScreenContent(){
-
     Column() {
         Text(text = "Health Information",
             textAlign = TextAlign.Center,
@@ -94,88 +84,4 @@ private fun imageImport(image: Int){
     )
 }
 
-@Composable
-private fun AdultScreenScaffold(
-    navController: NavController
-) {
-    Scaffold(
-        bottomBar = {
-            NepalToolBar(navController)
-        }
-    ) {
-
-    }
-}
-
-@Composable
-private fun NepalToolBar(navController: NavController){
-    BottomAppBar(
-        backgroundColor = MaterialTheme.colors.primary,
-    ){
-        NepalToolButton(
-            navController,
-            labelText = "Home",
-            route = "HomeScreen",
-            selected = false,
-            icon = Icons.Default.Home
-        )
-        NepalToolButton(
-            navController,
-            labelText = "Recipes",
-            route = "RecipeScreen",
-            selected = false,
-            icon = Icons.Default.Build
-        )
-        NepalToolButton(
-            navController,
-            labelText = "HealthInfo",
-            route = "HealthInfoScreen",
-            icon = Icons.Default.Favorite,
-            selected = true
-        )
-        NepalToolButton(
-            navController,
-            labelText = "Profile",
-            route = "ProfileScreen",
-            selected = false,
-            icon = Icons.Default.Person
-
-        )
-    }
-}
-@Composable
-private fun RowScope.NepalToolButton(
-    navController: NavController,
-    selected: Boolean,
-    route: String,
-    icon: ImageVector,
-    labelText: String,
-){
-    BottomNavigationItem(
-        selected = selected,
-        onClick = {
-            navController.navigate(route)
-                  },
-        icon = {
-            Icon(
-                icon,
-                contentDescription = null,
-            )
-        },
-        label = {
-            Text(labelText)
-        }
-    )
-}
-
-/*
-@Composable
-private fun HealthScreenContent(navController: NavController){
-    Surface(
-        color = MaterialTheme.colors.background,
-        modifier = Modifier.fillMaxSize()
-    ){
-
-    }
-}*/
 

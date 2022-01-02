@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeMenu
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SundMadNepalTheme {
                 Surface(
-                    color = MaterialTheme.colors.background
+                    color = MaterialTheme.colors.secondary
                 ){
                     val navController = rememberNavController()
                     NavHost(navController = navController,
@@ -36,6 +37,15 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = Screen.RecipeScreen.route){
                             RecipeScreen(navController = navController)
+                        }
+                        composable(route = Screen.RecipeMenu.route){
+                            RecipeMenu(navController = navController)
+                        }
+                        composable(route = Screen.ProfileScreen.route){
+                            ProfileScreen(navController = navController)
+                        }
+                        composable(route = Screen.HealthInfoScreen.route){
+                            HealthInfoScreen(navController = navController)
                         }
                     }
                 }
