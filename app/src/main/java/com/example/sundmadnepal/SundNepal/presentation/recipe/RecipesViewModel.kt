@@ -23,7 +23,6 @@ class RecipesViewModel @Inject constructor(
 
 
     init {
-        addRecipe()
         getRecipes()
     }
     /**
