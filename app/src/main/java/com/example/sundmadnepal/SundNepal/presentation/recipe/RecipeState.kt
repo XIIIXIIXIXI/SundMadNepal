@@ -13,6 +13,4 @@ import kotlinx.coroutines.flow.Flow
  */
 data class RecipeState(
     val recipes: List<Recipe> = emptyList(),
-    val recipeOrder: RecipeOrder = RecipeOrder.Id(OrderType.Descending)
-
 )

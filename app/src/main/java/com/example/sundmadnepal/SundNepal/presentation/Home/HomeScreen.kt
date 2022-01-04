@@ -41,8 +41,17 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
         if (result.recipes.isNotEmpty()){
             for (recipe in result.recipes){
                 Text(
-                    text = recipe.name,
+                    text = recipe.image,
                     fontSize = 60.sp
+                )
+
+                Image(
+                    painterResource(id = R.drawable.carrot),
+                    contentDescription = "hh",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight()
                 )
             }
         } else {
@@ -50,7 +59,12 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
                 text = "Empty Database",
                 fontSize = 60.sp
             )
-        }
+        }/*
+
+        Text(
+            text = "${result.recipes[3].image}",
+            fontSize = 60.sp
+        )*/
 
     }
 

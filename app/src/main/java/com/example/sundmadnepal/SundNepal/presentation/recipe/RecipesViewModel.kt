@@ -4,6 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.data.Recipe
 import com.example.sundmadnepal.SundNepal.data.RecipeRepositoryImpl
 import com.example.sundmadnepal.SundNepal.domain.repository.RecipeRepository
@@ -50,13 +51,14 @@ class RecipesViewModel @Inject constructor(
      */
     private fun addRecipe(){
         viewModelScope.launch {
-            val recipe: Recipe = Recipe(0, "lasagna", 24)
+            val recipe: Recipe = Recipe(0, "lasagna", "R.drawable.carrot")
             repository.addRecipe(recipe)
         }
     }
 
     private fun getRecipes() {
             repository.getRecipes()
+
             .onEach { recipe ->
                 _state.value = _state.value.copy(
                     recipes = recipe
