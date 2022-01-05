@@ -51,7 +51,7 @@ class RecipesViewModel @Inject constructor(
      */
     private fun addRecipe(){
         viewModelScope.launch {
-            val recipe: Recipe = Recipe(0, "lasagna", "R.drawable.carrot")
+            val recipe: Recipe = Recipe(0, "lasagna", "R.drawable.lasagna")
             repository.addRecipe(recipe)
         }
     }

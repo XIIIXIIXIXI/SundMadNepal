@@ -44,9 +44,24 @@ class MainActivity : ComponentActivity() {
                         composable(route = Screen.ProfileScreen.route){
                             ProfileScreen(navController = navController)
                         }
+
+                        // Health Screens
                         composable(route = Screen.HealthInfoScreen.route){
                             HealthInfoScreen(navController = navController)
                         }
+                        composable(route = Screen.HealthAdult.route){
+                            HealthAdult(navController = navController)
+                        }
+                        composable(route = Screen.HealthBaby.route){
+                            HealthBaby(navController = navController)
+                        }
+                        composable(route = Screen.HealthChildren.route){
+                            HealthChildren(navController = navController)
+                        }
+                        composable(route = Screen.HealthPregnant.route){
+                            HealthPregnant(navController = navController)
+                        }
+
                     }
                 }
             }

@@ -30,49 +30,49 @@ import java.util.*
 
 @Composable
 fun HealthInfoScreen(navController: NavController){
-        HealthScreenContent()
+    Column() {
+        HealthScreenContent(navController)
         BottomNavigationBarHome(navController = navController)
+    }
 }
 
-
-
-
 @Composable
-private fun HealthScreenContent(){
-    Column() {
+private fun HealthScreenContent(navController: NavController){
+
+    Column(modifier = Modifier.height(603.dp)) {
         Text(text = "Health Information",
             textAlign = TextAlign.Center,
             fontSize = 30.sp,
             modifier = Modifier.width(400.dp)
         )
     Row(verticalAlignment = Alignment.CenterVertically) {
-        imageImport(image = R.drawable.adult)
-        imageImport(image = R.drawable.pregnant)
+        buttonImage(navController,"healthAdult_screen", "Adult",R.drawable.adult)
+        buttonImage(navController,"healthPregnant_screen", "While Pregnant",R.drawable.pregnant)
     }
-        Row(){
-            Text("Adult",modifier = Modifier
-                .absolutePadding(80.dp,0.dp,80.dp))
-            Text("While pregnant",modifier = Modifier
-                .absolutePadding(60.dp))
-        }
         Row(verticalAlignment = Alignment.CenterVertically) {
-            imageImport(image = R.drawable.baby)
-            imageImport(image = R.drawable.children)
-        }
-        Row(){
-            Text("Baby",modifier = Modifier
-                .absolutePadding(75.dp,0.dp,75.dp))
-            Text("Children",modifier = Modifier
-                .absolutePadding(100.dp))
+            buttonImage(navController,"healthBaby_screen", "Baby",R.drawable.baby)
+            buttonImage(navController,"healthChildren_screen", "Children",R.drawable.children)
         }
     }
 
 }
-
+@Composable
+private fun buttonImage(navController: NavController, route : String, text : String, image : Int) {
+    val padding = 10.dp
+    val size = 190.dp
+    Button(onClick = { navController.navigate(route) }, modifier = Modifier
+        .padding(padding)
+        .size(size)) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            imageImport(image = image)
+            Text(text = text)
+        }
+    }
+}
 @Composable
 private fun imageImport(image: Int){
-    val padding = 12.dp
-    val size = 180.dp
+    val padding = 2.dp
+    val size = 150.dp
     Image(
         painterResource(image),
         contentDescription = "Single",

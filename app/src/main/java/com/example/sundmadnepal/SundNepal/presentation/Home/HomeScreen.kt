@@ -42,7 +42,7 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
             for (recipe in result.recipes){
                 Text(
                     text = recipe.image,
-                    fontSize = 60.sp
+                    fontSize = 20.sp
                 )
 
                 Image(
@@ -50,8 +50,8 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
                     contentDescription = "hh",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight()
+                        //.fillMaxWidth()
+                        //.fillMaxHeight()
                 )
             }
         } else {
@@ -65,7 +65,7 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
             text = "${result.recipes[3].image}",
             fontSize = 60.sp
         )*/
-
+        BottomNavigationBarHome(navController = navController)
     }
 
 
