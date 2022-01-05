@@ -135,44 +135,14 @@ fun Content(recipe: Recipe2) {
 @Composable
 fun KeyIngredients(recipe: Recipe2) {
     Grid(items =recipe.keyIngrediens , nColoumn = 3){
-        KeyIngredientCard(iconResource = it.image, title = it.undertitle, subtitle = it.title, modifier = Modifier)
+        KeyIngredientCard(ikon = it.image, undertitle = it.undertitle, title = it.title, modifier = Modifier)
     }
     
 
 }
 
-@Composable
-fun KeyIngredientCard(
-    @DrawableRes iconResource: Int,
-    title: String,
-    subtitle: String,
-    modifier: Modifier
-) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.padding(bottom = 16.dp)
-    ) {
-        Card(
-            shape = Shapes.large,
-            elevation = 0.dp,
-            backgroundColor = LightGray,
-            modifier = Modifier
-                .width(100.dp)
-                .height(100.dp)
-                .padding(bottom = 8.dp)
-        ) {
-            Image(
-                painter = painterResource(id = iconResource),
-                contentDescription = null,
-                modifier = Modifier.padding(16.dp)
-            )
-        }
-        Text(text = title, modifier = Modifier.width(100.dp), fontSize = 14.sp, fontWeight = Medium)
-        Text(text = subtitle, color = DarkGray, modifier = Modifier.width(100.dp), fontSize = 14.sp)
-    }
-}
 
-/*
+
 @Composable
 fun KeyIngredientCard(
     @DrawableRes ikon: Int,
@@ -188,7 +158,7 @@ fun KeyIngredientCard(
             .padding(bottom = 7.dp)
             .width(100.dp)
             .height(100.dp),
-        backgroundColor = LightGray,
+        backgroundColor = com.example.sundmadnepal.ui.theme.LightGray,
         shape = Shapes.large,
         elevation = 0.dp
         ){
@@ -198,10 +168,10 @@ fun KeyIngredientCard(
             modifier = Modifier.padding(17.dp)
             )
             Text(title, fontWeight = Medium, fontSize = 15.sp, modifier = Modifier.width(100.dp))
-            Text(undertitle, modifier = Modifier.width(100.dp), fontSize = 15.sp, color = DarkGray)
+            Text(undertitle, modifier = Modifier.width(100.dp), fontSize = 15.sp, color = com.example.sundmadnepal.ui.theme.DarkGray)
         }
     }
-}*/
+}
 
 @Composable
 fun <T> Grid(items: List<T>, nColoumn: Int, content: @Composable (T) -> Unit) {
