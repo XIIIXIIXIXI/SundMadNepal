@@ -9,13 +9,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,13 +27,14 @@ import com.example.sundmadnepal.SundNepal.presentation.Home.DefaultButton
 import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipesViewModel
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
+import com.google.common.reflect.Reflection.getPackageName
 
 @Composable
 fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltViewModel()){
     //BottomNavigationBarHome(navController = navController)
     //HomeScreenContent(navController)
-    val result = viewModel.state.value
 
+    val result = viewModel.state.value
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -46,7 +48,7 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
                 )
 
                 Image(
-                    painterResource(id = R.drawable.carrot),
+                    painterResource(id = LocalContext.current.resources.getIdentifier("carrot", "drawable", LocalContext.current.packageName)),
                     contentDescription = "hh",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
@@ -72,70 +74,6 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
 }
 
 
-
-/*
-@Composable
-private fun NepalToolBar(navController: NavController){
-    BottomAppBar(
-        backgroundColor = MaterialTheme.colors.primary,
-    ){
-        NepalToolButton(
-            navController,
-            labelText = "Home",
-            route = "home_screen",
-            selected = true,
-            icon = Icons.Default.Home
-        )
-        NepalToolButton(
-            navController,
-            labelText = "Recipes",
-            route = "recipeMenu_screen",
-            selected = false,
-            icon = Icons.Default.Build
-        )
-        NepalToolButton(
-            navController,
-            labelText = "HealthInfo",
-            route = "HealthInfo_screen",
-            icon = Icons.Default.Favorite,
-            selected = false
-        )
-        NepalToolButton(
-            navController,
-            labelText = "Profile",
-            route = "Profile_screen",
-            selected = false,
-            icon = Icons.Default.Person
-
-        )
-    }
-}
-
-@Composable
-private fun RowScope.NepalToolButton(
-    navController: NavController,
-    selected: Boolean,
-    route: String,
-    icon: ImageVector,
-    labelText: String,
-){
-    BottomNavigationItem(
-        selected = selected,
-        onClick = {
-            navController.navigate(route)
-                  },
-        icon = {
-            Icon(
-                icon,
-                contentDescription = null,
-            )
-        },
-        label = {
-            Text(labelText)
-        }
-    )
-}
-*/
 
 
 @Composable
