@@ -18,15 +18,21 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 
 import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.sundmadnepal.SundNepal.data.Cake
 import com.example.sundmadnepal.SundNepal.presentation.Home.DefaultButton
 import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipesViewModel
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
+import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
 import com.google.common.reflect.Reflection.getPackageName
 
 @Composable
@@ -69,8 +75,6 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
         )*/
         BottomNavigationBarHome(navController = navController)
     }
-
-
 }
 
 

@@ -1,6 +1,9 @@
 package com.example.sundmadnepal.SundNepal.presentation.util
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -13,7 +16,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.Navigation
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun BottomNavigationBar(
@@ -27,7 +33,7 @@ fun BottomNavigationBar(
     BottomNavigation(
         modifier = modifier,
         backgroundColor = MaterialTheme.colors.onBackground,
-        elevation = 5.dp
+        elevation = 5.dp,
     ) {
         items.forEach {
             val selected = it.route == backStackEntry.value?.destination?.route
@@ -56,6 +62,7 @@ fun BottomNavigationBar(
 
 @Composable
 fun BottomNavigationBarRecipe(navController: NavController) {
+    //val navController = rememberNavController()
     Scaffold(
         bottomBar = {
             BottomNavigationBar(

@@ -1,6 +1,6 @@
 package com.example.sundmadnepal.SundNepal.presentation.recipe
 
-import android.security.keystore.KeyInfo
+
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,10 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.DarkGray
-import androidx.compose.ui.graphics.Color.Companion.Gray
-import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.graphics.Color.Companion.White
@@ -31,23 +27,37 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.sundmadnepal.AboutScreen
+import com.example.sundmadnepal.HomeScreen
 import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.data.Cake
 import com.example.sundmadnepal.SundNepal.data.Recipe
 import com.example.sundmadnepal.SundNepal.data.Recipe2
+import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarRecipe
+import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.CollapsedHeight
 import com.example.sundmadnepal.ui.theme.ExpendedHeight
 import com.example.sundmadnepal.ui.theme.Shapes
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
 
 @Composable
-fun MainFragment(recipe: Recipe2) {
+fun AboutScreen(recipe: Recipe2, navController: NavController){
+    MainFragment(recipe = recipe, navController = navController)
+}
 
-    Box {
+@Composable
+fun MainFragment(recipe: Recipe2, navController: NavController) {
+    BottomNavigationBarRecipe(navController = navController)
+    Box(modifier = Modifier.padding(PaddingValues(0.dp, 0.dp, 0.dp, 56.dp))) {
         Content(recipe)
         MainPicture()
-    }
 
+    }
 }
 
 @Composable
@@ -105,7 +115,6 @@ fun MainPicture() {
             }
         }
     }
-
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
@@ -128,6 +137,7 @@ fun Content(recipe: Recipe2) {
             Information(recipe)
 
             KeyIngredients(recipe)
+            //
         }
     }
 }
@@ -135,42 +145,11 @@ fun Content(recipe: Recipe2) {
 @Composable
 fun KeyIngredients(recipe: Recipe2) {
     Grid(items =recipe.keyIngrediens , nColoumn = 3){
-        KeyIngredientCard(iconResource = it.image, subtitle = it.undertitle, title = it.title, modifier = Modifier)
+        KeyIngredientCard(ikon = it.image, undertitle = it.undertitle, title = it.title, modifier = Modifier)
     }
 }
 
-@Composable
-fun KeyIngredientCard(
-    @DrawableRes iconResource: Int,
-    title: String,
-    subtitle: String,
-    modifier: Modifier
-) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.padding(bottom = 16.dp)
-    ) {
-        Card(
-            shape = Shapes.large,
-            elevation = 0.dp,
-            backgroundColor = com.example.sundmadnepal.ui.theme.LightGray,
-            modifier = Modifier
-                .width(100.dp)
-                .height(100.dp)
-                .padding(bottom = 8.dp)
-        ) {
-            Image(
-                painter = painterResource(id = iconResource),
-                contentDescription = null,
-                modifier = Modifier.padding(16.dp)
-            )
-        }
-        Text(text = title, modifier = Modifier.width(100.dp), fontSize = 14.sp, fontWeight = Medium)
-        Text(text = subtitle, color = com.example.sundmadnepal.ui.theme.DarkGray, modifier = Modifier.width(100.dp), fontSize = 14.sp)
-    }
-}
 
-/*
 @Composable
 fun KeyIngredientCard(
     @DrawableRes ikon: Int,
@@ -195,21 +174,22 @@ fun KeyIngredientCard(
                 contentDescription = null,
             modifier = Modifier.padding(17.dp)
             )
-            Text(title, fontWeight = Medium, fontSize = 15.sp, modifier = Modifier.width(100.dp))
-            Text(undertitle, modifier = Modifier.width(100.dp), fontSize = 15.sp, color = com.example.sundmadnepal.ui.theme.DarkGray)
         }
+        Text(title, fontWeight = Medium, fontSize = 15.sp, modifier = Modifier.width(100.dp))
+        Text(undertitle, modifier = Modifier.width(100.dp), fontSize = 15.sp, color = com.example.sundmadnepal.ui.theme.DarkGray)
     }
-}*/
+}
 
 @Composable
 fun <T> Grid(items: List<T>, nColoumn: Int, content: @Composable (T) -> Unit) {
     Column(Modifier.padding(16.dp)) {
         for (n in items.indices step nColoumn) {
             Row {
-                for (m in 0 until nColoumn){
-                    if (n+m < items.size){
-                        Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.TopCenter
-                        ){
+                for (m in 0 until nColoumn) {
+                    if (n + m < items.size) {
+                        Box(
+                            modifier = Modifier.weight(1f), contentAlignment = Alignment.TopCenter
+                        ) {
                             content(items[n + m])
                         }
                     } else {
@@ -258,6 +238,15 @@ fun IconColoumn(ikon : ImageVector, text: String){
 @Composable
 fun DefaultPreview() {
     SundMadNepalTheme {
-        MainFragment(Cake)
+        val navController = rememberNavController()
+        NavHost(
+            navController = navController,
+            startDestination = Screen.AboutScreen.route
+        ) {
+            composable(route = Screen.AboutScreen.route) {
+                AboutScreen(Cake, navController = navController )
+            }
+            //MainFragment(Cake, navController = )
+        }
     }
 }

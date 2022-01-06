@@ -39,7 +39,7 @@ val Cake = Recipe2(
     healthy = "6/10",
     information = "A freshly baked cake smothered in frosting makes an irresistible homemade dessert.",
     keyIngrediens = listOf(
-        alfred(R.drawable.eggs, "eggs", "4"),
+        alfred(R.drawable.tomato, "tomato", "4"),
         alfred(R.drawable.onion, "onion", "6"),
         alfred(R.drawable.garlic, "garlic", "100g"),
         alfred(R.drawable.spinach, "spinach", "50g"),
