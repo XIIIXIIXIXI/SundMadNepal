@@ -137,8 +137,6 @@ fun KeyIngredients(recipe: Recipe2) {
     Grid(items =recipe.keyIngrediens , nColoumn = 3){
         KeyIngredientCard(iconResource = it.image, subtitle = it.undertitle, title = it.title, modifier = Modifier)
     }
-    
-
 }
 
 @Composable
@@ -155,7 +153,7 @@ fun KeyIngredientCard(
         Card(
             shape = Shapes.large,
             elevation = 0.dp,
-            backgroundColor = LightGray,
+            backgroundColor = com.example.sundmadnepal.ui.theme.LightGray,
             modifier = Modifier
                 .width(100.dp)
                 .height(100.dp)
@@ -168,7 +166,7 @@ fun KeyIngredientCard(
             )
         }
         Text(text = title, modifier = Modifier.width(100.dp), fontSize = 14.sp, fontWeight = Medium)
-        Text(text = subtitle, color = DarkGray, modifier = Modifier.width(100.dp), fontSize = 14.sp)
+        Text(text = subtitle, color = com.example.sundmadnepal.ui.theme.DarkGray, modifier = Modifier.width(100.dp), fontSize = 14.sp)
     }
 }
 
