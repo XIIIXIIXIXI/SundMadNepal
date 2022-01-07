@@ -13,4 +13,5 @@ import kotlinx.coroutines.flow.Flow
  */
 data class RecipeState(
     val recipes: List<Recipe> = emptyList(),
+    val multiplier: Int = 1
 )

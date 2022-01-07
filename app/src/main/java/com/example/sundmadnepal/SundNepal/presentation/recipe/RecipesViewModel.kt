@@ -56,6 +56,17 @@ class RecipesViewModel @Inject constructor(
         }
     }
 
+     fun ServingsMultiplier(increment: Int){
+         val multiplier = _state.value.multiplier + increment
+
+         if (multiplier == 0 && increment < 0){
+             return
+         }
+        _state.value = _state.value.copy(
+            multiplier = multiplier
+        )
+    }
+
     private fun getRecipes() {
             repository.getRecipes()
 

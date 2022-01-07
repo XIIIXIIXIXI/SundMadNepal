@@ -29,7 +29,7 @@ data class Recipe2(
     val keyIngrediens: List<alfred>
 )
 
-data class alfred(@DrawableRes val image: Int, val title: String, val undertitle: String)
+data class alfred(@DrawableRes val image: Int, val title: String, val undertitle: Int)
 //this is for preview.
 val Cake = Recipe2(
     name = "Cake",
@@ -39,12 +39,12 @@ val Cake = Recipe2(
     healthy = "6/10",
     information = "A freshly baked cake smothered in frosting makes an irresistible homemade dessert.",
     keyIngrediens = listOf(
-        alfred(R.drawable.tomato, "tomato", "4"),
-        alfred(R.drawable.onion, "onion", "6"),
-        alfred(R.drawable.garlic, "garlic", "100g"),
-        alfred(R.drawable.spinach, "spinach", "50g"),
-        alfred(R.drawable.carrot, "carrot", "3"),
-        alfred(R.drawable.pasta, "pasta", "250g")
+        alfred(R.drawable.tomato, "tomato", 4),
+        alfred(R.drawable.onion, "onion", 6),
+        alfred(R.drawable.garlic, "g garlic", 100),
+        alfred(R.drawable.spinach, "g spinach", 50),
+        alfred(R.drawable.carrot, "carrot", 3),
+        alfred(R.drawable.pasta, "g pasta", 250)
     )
 
 )

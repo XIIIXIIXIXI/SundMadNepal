@@ -145,7 +145,7 @@ fun Content(recipe: Recipe2) {
 @Composable
 fun KeyIngredients(recipe: Recipe2) {
     Grid(items =recipe.keyIngrediens , nColoumn = 3){
-        KeyIngredientCard(ikon = it.image, undertitle = it.undertitle, title = it.title, modifier = Modifier)
+        KeyIngredientCard(ikon = it.image, undertitle = it.undertitle.toString(), title = it.title, modifier = Modifier)
     }
 }
 

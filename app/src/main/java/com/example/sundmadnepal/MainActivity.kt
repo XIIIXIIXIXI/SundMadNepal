@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadnepal.SundNepal.presentation.recipe.IngredientScreen
 import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeMenu
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
@@ -25,15 +26,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SundMadNepalTheme {
-                Surface(
-                    color = MaterialTheme.colors.secondary
-                ){
+
                     val navController = rememberNavController()
                     NavHost(navController = navController,
-                        startDestination = Screen.HomeScreen.route
+                        startDestination = Screen.IngredientScreen.route
                     ){
-                        composable(route = Screen.HomeScreen.route){
-                            HomeScreen(navController = navController)
+                        composable(route = Screen.IngredientScreen.route){
+                            IngredientScreen()
                         }
                         composable(route = Screen.RecipeScreen.route){
                             RecipeScreen(navController = navController)
@@ -67,7 +66,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
+
 
 /*
 val navController = rememberNavController()
