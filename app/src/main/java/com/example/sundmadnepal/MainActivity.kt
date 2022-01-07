@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadnepal.SundNepal.presentation.recipe.IngredientScreen
+import com.example.sundmadnepal.SundNepal.presentation.recipe.StepsScreen
 import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeMenu
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
@@ -29,10 +30,10 @@ class MainActivity : ComponentActivity() {
 
                     val navController = rememberNavController()
                     NavHost(navController = navController,
-                        startDestination = Screen.IngredientScreen.route
+                        startDestination = Screen.StepsScreen.route
                     ){
-                        composable(route = Screen.IngredientScreen.route){
-                            IngredientScreen()
+                        composable(route = Screen.StepsScreen.route){
+                            StepsScreen()
                         }
                         composable(route = Screen.RecipeScreen.route){
                             RecipeScreen(navController = navController)

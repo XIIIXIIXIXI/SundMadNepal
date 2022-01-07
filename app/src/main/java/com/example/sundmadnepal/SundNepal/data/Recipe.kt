@@ -26,10 +26,13 @@ data class Recipe2(
     val energy: String,
     val healthy: String,
     val information: String,
-    val keyIngrediens: List<alfred>
+    val keyIngrediens: List<alfred>,
+    val steps: List<steps>
 )
 
 data class alfred(@DrawableRes val image: Int, val title: String, val undertitle: Int)
+
+data class steps(val stepText: String, @DrawableRes val stepImage: Int)
 //this is for preview.
 val Cake = Recipe2(
     name = "Cake",
@@ -45,6 +48,15 @@ val Cake = Recipe2(
         alfred(R.drawable.spinach, "g spinach", 50),
         alfred(R.drawable.carrot, "carrot", 3),
         alfred(R.drawable.pasta, "g pasta", 250)
+    ),
+    steps = listOf(
+        steps(stepText = "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.", R.drawable.tomato),
+        steps(stepText = "Strain the juice into a jug to get rid of any bits.", 0),
+        steps(stepText = "Put the lemon pulp back into the food processor. Add the rest of the sugar, ice cubes and water and blitz again.", 0),
+        steps(stepText = "Strain it into the jug with the first lot of juice and discard the pulp.", 0),
+        steps(stepText = "Serve with lots of ice", R.drawable.carrot)
+
+
     )
 
 )
