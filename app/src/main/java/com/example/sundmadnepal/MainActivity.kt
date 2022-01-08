@@ -30,10 +30,10 @@ class MainActivity : ComponentActivity() {
 
                     val navController = rememberNavController()
                     NavHost(navController = navController,
-                        startDestination = Screen.StepsScreen.route
+                        startDestination = Screen.IngredientScreen.route
                     ){
-                        composable(route = Screen.StepsScreen.route){
-                            StepsScreen()
+                        composable(route = Screen.IngredientScreen.route){
+                            IngredientScreen()
                         }
                         composable(route = Screen.RecipeScreen.route){
                             RecipeScreen(navController = navController)

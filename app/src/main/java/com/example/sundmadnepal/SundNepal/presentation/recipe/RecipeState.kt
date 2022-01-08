@@ -1,9 +1,7 @@
 package com.example.sundmadnepal.SundNepal.presentation.recipe
 
 import com.example.sundmadnepal.SundNepal.data.Recipe
-import com.example.sundmadnepal.SundNepal.domain.util.OrderType
-import com.example.sundmadnepal.SundNepal.domain.util.RecipeOrder
-import kotlinx.coroutines.flow.Flow
+import com.example.sundmadnepal.SundNepal.data.RecipeWithkeyIngredients
 
 
 /**
@@ -13,5 +11,7 @@ import kotlinx.coroutines.flow.Flow
  */
 data class RecipeState(
     val recipes: List<Recipe> = emptyList(),
-    val multiplier: Int = 1
+    val recipeswithKey: List<RecipeWithkeyIngredients> = emptyList(),
+    val multiplier: Int = 1,
+    val completedStep: List<Boolean> = emptyList()
 )

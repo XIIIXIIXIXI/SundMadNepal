@@ -1,8 +1,7 @@
 package com.example.sundmadnepal.SundNepal.data
 
 import androidx.annotation.DrawableRes
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.example.sundmadnepal.R
 import java.lang.Exception
 
@@ -12,12 +11,36 @@ import java.lang.Exception
 
 @Entity(tableName = "recipe")
 data class Recipe(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val name: String,
+    @PrimaryKey(autoGenerate = false)
+    val recipeName: String,
     val image: String,
-    //val keyIngrediens: List<alfred>
+    val prepTime: String,
+    val energy: String,
+    val healthy: String,
+    val information: String,
+    //@Ignore
+    //val keyIngrediens: List<KeyIngredient>,
+    //val steps: List<steps>
 )
+
+@Entity
+data class KeyIngredients(
+    @PrimaryKey(autoGenerate = false)
+    val title: String,
+    val image: String,
+    val undertitle: Int,
+    val recipeName: String
+)
+
+data class RecipeWithkeyIngredients(
+    @Embedded val recipe: Recipe,
+    @Relation(
+        parentColumn = "recipeName",
+        entityColumn = "recipeName"
+    )
+    val keyIngredients: List<KeyIngredients>
+)
+//@Embedded
 
 data class Recipe2(
     val name: String,
@@ -26,11 +49,16 @@ data class Recipe2(
     val energy: String,
     val healthy: String,
     val information: String,
-    val keyIngrediens: List<alfred>,
+    val keyIngrediens: List<KeyIngredient>,
     val steps: List<steps>
 )
+data class KeyIngredient(
+    val image: String,
+    val title: String,
+    val undertitle: Int,
+    val recipeName: String
+)
 
-data class alfred(@DrawableRes val image: Int, val title: String, val undertitle: Int)
 
 data class steps(val stepText: String, @DrawableRes val stepImage: Int)
 //this is for preview.
@@ -42,12 +70,12 @@ val Cake = Recipe2(
     healthy = "6/10",
     information = "A freshly baked cake smothered in frosting makes an irresistible homemade dessert.",
     keyIngrediens = listOf(
-        alfred(R.drawable.tomato, "tomato", 4),
-        alfred(R.drawable.onion, "onion", 6),
-        alfred(R.drawable.garlic, "g garlic", 100),
-        alfred(R.drawable.spinach, "g spinach", 50),
-        alfred(R.drawable.carrot, "carrot", 3),
-        alfred(R.drawable.pasta, "g pasta", 250)
+        KeyIngredient("tomato", "tomato", 4,"Cake"),
+        KeyIngredient("onion", "onion", 6,"Cake"),
+        KeyIngredient("garlic", "g garlic", 100,"Cake"),
+        KeyIngredient("spinach", "g spinach", 50,"Cake"),
+        KeyIngredient("carrot", "carrot", 3,"Cake"),
+        KeyIngredient("pasta", "g pasta", 250,"Cake")
     ),
     steps = listOf(
         steps(stepText = "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.", R.drawable.tomato),
@@ -55,8 +83,6 @@ val Cake = Recipe2(
         steps(stepText = "Put the lemon pulp back into the food processor. Add the rest of the sugar, ice cubes and water and blitz again.", 0),
         steps(stepText = "Strain it into the jug with the first lot of juice and discard the pulp.", 0),
         steps(stepText = "Serve with lots of ice", R.drawable.carrot)
-
-
     )
 
 )

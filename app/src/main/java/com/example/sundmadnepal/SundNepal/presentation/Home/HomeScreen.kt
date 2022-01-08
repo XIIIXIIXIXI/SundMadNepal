@@ -52,7 +52,6 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltV
                     text = recipe.image,
                     fontSize = 20.sp
                 )
-
                 Image(
                     painterResource(id = LocalContext.current.resources.getIdentifier("carrot", "drawable", LocalContext.current.packageName)),
                     contentDescription = "hh",

@@ -1,8 +1,9 @@
 package com.example.sundmadnepal.SundNepal.domain.use_case
 
+/*
 import com.example.sundmadnepal.SundNepal.data.KeyIngredient
+import com.example.sundmadnepal.SundNepal.data.KeyIngredients
 import com.example.sundmadnepal.SundNepal.data.Recipe
-import com.example.sundmadnepal.SundNepal.data.defaultKeyIngredient
 import com.example.sundmadnepal.SundNepal.domain.repository.RecipeRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -12,7 +13,7 @@ class UseCases @Inject constructor() : RecipeRepository{
         TODO("Not yet implemented")
     }
 
-    override suspend fun getRecipeById(id: Int): Recipe? {
+    override suspend fun getRecipeByName(name: String): Recipe? {
         TODO("Not yet implemented")
     }
 
@@ -20,6 +21,8 @@ class UseCases @Inject constructor() : RecipeRepository{
         TODO("Not yet implemented")
     }
 
+    override fun insertKeyIngredients(keyIngredients: KeyIngredients){
+        TODO("Not yet implemented")
+    }
 
-
-}
+}*/

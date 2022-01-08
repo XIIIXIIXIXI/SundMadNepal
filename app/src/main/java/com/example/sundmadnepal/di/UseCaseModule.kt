@@ -16,6 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+
     @Provides
     @Singleton
     fun provideDatabase(
@@ -24,9 +25,9 @@ object AppModule {
             app,
             RecipeDatabase::class.java,
             "recipe_db"
-        ).createFromAsset("database/recipe_db.db").build()
+        ).build()
     }
-
+//.createFromAsset("database/recipe_db.db").
 
 
  //provides repository for repository implementation

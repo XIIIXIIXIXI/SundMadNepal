@@ -16,12 +16,21 @@ class RecipeRepositoryImpl(
     override fun getRecipes(): Flow<List<Recipe>> {
         return dao.getRecipes()
     }
+    override fun getRecipeWithkeyIngredients(): Flow<List<RecipeWithkeyIngredients>>{
+        return dao.getRecipeWithkeyIngredients()
+    }
 
-    override suspend fun getRecipeById(id: Int): Recipe? {
-        return dao.getRecipeById(id)
+    override suspend fun getRecipeByName(name: String): Recipe? {
+        return dao.getRecipeByName(name)
     }
 
     override suspend fun addRecipe(recipe: Recipe) {
         dao.addRecipe(recipe)
     }
+
+    override suspend fun insertKeyIngrdients(keyIngredients: KeyIngredients) {
+        dao.insertKeyIngredients(keyIngredients)
+    }
+
+
 }

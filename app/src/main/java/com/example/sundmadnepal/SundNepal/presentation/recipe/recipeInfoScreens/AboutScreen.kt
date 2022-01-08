@@ -152,7 +152,7 @@ fun KeyIngredients(recipe: Recipe2) {
 
 @Composable
 fun KeyIngredientCard(
-    @DrawableRes ikon: Int,
+    ikon: String,
     undertitle: String,
     title: String,
     modifier: Modifier
@@ -170,7 +170,7 @@ fun KeyIngredientCard(
         elevation = 0.dp
         ){
             Image(
-                painterResource(id = ikon),
+                painterResource(id = LocalContext.current.resources.getIdentifier(ikon, "drawable", LocalContext.current.packageName)),
                 contentDescription = null,
             modifier = Modifier.padding(17.dp)
             )

@@ -1,9 +1,6 @@
 package com.example.sundmadnepal.SundNepal.data
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -20,6 +17,13 @@ interface RecipeDao {
     @Query("SELECT * FROM recipe")
     fun getRecipes(): Flow<List<Recipe>>
 
-    @Query("Select * FROM recipe WHERE id = :id")
-    suspend fun getRecipeById(id: Int): Recipe?
+    @Query("Select * FROM recipe WHERE recipeName = :recipeName")
+    suspend fun getRecipeByName(recipeName: String): Recipe?
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertKeyIngredients(keyIngredients: KeyIngredients)
+
+    @Transaction
+    @Query("SELECT * FROM recipe")
+    fun getRecipeWithkeyIngredients(): Flow<List<RecipeWithkeyIngredients>>
 }
