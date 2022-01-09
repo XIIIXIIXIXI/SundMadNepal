@@ -3,11 +3,21 @@ package com.example.sundmadnepal.SundNepal.data
 import androidx.annotation.DrawableRes
 import androidx.room.*
 import com.example.sundmadnepal.R
-import java.lang.Exception
 
 /**
  * Define what kind of data we have
  */
+
+data class RecipeLocal(
+    val recipeName: String,
+    val image: String,
+    val prepTime: String,
+    val energy: String,
+    val healthy: String,
+    val information: String,
+    val keyIngrediens: List<KeyIngredient>,
+    //val steps: List<steps>
+)
 
 @Entity(tableName = "recipe")
 data class Recipe(
@@ -18,13 +28,12 @@ data class Recipe(
     val energy: String,
     val healthy: String,
     val information: String,
-    //@Ignore
     //val keyIngrediens: List<KeyIngredient>,
     //val steps: List<steps>
 )
 
 @Entity
-data class KeyIngredients(
+data class KeyIngredient(
     @PrimaryKey(autoGenerate = false)
     val title: String,
     val image: String,
@@ -32,15 +41,34 @@ data class KeyIngredients(
     val recipeName: String
 )
 
-data class RecipeWithkeyIngredients(
+@Entity(primaryKeys = ["recipeName", "title"])
+data class RecipeKeyIngredientCrossRef(
+    val recipeName: String,
+    val title: String
+)
+
+data class RecipeWithKeyIngredients(
     @Embedded val recipe: Recipe,
     @Relation(
         parentColumn = "recipeName",
-        entityColumn = "recipeName"
+        entityColumn = "title",
+        associateBy = Junction(RecipeKeyIngredientCrossRef::class)
     )
-    val keyIngredients: List<KeyIngredients>
+    val keyIngrediens: List<KeyIngredient>
 )
-//@Embedded
+
+
+
+@Entity
+data class Stepss(
+    @PrimaryKey(autoGenerate = false)
+    val stepRecipe: String,
+    val stepText: String,
+    val stepImage: String,
+    val recipeName: String
+    )
+
+
 
 data class Recipe2(
     val name: String,
@@ -49,10 +77,10 @@ data class Recipe2(
     val energy: String,
     val healthy: String,
     val information: String,
-    val keyIngrediens: List<KeyIngredient>,
+    val keyIngrediens: List<KeyIngredients2>,
     val steps: List<steps>
 )
-data class KeyIngredient(
+data class KeyIngredients2(
     val image: String,
     val title: String,
     val undertitle: Int,
@@ -70,12 +98,12 @@ val Cake = Recipe2(
     healthy = "6/10",
     information = "A freshly baked cake smothered in frosting makes an irresistible homemade dessert.",
     keyIngrediens = listOf(
-        KeyIngredient("tomato", "tomato", 4,"Cake"),
-        KeyIngredient("onion", "onion", 6,"Cake"),
-        KeyIngredient("garlic", "g garlic", 100,"Cake"),
-        KeyIngredient("spinach", "g spinach", 50,"Cake"),
-        KeyIngredient("carrot", "carrot", 3,"Cake"),
-        KeyIngredient("pasta", "g pasta", 250,"Cake")
+        KeyIngredients2("tomato", "tomato", 4,"Cake"),
+        KeyIngredients2("onion", "onion", 6,"Cake"),
+        KeyIngredients2("garlic", "g garlic", 100,"Cake"),
+        KeyIngredients2("spinach", "g spinach", 50,"Cake"),
+        KeyIngredients2("carrot", "carrot", 3,"Cake"),
+        KeyIngredients2("pasta", "g pasta", 250,"Cake")
     ),
     steps = listOf(
         steps(stepText = "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.", R.drawable.tomato),

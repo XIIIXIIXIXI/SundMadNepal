@@ -5,11 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sundmadnepal.R
-import com.example.sundmadnepal.SundNepal.data.KeyIngredient
-import com.example.sundmadnepal.SundNepal.data.KeyIngredients
-
-import com.example.sundmadnepal.SundNepal.data.Recipe
-import com.example.sundmadnepal.SundNepal.data.RecipeRepositoryImpl
+import com.example.sundmadnepal.SundNepal.data.*
 
 import com.example.sundmadnepal.SundNepal.domain.repository.RecipeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,6 +27,8 @@ class RecipesViewModel @Inject constructor(
         addRecipe()
         getRecipeWithkeyIngredients()
     }
+
+
     /**
      * this function will trigger get triggered from the UI
      */
@@ -56,17 +54,29 @@ class RecipesViewModel @Inject constructor(
      */
     private fun addRecipe(){
         viewModelScope.launch {
-            val recipe: Recipe = Recipe("Cake",  "R.drawable.lasagna", energy = "50", prepTime = "30min.",  healthy = "6/10",
+            val recipe: Recipe = Recipe( recipeName = "Cake", image =  "R.drawable.lasagna", energy = "50", prepTime = "30min.",  healthy = "6/10",
                 information = "A freshly baked cake smothered in frosting makes an irresistible homemade dessert.")
-                val keyIngredints: KeyIngredients = KeyIngredients("carrot", "carrot", 4, "Cake")
-               /* keyIngrediens = listOf(
-                    KeyIngredients("tomato", "tomato", 4,"Cake"),
-                    KeyIngredients("onion", "onion", 6,"Cake"),
-                    KeyIngredients("garlic", "g garlic", 100,"Cake"),
-                    KeyIngredients("spinach", "g spinach", 50,"Cake"),
-                    KeyIngredients("carrot", "carrot", 3,"Cake"),
-                    KeyIngredients("pasta", "g pasta", 250,"Cake")
-                ),*/
+
+               val keyIngredient = listOf(
+                    KeyIngredient("tomato", "tomato", 4,"Cake"),
+                    KeyIngredient("onion", "onion", 6,"Cake"),
+                    KeyIngredient("garlic", "g garlic", 100,"Cake"),
+                    KeyIngredient("spinach", "g spinach", 50,"Cake"),
+                    KeyIngredient("carrot", "carrot", 3,"Cake"),
+                    KeyIngredient("pasta", "g pasta", 250,"Cake")
+                )
+            repository.addRecipe(recipe)
+            keyIngredient.forEach{repository.insertKeyIngredient(it)}
+            val recipeKeyIngredientRelations = listOf(
+                RecipeKeyIngredientCrossRef("Cake", "tomato"),
+                RecipeKeyIngredientCrossRef("Cake", "onion"),
+                RecipeKeyIngredientCrossRef("Cake", "garlic"),
+                RecipeKeyIngredientCrossRef("Cake", "spinach"),
+                RecipeKeyIngredientCrossRef("Cake", "carrot"),
+                RecipeKeyIngredientCrossRef("Cake", "pasta")
+
+            )
+            recipeKeyIngredientRelations.forEach{repository.insertRecipeKeyIngredientCrossRef(it)}
                 /*steps = listOf(
                     steps(stepText = "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.", R.drawable.tomato),
                     steps(stepText = "Strain the juice into a jug to get rid of any bits.", 0),
@@ -74,10 +84,15 @@ class RecipesViewModel @Inject constructor(
                     steps(stepText = "Strain it into the jug with the first lot of juice and discard the pulp.", 0),
                     steps(stepText = "Serve with lots of ice", R.drawable.carrot)
                 )*/
-            repository.addRecipe(recipe)
-            repository.insertKeyIngrdients(keyIngredints)
+
+
+           /* for (element in keyIngredients){
+                repository.insertKeyIngrdients(element)
+            }*/
+
         }
     }
+
 
      fun ServingsMultiplier(increment: Int){
          val multiplier = _state.value.multiplier + increment
@@ -90,22 +105,22 @@ class RecipesViewModel @Inject constructor(
         )
     }
 
-    private fun getRecipeWithkeyIngredients() {
-        repository.getRecipeWithkeyIngredients()
-
-            .onEach { recipe ->
-                _state.value = _state.value.copy(
-                    recipeswithKey = recipe
-                )
-            }
-            .launchIn(viewModelScope)
-    }
     private fun getRecipes() {
             repository.getRecipes()
 
             .onEach { recipe ->
                 _state.value = _state.value.copy(
                     recipes = recipe
+                )
+            }
+            .launchIn(viewModelScope)
+    }
+    private fun getRecipeWithkeyIngredients() {
+        repository.getRecipeWithKeyIngredients()
+
+            .onEach { recipe ->
+                _state.value = _state.value.copy(
+                    recipeswithKey = recipe
                 )
             }
             .launchIn(viewModelScope)
