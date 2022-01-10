@@ -31,6 +31,6 @@ interface RecipeRepository {
 
     suspend fun insertRecipeKeyIngredientCrossRef(recipeKeyIngredientCrossRef: RecipeKeyIngredientCrossRef)
 
-    suspend fun insertSteps(steps: Stepss)
+    suspend fun insertSteps(steps: Steps)
 
 }

@@ -35,7 +35,7 @@ interface RecipeDao {
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertSteps(steps: Stepss)
+    suspend fun insertSteps(steps: Steps)
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.IGNORE)

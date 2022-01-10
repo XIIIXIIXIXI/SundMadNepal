@@ -24,8 +24,8 @@ class RecipesViewModel @Inject constructor(
 
 
     init {
-        addRecipe()
-        //getRecipeWithkeyIngredientsAndSteps()
+        //addRecipe()
+        getRecipeWithkeyIngredientsAndSteps()
     }
 
 
@@ -104,7 +104,7 @@ class RecipesViewModel @Inject constructor(
 
 
      fun ServingsMultiplier(increment: Int){
-         viewModelScope.launch {
+         /*viewModelScope.launch {
              val steps = listOf(
                  Stepss(
                      0,
@@ -128,7 +128,7 @@ class RecipesViewModel @Inject constructor(
                  Stepss(0, "Serve with lots of ice", "carrot", "Cake")
              )
              steps.forEach { repository.insertSteps(it) }
-         }
+         }*/
          val multiplier = _state.value.multiplier + increment
 
          if (multiplier == 0 && increment < 0){

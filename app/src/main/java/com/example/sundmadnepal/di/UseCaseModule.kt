@@ -25,7 +25,7 @@ object AppModule {
             app,
             RecipeDatabase::class.java,
             "recipe_db"
-        ).build()
+        ).createFromAsset("database/recipe_db.db").build()
     }
 //.createFromAsset("database/recipe_db.db").
 

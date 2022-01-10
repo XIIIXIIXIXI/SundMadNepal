@@ -47,7 +47,7 @@ class RecipeRepositoryImpl(
         dao.insertRecipeKeyIngredientCrossRef(recipeKeyIngredientCrossRef)
     }
 
-    override suspend fun insertSteps(steps: Stepss) {
+    override suspend fun insertSteps(steps: Steps) {
         dao.insertSteps(steps)
     }
 

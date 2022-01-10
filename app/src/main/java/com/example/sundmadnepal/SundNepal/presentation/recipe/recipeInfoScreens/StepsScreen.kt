@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.sundmadnepal.SundNepal.data.Cake
-import com.example.sundmadnepal.SundNepal.data.steps
 import com.example.sundmadnepal.ui.theme.LightGray
 import com.example.sundmadnepal.ui.theme.Shapes
 import com.example.sundmadnepal.ui.theme.SlightlyLessLightGray
@@ -40,12 +39,12 @@ fun SMainFragment(viewModel: RecipesViewModel) {
 fun SContent(viewModel: RecipesViewModel) {
     val completedStep by remember { mutableStateOf(mutableListOf(false, false))}
     LazyColumn() {
-        items(Cake.steps.size) { counter ->
+        items(Cake.stepss.size) { counter ->
 
             Row(
                 horizontalArrangement = Arrangement.Start,
 
-                modifier = if (counter % 2 == 0 && counter != Cake.steps.size) {
+                modifier = if (counter % 2 == 0 && counter != Cake.stepss.size) {
                     Modifier
                         .fillMaxWidth()
                         .background(SlightlyLessLightGray)
@@ -68,7 +67,7 @@ fun SContent(viewModel: RecipesViewModel) {
             ) {
 
 
-                if (Cake.steps[counter].stepImage == 0) {
+                if (Cake.stepss[counter].stepImage == 0) {
                     Text(
                         text = "${counter}.",
                         fontWeight = FontWeight.ExtraBold,
@@ -76,12 +75,12 @@ fun SContent(viewModel: RecipesViewModel) {
                         modifier = Modifier.padding(horizontal = 15.dp)
                     )
                     Text(
-                        text = Cake.steps[counter].stepText,
+                        text = Cake.stepss[counter].stepText,
                         fontWeight = FontWeight.Medium,
                         fontSize = 20.sp
                     )
                 }
-                if (Cake.steps[counter].stepImage != 0) {
+                if (Cake.stepss[counter].stepImage != 0) {
                     Column(
                         modifier = Modifier
                             .padding(top = 50.dp),
@@ -97,7 +96,7 @@ fun SContent(viewModel: RecipesViewModel) {
                     }
                     Column(Modifier.width(222.dp)) {
                         Text(
-                            text = Cake.steps[counter].stepText,
+                            text = Cake.stepss[counter].stepText,
                             fontWeight = FontWeight.Medium,
                             fontSize = 20.sp
                         )
@@ -119,7 +118,7 @@ fun SContent(viewModel: RecipesViewModel) {
                             elevation = 0.dp
                         ) {
                             Image(
-                                painter = painterResource(id = Cake.steps[counter].stepImage),
+                                painter = painterResource(id = Cake.stepss[counter].stepImage),
                                 contentDescription = null,
                                 modifier = Modifier.padding(15.dp)
                             )
