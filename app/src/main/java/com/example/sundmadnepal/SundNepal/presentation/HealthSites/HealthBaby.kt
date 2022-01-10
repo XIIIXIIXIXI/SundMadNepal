@@ -1,6 +1,8 @@
 package com.example.sundmadnepal
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
@@ -13,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -22,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
+import org.intellij.lang.annotations.JdkConstants
 
 @Preview
 @Composable
@@ -31,16 +35,19 @@ fun HealthBaby(/*navController: NavController*/) {
             fontSize = 30.sp)
         LazyColumn {
             item {
-                //GeneralInfo()
+                GeneralInfo()
             }
             item {
-                //FirstPeriod()
+                NationalImmunization()
             }
             item {
-                //SecondPeriod()
+                FirstPeriod()
             }
             item {
-                //ThirdPeriod()
+                SecondPeriod()
+            }
+            item {
+                ThirdPeriod()
             }
             item {
                 FourthPeriod()
@@ -49,6 +56,39 @@ fun HealthBaby(/*navController: NavController*/) {
         //BottomNavigationBarHome(navController = navController)
     }
 }
+@Composable
+private fun NationalImmunization() {
+    Text(text = "National immunization schedule", fontSize = 25.sp)
+    Row(verticalAlignment = Alignment.CenterVertically, /*modifier = Modifier.size(400.dp,200.dp)*/) {
+        Column(Modifier
+            .padding(10.dp, 0.dp, 0.dp, 0.dp)
+        ) {
+            Text(text = "Vaccine")
+            Text(text = "1. BCG")
+            Text(text = "2. DPT Hepatitis B HemoPhilos")
+            Text(text = "3. OPV (Oral polio Vaccine)")
+            Text(text = "4. PCV\n")
+            Text(text = "5. Rota Virus")
+            Text(text = "6. FIPV\n (Fractional " +
+                    "Injectable Polio vaccine)")
+            Text(text = "7. MR (Measles Rebula)\n")
+            Text(text = "8. JE (Japanese Encephditis)")
+
+        }
+        Column(Modifier.padding(0.dp, 0.dp, 0.dp, 0.dp)) {
+            Text(text = "Age")
+            Text(text = "At birth")
+            Text(text = "At weeks: 6,10,14")
+            Text(text = "At weeks: 6,10,14")
+            Text(text = "At weeks: 6,10 And Month: 9.")
+            Text(text = "At weeks: 6,10")
+            Text(text = "At weeks: 6,14\n")
+            Text(text = "At Months: 9 and 15\n")
+            Text(text = "At Month: 12")
+        }
+    }
+}
+
 @Composable
 private fun FirstPeriod() {
     Text(text = "0-6 months", fontSize = 25.sp)
@@ -136,7 +176,6 @@ private fun SecondPeriod() {
             contentDescription = "Salt logo",
             Modifier
                 .size(100.dp, 100.dp)
-                //.scale(1.6f, 1.7f)
         )
     }
     Text(text = "Baby food should be soft and fluffy.")
@@ -147,7 +186,7 @@ private fun SecondPeriod() {
             contentDescription = "Boiled water",
             Modifier
                 .size(200.dp, 200.dp)
-                //.scale(1.6f, 1.7f)
+
         )
     }
     Text(text = "Wash hands thoroughly with soap and water before cooking and after feeding.")
@@ -181,5 +220,7 @@ private fun ThirdPeriod() {
 private fun FourthPeriod() {
     Text(text = "12-24 months", fontSize = 25.sp)
     Text(text = "In addition to breastfeeding, 3 times a day (3 meals only), two teaspoons of glass (250 ml) of supplementary food and 2 meals should be fed.")
-    Text(text = )
+    Text(text = " Each meal should include the three food groups.\n" +
+            "Snacks should include seasonal fruits and eggs if possible. Beans are also good for snack.\n" +
+            "Eating fresh home-cooked food (meat, eggs and fish) should be encouraged.\n")
 }
