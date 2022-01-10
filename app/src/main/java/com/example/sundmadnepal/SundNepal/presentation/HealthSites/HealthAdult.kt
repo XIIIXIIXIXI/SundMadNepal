@@ -72,7 +72,8 @@ private fun FemaleInfo(){
     Text(text = "Furthermore females should keep prioritize foods which contain Vitamin A and Iron")
     Image(painter = painterResource(id = R.drawable.vitamina),
         contentDescription = "vitaminA",
-        Modifier.width(500.dp)
+        Modifier
+            .width(500.dp)
             .height(200.dp)
 
     )
@@ -82,9 +83,10 @@ private fun FemaleInfo(){
             "Animal food: liver, eggs, small fish, milk etc.\n")
     Image(painter = painterResource(id = R.drawable.iron),
         contentDescription = "iron",
-        Modifier.width(500.dp)
+        Modifier
+            .width(500.dp)
             .height(200.dp)
-            .scale(1.4f,1f)
+            .scale(1.4f, 1f)
     )
     // https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.yummytoddlerfood.com%2Firon-rich-foods-for-kids%2F&psig=AOvVaw2GOByfgq1wFEqewaBniNY8&ust=1641550741008000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKDi7pjznPUCFQAAAAAdAAAAABAD
     Text(text = "Iron dense foods include:\n" +
@@ -109,7 +111,12 @@ private fun MaleInfo(){
     Text(text = "Males:",fontSize = 20.sp)
     Text(text = "19–30 years ~ 2,400–3,000 calories")
     Text(text = "31–59 years ~ 2,200–3,000 calories")
-    Text(text = "60+ years ~ 2,000–2,600 calories")
+    Text(text = "60+ years ~ 2,000–2,600 calories\n")
 
-
+    Text(text = "Furthermore it's common for the average male to be these essential elements:")
+    Text("Vitamin D, Magnesium, Vitamin B12 and Potassium\n")
+    Text("Vitamin D reduces inflammation and strengthens the skeleton, the vitamin is produced when spending time in the sun but can be supplemented by adding oily fish, meats, eggs and dairy to your diet.\n")
+    Text(text = "Magnesium is another common element is which many males are lacking. Low levels of magnesium may increase your risk of heart disease, magnesium dense foods include: spinach, nuts, seeds and whole grains\n")
+    Text(text = "Vitamin B12 is used for DNA synthesis, energy production, and nerve function. Food sources dense in B12 include: Meats, Fish and dairy products\n")
+    Text(text = "Potassium benefits nerve function and muscle contraction, Potassium rich foods include: Vegetables, milk, yogurt, beans, nuts and fish such as: Tuna, Halibut, Cod and Trout")
 }
