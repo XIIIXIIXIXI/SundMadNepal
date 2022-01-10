@@ -37,14 +37,14 @@ fun RecipeMenu(navController: NavController){
             text = "My Recipes",
             icon = Icons.Default.Book
         ){
-            navController.navigate(Screen.RecipeScreen.route)
+
         }
         Spacer(modifier = Modifier.height(20.dp))
         DefaultButton(
             text = "See Recipes",
             icon = Icons.Default.WheelchairPickup
         ){
-            //AddRecipeScreen
+            navController.navigate(Screen.RecipeScreen.route)
         }
     }
 }

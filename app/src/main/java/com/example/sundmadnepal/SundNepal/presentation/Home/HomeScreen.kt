@@ -36,7 +36,7 @@ import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
 import com.google.common.reflect.Reflection.getPackageName
 
 @Composable
-fun HomeScreen(navController: NavController, viewModel: RecipesViewModel = hiltViewModel()){
+fun HomeScreen(navController: NavController, viewModel: RecipesViewModel){
     //BottomNavigationBarHome(navController = navController)
     //HomeScreenContent(navController)
 

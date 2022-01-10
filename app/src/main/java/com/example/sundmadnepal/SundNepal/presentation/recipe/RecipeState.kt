@@ -13,8 +13,14 @@ data class RecipeState(
     val recipeswithKey: List<RecipeWithKeyIngredientsAndSteps> = emptyList(),
     val multiplier: Int = 1,
 
+    val fillerRecipe: Recipe = Recipe("","","","","",""),
+    val fillerKeyIngredients: List<KeyIngredient> = emptyList(),
+    val fillerSteps: List<Steps> = emptyList(),
+    val recipe: RecipeWithKeyIngredients = RecipeWithKeyIngredients(fillerRecipe, fillerKeyIngredients),
+    val keyIngredientsWithImage: MutableList<KeyIngredient> = mutableListOf(),
+
     val completedStep: List<Boolean> = emptyList(),
 
 
 
-)
+    )

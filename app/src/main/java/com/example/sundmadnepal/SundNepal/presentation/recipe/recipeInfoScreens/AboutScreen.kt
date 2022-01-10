@@ -10,7 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -36,10 +36,7 @@ import androidx.navigation.compose.rememberNavController
 
 import com.example.sundmadnepal.HomeScreen
 import com.example.sundmadnepal.R
-import com.example.sundmadnepal.SundNepal.data.Cake
-import com.example.sundmadnepal.SundNepal.data.Recipe
-import com.example.sundmadnepal.SundNepal.data.Recipe2
-import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredientsAndSteps
+import com.example.sundmadnepal.SundNepal.data.*
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarRecipe
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.CollapsedHeight
@@ -48,26 +45,24 @@ import com.example.sundmadnepal.ui.theme.Shapes
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
 
 @Composable
-fun AboutScreen( navController: NavController, recipe: RecipeWithKeyIngredientsAndSteps){
-
-
-
-        MainFragment(recipe = recipe, navController = navController)
+fun AboutScreen( navController: NavController, viewModel: RecipesViewModel){
+        val recipe = viewModel.state.value.recipe
+        MainFragment(recipe = recipe, navController = navController, viewModel)
 
 }
 
 @Composable
-fun MainFragment(recipe: RecipeWithKeyIngredientsAndSteps, navController: NavController) {
+fun MainFragment(recipe: RecipeWithKeyIngredients, navController: NavController, viewModel: RecipesViewModel) {
     BottomNavigationBarRecipe(navController = navController)
     Box(modifier = Modifier.padding(PaddingValues(0.dp, 0.dp, 0.dp, 56.dp))) {
-        Content(recipe)
-        MainPicture()
+        Content(recipe, viewModel)
+        MainPicture(recipe)
 
     }
 }
 
 @Composable
-fun MainPicture() {
+fun MainPicture(recipe: RecipeWithKeyIngredients) {
     val pictureheight = ExpendedHeight - CollapsedHeight
     TopAppBar(
         contentPadding = PaddingValues(),
@@ -79,13 +74,7 @@ fun MainPicture() {
         Column() {
             Box(Modifier.height(pictureheight)) {
                 Image(
-                    painter = painterResource(
-                        id = LocalContext.current.resources.getIdentifier(
-                            Cake.image,
-                            "drawable",
-                            LocalContext.current.packageName
-                        )
-                    ),
+                    painterResource(id = LocalContext.current.resources.getIdentifier(recipe.recipe.image, "drawable", LocalContext.current.packageName)),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
@@ -113,7 +102,7 @@ fun MainPicture() {
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    Cake.name,
+                    recipe.recipe.recipeName,
                     fontSize = 27.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(horizontal = 17.dp)
@@ -136,22 +125,27 @@ fun MainPicture() {
 }
 
 @Composable
-fun Content(recipe: RecipeWithKeyIngredientsAndSteps) {
+fun Content(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
     LazyColumn(contentPadding = PaddingValues(top = ExpendedHeight)) {
         item {
             KeyInfo(recipe)
             Information(recipe)
 
-            KeyIngredients(recipe)
+            KeyIngredients(recipe, viewModel)
             //
         }
     }
 }
 
 @Composable
-fun KeyIngredients(recipe: RecipeWithKeyIngredientsAndSteps) {
-    Grid(items =recipe.recipe.keyIngrediens , nColoumn = 3){
-        KeyIngredientCard(ikon = it.image, undertitle = it.amount.toString(), title = it.title, modifier = Modifier)
+fun KeyIngredients(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
+    Grid(items =viewModel.state.value.keyIngredientsWithImage  , nColoumn = 3){
+            KeyIngredientCard(
+                ikon = it.image,
+                undertitle = it.amount.toString(),
+                title = it.title,
+                modifier = Modifier
+            )
     }
 }
 
@@ -209,23 +203,23 @@ fun <T> Grid(items: List<T>, nColoumn: Int, content: @Composable (T) -> Unit) {
 }
 
 @Composable
-fun Information(recipe: RecipeWithKeyIngredientsAndSteps) {
-    Text(recipe.recipe.recipe.information,
+fun Information(recipe: RecipeWithKeyIngredients) {
+    Text(recipe.recipe.information,
         modifier = Modifier.padding(horizontal = 17.dp, vertical = 17.dp),
         fontWeight = Medium)
 }
 
 @Composable
-fun KeyInfo(recipe: RecipeWithKeyIngredientsAndSteps) {
+fun KeyInfo(recipe: RecipeWithKeyIngredients) {
     Row(
         modifier = Modifier
             .padding(top = 17.dp)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-        IconColoumn(Icons.Default.Schedule, recipe.recipe.recipe.prepTime)
-        IconColoumn(Icons.Default.Bolt, recipe.recipe.recipe.energy)
-        IconColoumn(ikon = Icons.Default.FavoriteBorder, text = recipe.recipe.recipe.healthy)
+        IconColoumn(Icons.Default.Schedule, recipe.recipe.prepTime)
+        IconColoumn(Icons.Default.Bolt, recipe.recipe.energy)
+        IconColoumn(ikon = Icons.Default.FavoriteBorder, text = recipe.recipe.healthy)
     }
 }
 

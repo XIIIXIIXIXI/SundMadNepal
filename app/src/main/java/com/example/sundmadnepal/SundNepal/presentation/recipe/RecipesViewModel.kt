@@ -4,7 +4,6 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.data.*
 
 import com.example.sundmadnepal.SundNepal.domain.repository.RecipeRepository
@@ -160,6 +159,26 @@ class RecipesViewModel @Inject constructor(
             }
             .launchIn(viewModelScope)
     }
+
+    fun getSpecificRecipe(number: Int){
+        _state.value = _state.value.copy(
+            recipe = _state.value.recipeswithKey[number].recipe
+        )
+        val keyWithImage: MutableList<KeyIngredient> = mutableListOf()
+            _state.value.recipe.keyIngrediens.forEach { keyIngredient ->
+            if (keyIngredient.image != "0"){
+               keyWithImage.add(keyIngredient)
+
+            }
+
+        }
+        _state.value = _state.value.copy(
+            keyIngredientsWithImage = keyWithImage
+        )
+        val hi = number
+    }
+
+
 /*
     private fun getRecipeWithKeyIngredientsAndStepsByName(name: String) {
       val recipe =  repository.getRecipeWithKeyIngredientsAndStepsByName(name)

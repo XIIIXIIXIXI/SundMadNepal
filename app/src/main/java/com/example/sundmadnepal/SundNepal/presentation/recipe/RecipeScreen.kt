@@ -38,15 +38,15 @@ import com.example.sundmadnepal.ui.theme.SlightlyLessLightGray
 @Composable
 fun RecipeScreen(
     navController: NavController,
-    viewModel: RecipesViewModel = hiltViewModel()
+    viewModel: RecipesViewModel
 ) {
     val viewmodel = viewModel.state.value
-    RecipeScreenContent(viewmodel, navController)
+    RecipeScreenContent(viewmodel, navController, viewModel)
 
 }
 
 @Composable
-private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavController) {
+private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavController, viewModel: RecipesViewModel) {
     LazyColumn() {
         items(viewmodel.recipeswithKey.size) { recipe ->
             Row(
@@ -60,7 +60,8 @@ private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavContro
                         .padding(vertical = 10.dp)
                         .pointerInput(Unit) {
                             detectTapGestures(
-                                onTap = { }
+                                onTap = {viewModel.getSpecificRecipe(recipe)
+                                    navController.navigate(Screen.AboutScreen.route) }
                             )
                         }
                 } else {
@@ -69,7 +70,8 @@ private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavContro
                         .padding(vertical = 10.dp)
                         .pointerInput(Unit) {
                             detectTapGestures(
-                                onTap = { }
+                                onTap = {viewModel.getSpecificRecipe(recipe)
+                                    navController.navigate(Screen.AboutScreen.route) }
                             )
                         }
                 }
