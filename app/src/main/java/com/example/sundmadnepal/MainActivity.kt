@@ -54,6 +54,9 @@ class MainActivity : ComponentActivity() {
                                 composable(route = Screen.IngredientScreen.route){
                                     IngredientScreen(viewModel, navController)
                                 }
+                                composable(route = Screen.StepsScreen.route){
+                                    StepsScreen(viewModel, navController)
+                                }
 
                             composable(route = Screen.ProfileScreen.route) {
                                 ProfileScreen(navController = navController)

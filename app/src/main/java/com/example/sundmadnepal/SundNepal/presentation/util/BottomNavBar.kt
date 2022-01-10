@@ -79,7 +79,7 @@ fun BottomNavigationBarRecipe(navController: NavController) {
                     ),
                     BottomNavItem(
                         name = "Steps",
-                        route = "step_screen",
+                        route = "steps_screen",
                         icon = Icons.Default.Menu
                     )
                 ), navController,

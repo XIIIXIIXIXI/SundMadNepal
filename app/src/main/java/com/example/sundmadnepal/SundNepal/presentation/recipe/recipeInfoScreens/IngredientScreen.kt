@@ -32,7 +32,7 @@ fun IngredientScreen(viewModel: RecipesViewModel, navController: NavController){
 @Composable
 fun IMainFragment(viewmodel: RecipeWithKeyIngredients, viewModel: RecipesViewModel, navController: NavController){
     BottomNavigationBarRecipe(navController = navController)
-    Box(){
+    Box(modifier = Modifier.padding(PaddingValues(0.dp, 0.dp, 0.dp, 38.dp))){
         IContent(viewmodel, viewModel)
         ScaleBar(viewModel, viewModel)
     }

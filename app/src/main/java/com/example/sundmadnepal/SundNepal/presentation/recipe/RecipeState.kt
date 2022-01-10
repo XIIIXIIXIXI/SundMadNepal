@@ -18,6 +18,7 @@ data class RecipeState(
     val fillerSteps: List<Steps> = emptyList(),
     val recipe: RecipeWithKeyIngredients = RecipeWithKeyIngredients(fillerRecipe, fillerKeyIngredients),
     val keyIngredientsWithImage: MutableList<KeyIngredient> = mutableListOf(),
+    val recipeWithSteps: RecipeWithKeyIngredientsAndSteps = RecipeWithKeyIngredientsAndSteps(recipe,fillerSteps),
 
     val completedStep: List<Boolean> = emptyList(),
 

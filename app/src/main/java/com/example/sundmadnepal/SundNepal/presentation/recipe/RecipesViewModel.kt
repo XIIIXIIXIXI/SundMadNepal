@@ -168,12 +168,13 @@ class RecipesViewModel @Inject constructor(
             _state.value.recipe.keyIngrediens.forEach { keyIngredient ->
             if (keyIngredient.image != "0"){
                keyWithImage.add(keyIngredient)
-
             }
-
         }
         _state.value = _state.value.copy(
             keyIngredientsWithImage = keyWithImage
+        )
+        _state.value = _state.value.copy(
+            recipeWithSteps = _state.value.recipeswithKey[number]
         )
         val hi = number
     }
