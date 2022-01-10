@@ -51,6 +51,9 @@ class MainActivity : ComponentActivity() {
                             composable(route = Screen.AboutScreen.route){
                                 AboutScreen(navController = navController, viewModel)
                             }
+                                composable(route = Screen.IngredientScreen.route){
+                                    IngredientScreen(viewModel, navController)
+                                }
 
                             composable(route = Screen.ProfileScreen.route) {
                                 ProfileScreen(navController = navController)

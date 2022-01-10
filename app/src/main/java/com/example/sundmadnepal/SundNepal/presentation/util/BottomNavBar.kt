@@ -69,17 +69,17 @@ fun BottomNavigationBarRecipe(navController: NavController) {
                 items = listOf(
                     BottomNavItem(
                         name = "About",
-                        route = "AboutScreen",
+                        route = "about_screen",
                         icon = Icons.Default.Info
                     ),
                     BottomNavItem(
                         name = "Ingredients",
-                        route = "IngrediensScreen",
+                        route = "ingredient_screen",
                         icon = Icons.Default.ShoppingCart
                     ),
                     BottomNavItem(
                         name = "Steps",
-                        route = "StepsScreen",
+                        route = "step_screen",
                         icon = Icons.Default.Menu
                     )
                 ), navController,

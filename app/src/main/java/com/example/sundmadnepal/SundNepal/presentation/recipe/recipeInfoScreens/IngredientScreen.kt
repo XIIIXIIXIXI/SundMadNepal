@@ -16,29 +16,34 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.data.Cake
+import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredients
+import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarRecipe
 import com.example.sundmadnepal.ui.theme.SlightlyLessLightGray
 
 
 @Composable
-fun IngredientScreen(viewModel: RecipesViewModel = hiltViewModel()){
-    IMainFragment(viewModel)
+fun IngredientScreen(viewModel: RecipesViewModel, navController: NavController){
+    val recipe = viewModel.state.value.recipe
+    IMainFragment(recipe, viewModel, navController)
 }
 
 @Composable
-fun IMainFragment(viewModel: RecipesViewModel){
+fun IMainFragment(viewmodel: RecipeWithKeyIngredients, viewModel: RecipesViewModel, navController: NavController){
+    BottomNavigationBarRecipe(navController = navController)
     Box(){
-        IContent(viewModel)
-        ScaleBar(viewModel)
+        IContent(viewmodel, viewModel)
+        ScaleBar(viewModel, viewModel)
     }
 }
 @Composable
-fun IContent(viewModel: RecipesViewModel) {
+fun IContent(viewmodel: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
     LazyColumn(contentPadding = PaddingValues(top = 100.dp)){
-        items(Cake.keyIngrediens.size){
-            val undertitle = Cake.keyIngrediens[it].undertitle * viewModel.state.value.multiplier
+        items(viewmodel.keyIngrediens.size){
+            val undertitle = viewmodel.keyIngrediens[it].amount * viewModel.state.value.multiplier
             Row(horizontalArrangement = Arrangement.Start,
-                modifier = if (it % 2 == 0 && it != Cake.keyIngrediens.size){
+                modifier = if (it % 2 == 0 && it != viewmodel.keyIngrediens.size){
                     Modifier
                         .fillMaxWidth()
                         .background(SlightlyLessLightGray)
@@ -55,7 +60,7 @@ fun IContent(viewModel: RecipesViewModel) {
                     modifier = Modifier.padding(horizontal = 15.dp)
                 )
                 Text(
-                    Cake.keyIngrediens[it].title,
+                    viewmodel.keyIngrediens[it].unit,
                     fontSize = 19.sp,
                     fontWeight = FontWeight.Normal,
                     modifier = Modifier.padding(top = 2.dp)
@@ -66,14 +71,14 @@ fun IContent(viewModel: RecipesViewModel) {
 }
 
 @Composable
-fun ScaleBar(viewmodel: RecipesViewModel) {
+fun ScaleBar(viewmodel: RecipesViewModel, viewModel: RecipesViewModel) {
     Row(
         modifier = Modifier
             .padding(top = 17.dp)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly
     ){
-        IconButton(onClick = { viewmodel.ServingsMultiplier(-1) },
+        IconButton(onClick = { viewModel.ServingsMultiplier(-1) },
         ) {
             Icon(
                 imageVector = Icons.Default.RemoveCircle, contentDescription = null,
@@ -81,13 +86,13 @@ fun ScaleBar(viewmodel: RecipesViewModel) {
                 tint = Color.Black
             )
         }
-        Text(text = "Servings: ${viewmodel.state.value.multiplier}",
+        Text(text = "Servings: ${viewModel.state.value.multiplier}",
             fontSize = 24.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(top = 5.dp)
         )
 
-        IconButton(onClick = { viewmodel.ServingsMultiplier(1) }) {
+        IconButton(onClick = { viewModel.ServingsMultiplier(1) }) {
             Icon(
                 imageVector = Icons.Default.AddCircle, contentDescription = null,
                 modifier = Modifier.height(25.dp),
