@@ -1,9 +1,6 @@
 package com.example.sundmadnepal.SundNepal.presentation.recipe
 
-import com.example.sundmadnepal.SundNepal.data.Recipe
-import com.example.sundmadnepal.SundNepal.data.RecipeLocal
-import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredients
-import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredientsAndSteps
+import com.example.sundmadnepal.SundNepal.data.*
 
 
 /**
@@ -15,5 +12,9 @@ data class RecipeState(
     val recipes: List<Recipe> = emptyList(),
     val recipeswithKey: List<RecipeWithKeyIngredientsAndSteps> = emptyList(),
     val multiplier: Int = 1,
-    val completedStep: List<Boolean> = emptyList()
+
+    val completedStep: List<Boolean> = emptyList(),
+
+
+
 )

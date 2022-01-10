@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 
+/*
 @Composable
 fun IngrediensScreen(navController: NavController) {
     Box(
@@ -17,4 +18,4 @@ fun IngrediensScreen(navController: NavController) {
         BottomNavigationBar(navController = navController)
         Text(text = "Ingrediens")
     }
-}
+}*/

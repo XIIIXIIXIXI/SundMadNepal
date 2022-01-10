@@ -23,7 +23,7 @@ import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavItem
 fun FoodScreen(navController: NavController) {
     AboutScreen(navController)
 }*/
-
+/*
 @Composable
 fun AboutScreen(navController: NavController) {
     Box (
@@ -116,4 +116,4 @@ fun BottomNavigationBar(navController: NavController) {
         }
     ) {
     }
-}
+}*/

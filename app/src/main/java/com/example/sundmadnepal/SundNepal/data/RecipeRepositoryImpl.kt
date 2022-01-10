@@ -51,4 +51,8 @@ class RecipeRepositoryImpl(
         dao.insertSteps(steps)
     }
 
+    override fun getRecipeWithKeyIngredientsAndStepsByName(recipeName: String) :RecipeWithKeyIngredientsAndSteps{
+       return dao.getRecipeWithKeyIngredientsAndStepsByName(recipeName)
+    }
+
 }

@@ -26,6 +26,7 @@ class RecipesViewModel @Inject constructor(
     init {
         //addRecipe()
         getRecipeWithkeyIngredientsAndSteps()
+        //getRecipeWithKeyIngredientsAndStepsByName("Vegetable Lasagna")
     }
 
 
@@ -159,4 +160,11 @@ class RecipesViewModel @Inject constructor(
             }
             .launchIn(viewModelScope)
     }
+/*
+    private fun getRecipeWithKeyIngredientsAndStepsByName(name: String) {
+      val recipe =  repository.getRecipeWithKeyIngredientsAndStepsByName(name)
+        _state.value = _state.value.copy(
+            recipe = recipe
+        )
+    }*/
 }

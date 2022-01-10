@@ -32,6 +32,9 @@ interface RecipeDao {
     @Query("SELECT * FROM recipe")
     fun getRecipeWithKeyIngredientsAndSteps(): Flow<List<RecipeWithKeyIngredientsAndSteps>>
 
+    @Query("SELECT * FROM recipe WHERE recipeName = :recipeName")
+    fun getRecipeWithKeyIngredientsAndStepsByName(recipeName: String) :RecipeWithKeyIngredientsAndSteps
+
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.IGNORE)

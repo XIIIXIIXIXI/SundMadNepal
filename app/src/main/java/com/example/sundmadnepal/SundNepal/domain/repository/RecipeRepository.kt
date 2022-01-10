@@ -33,4 +33,6 @@ interface RecipeRepository {
 
     suspend fun insertSteps(steps: Steps)
 
+    fun getRecipeWithKeyIngredientsAndStepsByName(recipeName: String) :RecipeWithKeyIngredientsAndSteps
+
 }

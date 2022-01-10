@@ -1,6 +1,7 @@
 package com.example.sundmadnepal.SundNepal.presentation.recipe
 
 
+import android.security.keystore.KeyInfo
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,12 +33,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.sundmadnepal.AboutScreen
+
 import com.example.sundmadnepal.HomeScreen
 import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.data.Cake
 import com.example.sundmadnepal.SundNepal.data.Recipe
 import com.example.sundmadnepal.SundNepal.data.Recipe2
+import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredientsAndSteps
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarRecipe
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.CollapsedHeight
@@ -46,12 +48,16 @@ import com.example.sundmadnepal.ui.theme.Shapes
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
 
 @Composable
-fun AboutScreen(recipe: Recipe2, navController: NavController){
-    MainFragment(recipe = recipe, navController = navController)
+fun AboutScreen( navController: NavController, recipe: RecipeWithKeyIngredientsAndSteps){
+
+
+
+        MainFragment(recipe = recipe, navController = navController)
+
 }
 
 @Composable
-fun MainFragment(recipe: Recipe2, navController: NavController) {
+fun MainFragment(recipe: RecipeWithKeyIngredientsAndSteps, navController: NavController) {
     BottomNavigationBarRecipe(navController = navController)
     Box(modifier = Modifier.padding(PaddingValues(0.dp, 0.dp, 0.dp, 56.dp))) {
         Content(recipe)
@@ -130,7 +136,7 @@ fun MainPicture() {
 }
 
 @Composable
-fun Content(recipe: Recipe2) {
+fun Content(recipe: RecipeWithKeyIngredientsAndSteps) {
     LazyColumn(contentPadding = PaddingValues(top = ExpendedHeight)) {
         item {
             KeyInfo(recipe)
@@ -143,9 +149,9 @@ fun Content(recipe: Recipe2) {
 }
 
 @Composable
-fun KeyIngredients(recipe: Recipe2) {
-    Grid(items =recipe.keyIngrediens , nColoumn = 3){
-        KeyIngredientCard(ikon = it.image, undertitle = it.undertitle.toString(), title = it.title, modifier = Modifier)
+fun KeyIngredients(recipe: RecipeWithKeyIngredientsAndSteps) {
+    Grid(items =recipe.recipe.keyIngrediens , nColoumn = 3){
+        KeyIngredientCard(ikon = it.image, undertitle = it.amount.toString(), title = it.title, modifier = Modifier)
     }
 }
 
@@ -203,23 +209,23 @@ fun <T> Grid(items: List<T>, nColoumn: Int, content: @Composable (T) -> Unit) {
 }
 
 @Composable
-fun Information(recipe: Recipe2) {
-    Text(recipe.information,
+fun Information(recipe: RecipeWithKeyIngredientsAndSteps) {
+    Text(recipe.recipe.recipe.information,
         modifier = Modifier.padding(horizontal = 17.dp, vertical = 17.dp),
         fontWeight = Medium)
 }
 
 @Composable
-fun KeyInfo(recipe: Recipe2) {
+fun KeyInfo(recipe: RecipeWithKeyIngredientsAndSteps) {
     Row(
         modifier = Modifier
             .padding(top = 17.dp)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-        IconColoumn(Icons.Default.Schedule, recipe.prepTime)
-        IconColoumn(Icons.Default.Bolt, recipe.energy)
-        IconColoumn(ikon = Icons.Default.FavoriteBorder, text = recipe.healthy)
+        IconColoumn(Icons.Default.Schedule, recipe.recipe.recipe.prepTime)
+        IconColoumn(Icons.Default.Bolt, recipe.recipe.recipe.energy)
+        IconColoumn(ikon = Icons.Default.FavoriteBorder, text = recipe.recipe.recipe.healthy)
     }
 }
 
@@ -233,7 +239,7 @@ fun IconColoumn(ikon : ImageVector, text: String){
     }
 }
 
-
+/*
 @Preview(showBackground = true, widthDp = 300, heightDp = 1400)
 @Composable
 fun DefaultPreview() {
@@ -249,4 +255,4 @@ fun DefaultPreview() {
             //MainFragment(Cake, navController = )
         }
     }
-}
+}*/
