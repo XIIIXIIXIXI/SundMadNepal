@@ -1,11 +1,7 @@
 package com.example.sundmadnepal.SundNepal.domain.repository
 
 
-import com.example.sundmadnepal.SundNepal.data.KeyIngredient
-
-import com.example.sundmadnepal.SundNepal.data.Recipe
-import com.example.sundmadnepal.SundNepal.data.RecipeKeyIngredientCrossRef
-import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredients
+import com.example.sundmadnepal.SundNepal.data.*
 
 import kotlinx.coroutines.flow.Flow
 
@@ -29,8 +25,12 @@ interface RecipeRepository {
 
     fun getRecipeWithKeyIngredients(): Flow<List<RecipeWithKeyIngredients>>
 
+    fun getRecipeWithKeyIngredientsAndSteps(): Flow<List<RecipeWithKeyIngredientsAndSteps>>
+
     suspend fun insertKeyIngredient(keyIngredient: KeyIngredient)
 
     suspend fun insertRecipeKeyIngredientCrossRef(recipeKeyIngredientCrossRef: RecipeKeyIngredientCrossRef)
+
+    suspend fun insertSteps(steps: Stepss)
 
 }

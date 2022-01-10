@@ -25,7 +25,7 @@ class RecipesViewModel @Inject constructor(
 
     init {
         addRecipe()
-        getRecipeWithkeyIngredients()
+        //getRecipeWithkeyIngredientsAndSteps()
     }
 
 
@@ -77,6 +77,15 @@ class RecipesViewModel @Inject constructor(
 
             )
             recipeKeyIngredientRelations.forEach{repository.insertRecipeKeyIngredientCrossRef(it)}
+/*
+            val steps = listOf(
+                Stepss( 0, "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.", "tomato", "Cake"),
+                Stepss(0,"Strain the juice into a jug to get rid of any bits.", "0", "Cake"),
+                Stepss(0,"Put the lemon pulp back into the food processor. Add the rest of the sugar, ice cubes and water and blitz again.", "0", "Cake"),
+                Stepss(0,"Strain it into the jug with the first lot of juice and discard the pulp.", "0", "Cake"),
+                Stepss(0,"Serve with lots of ice", "carrot", "Cake")
+            )
+            steps.forEach{repository.insertSteps(it)}*/
                 /*steps = listOf(
                     steps(stepText = "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.", R.drawable.tomato),
                     steps(stepText = "Strain the juice into a jug to get rid of any bits.", 0),
@@ -95,6 +104,31 @@ class RecipesViewModel @Inject constructor(
 
 
      fun ServingsMultiplier(increment: Int){
+         viewModelScope.launch {
+             val steps = listOf(
+                 Stepss(
+                     0,
+                     "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.",
+                     "tomato",
+                     "Cake"
+                 ),
+                 Stepss(0, "Strain the juice into a jug to get rid of any bits.", "0", "Cake"),
+                 Stepss(
+                     0,
+                     "Put the lemon pulp back into the food processor. Add the rest of the sugar, ice cubes and water and blitz again.",
+                     "0",
+                     "Cake"
+                 ),
+                 Stepss(
+                     0,
+                     "Strain it into the jug with the first lot of juice and discard the pulp.",
+                     "0",
+                     "Cake"
+                 ),
+                 Stepss(0, "Serve with lots of ice", "carrot", "Cake")
+             )
+             steps.forEach { repository.insertSteps(it) }
+         }
          val multiplier = _state.value.multiplier + increment
 
          if (multiplier == 0 && increment < 0){
@@ -115,8 +149,8 @@ class RecipesViewModel @Inject constructor(
             }
             .launchIn(viewModelScope)
     }
-    private fun getRecipeWithkeyIngredients() {
-        repository.getRecipeWithKeyIngredients()
+    private fun getRecipeWithkeyIngredientsAndSteps() {
+        repository.getRecipeWithKeyIngredientsAndSteps()
 
             .onEach { recipe ->
                 _state.value = _state.value.copy(

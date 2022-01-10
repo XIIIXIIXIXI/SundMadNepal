@@ -29,6 +29,15 @@ interface RecipeDao {
     fun getRecipeWithKeyIngredients(): Flow<List<RecipeWithKeyIngredients>>
 
     @Transaction
+    @Query("SELECT * FROM recipe")
+    fun getRecipeWithKeyIngredientsAndSteps(): Flow<List<RecipeWithKeyIngredientsAndSteps>>
+
+
+    @Transaction
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertSteps(steps: Stepss)
+
+    @Transaction
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addKeyIngredient(keyIngredient: KeyIngredient)
 

@@ -35,6 +35,10 @@ class RecipeRepositoryImpl(
         return dao.getRecipeWithKeyIngredients()
     }
 
+    override fun getRecipeWithKeyIngredientsAndSteps(): Flow<List<RecipeWithKeyIngredientsAndSteps>>{
+        return dao.getRecipeWithKeyIngredientsAndSteps()
+    }
+
     override suspend fun insertKeyIngredient(keyIngredient: KeyIngredient) {
         dao.insertKeyIngredient(keyIngredient)
     }
@@ -43,5 +47,8 @@ class RecipeRepositoryImpl(
         dao.insertRecipeKeyIngredientCrossRef(recipeKeyIngredientCrossRef)
     }
 
+    override suspend fun insertSteps(steps: Stepss) {
+        dao.insertSteps(steps)
+    }
 
 }

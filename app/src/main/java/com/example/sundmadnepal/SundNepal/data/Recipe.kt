@@ -61,13 +61,22 @@ data class RecipeWithKeyIngredients(
 
 @Entity
 data class Stepss(
-    @PrimaryKey(autoGenerate = false)
-    val stepRecipe: String,
+    @PrimaryKey(autoGenerate = true)
+    val stepId: Int,
     val stepText: String,
     val stepImage: String,
     val recipeName: String
     )
 
+data class RecipeWithKeyIngredientsAndSteps(
+    @Embedded val recipe: RecipeWithKeyIngredients,
+    @Relation(
+        entity = Stepss::class,
+        parentColumn = "recipeName",
+        entityColumn = "recipeName"
+    )
+    val steps: List<Stepss>
+)
 
 
 data class Recipe2(
