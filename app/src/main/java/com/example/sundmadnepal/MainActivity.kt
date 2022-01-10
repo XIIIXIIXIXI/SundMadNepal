@@ -56,10 +56,10 @@ class MainActivity : ComponentActivity() {
                             HealthBaby(navController = navController)
                         }
                         composable(route = Screen.HealthChildren.route){
-                            HealthChildren(navController = navController)
+                            HealthChildren(/*navController = navController*/)
                         }
                         composable(route = Screen.HealthPregnant.route){
-                            HealthPregnant(navController = navController)
+                            HealthPregnant(/*navController = navController*/)
                         }
 
                     }

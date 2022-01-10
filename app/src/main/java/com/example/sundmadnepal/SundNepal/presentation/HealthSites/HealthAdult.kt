@@ -3,6 +3,7 @@ package com.example.sundmadnepal
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -12,6 +13,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
@@ -42,7 +44,7 @@ fun HealthAdult(/*navController: NavController*/) {
     }
 }
 @Composable
-private fun GeneralInfo(){
+fun GeneralInfo(){
     Row() {
         Image(painter = painterResource(id = R.drawable.unbalanceddiet),
             contentDescription = "unbalanced diet",
@@ -55,6 +57,30 @@ private fun GeneralInfo(){
     }
     Text(text = "To ensure a healthy and nutritional diet, Your meals throughout the day should resemble the picture with the checkmark above.\n " +
             "Eat at least four types of food every day (including grains and legumes, nuts, vegetables and livestock sources (milk, eggs, fish, meat).")
+
+    Row(
+        modifier = Modifier.padding(75.dp,0.dp,0.dp,0.dp)
+    ) {
+        /*Image(
+            painter = painterResource(id = R.drawable.handwashing),
+            contentDescription = "Handwashing",
+            Modifier
+                .size(110.dp, 150.dp)
+                .padding(10.dp)
+        )*/
+        Image(
+            painter = painterResource(id = R.drawable.whentowashhands),
+            contentDescription = "Handwashing",
+            Modifier
+                .size(250.dp, 200.dp)
+                .scale(1.4f)
+                .padding(10.dp)
+        )
+    }
+    Text(text = "Care should be taken to clean hands, nails and body. " +
+                "\nWash hands thoroughly with soap and water after using the toilet and before eating.")
+
+
 }
 
 @Composable
