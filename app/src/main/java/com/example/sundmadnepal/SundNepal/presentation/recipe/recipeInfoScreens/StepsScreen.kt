@@ -50,6 +50,7 @@ fun SContent(viewmodel: RecipeWithKeyIngredientsAndSteps) {
 
             Row(
                 horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically,
 
                 modifier = if (counter % 2 == 0 && counter != viewmodel.steps.size) {
                     Modifier
@@ -88,7 +89,7 @@ fun SContent(viewmodel: RecipeWithKeyIngredientsAndSteps) {
                 if (viewmodel.steps[counter].stepImage != "0") {
                     Column(
                         modifier = Modifier
-                            .padding(top = 50.dp),
+                            .padding(top = 0.dp),
                         horizontalAlignment = Alignment.End,
                         verticalArrangement = Arrangement.Center
                     ) {
