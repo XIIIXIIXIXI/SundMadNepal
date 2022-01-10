@@ -26,22 +26,22 @@ import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 @Composable
 fun HealthChildren(/*navController: NavController*/) {
     Column() {
-        Text(text = "Health information for adults",textAlign = TextAlign.Center,
+        Text(text = "Health information for Children",textAlign = TextAlign.Center,
             fontSize = 30.sp)
         LazyColumn {
             item {
                 GeneralInfo()
             }
             item {
-                PregnancyInfo()
+                ChildrenInfo()
             }
         }
         //BottomNavigationBarHome(navController = navController)
     }
 }
-
-
-
-private fun PregnancyInfo() {
+@Composable
+private fun ChildrenInfo() {
     TODO("Not yet implemented")
 }
+
+

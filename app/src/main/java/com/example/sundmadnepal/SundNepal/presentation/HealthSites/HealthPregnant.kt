@@ -26,7 +26,7 @@ import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 @Composable
 fun HealthPregnant(/*navController: NavController*/) {
     Column() {
-        Text(text = "Health information for adults",textAlign = TextAlign.Center,
+        Text(text = "Health information for Pregnant Women",textAlign = TextAlign.Center,
             fontSize = 30.sp)
         LazyColumn {
             item {
@@ -43,7 +43,7 @@ fun HealthPregnant(/*navController: NavController*/) {
 @Composable
 private fun PregnancyInfo() {
     Text(text = "Pregnancy",fontSize = 25.sp)
-    Text(text = "Pregnant women should eat one more balanced meal than usual (include all three food groups). ")
+    Text(text = "Pregnant women should eat one more balanced meal than usual. ")
 
     Image(painter = painterResource(id = R.drawable.gravidlyttermave),
         contentDescription = "Check-up",
