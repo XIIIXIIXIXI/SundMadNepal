@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.data.Cake
 import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredients
 import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredientsAndSteps
+import com.example.sundmadnepal.SundNepal.data.Steps
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarRecipe
 import com.example.sundmadnepal.ui.theme.LightGray
 import com.example.sundmadnepal.ui.theme.Shapes
@@ -31,23 +32,22 @@ import com.example.sundmadnepal.ui.theme.SlightlyLessLightGray
 @Composable
 fun StepsScreen(viewModel: RecipesViewModel, navController: NavController) {
     val viewmodel = viewModel.state.value.recipeWithSteps
-    SMainFragment(viewmodel, navController)
+    SMainFragment(viewmodel, navController, viewModel)
 }
 
 @Composable
-fun SMainFragment(viewmodel: RecipeWithKeyIngredientsAndSteps, navController: NavController) {
+fun SMainFragment(viewmodel: RecipeWithKeyIngredientsAndSteps, navController: NavController, viewModel: RecipesViewModel) {
     BottomNavigationBarRecipe(navController = navController)
     Box(modifier = Modifier.padding(PaddingValues(0.dp, 0.dp, 0.dp, 38.dp))) {
-        SContent(viewmodel)
+        SContent(viewmodel, viewModel)
     }
 }
 
 @Composable
-fun SContent(viewmodel: RecipeWithKeyIngredientsAndSteps) {
-    val completedStep by remember { mutableStateOf(mutableListOf(false, false))}
-    LazyColumn(modifier = Modifier.padding(bottom = 17.dp)) {
+fun SContent(viewmodel: RecipeWithKeyIngredientsAndSteps, viewModel: RecipesViewModel) {
+    LazyColumn(modifier = Modifier.padding(bottom = viewModel.state.value.recompose.dp)) {
         items(viewmodel.steps.size) { counter ->
-
+        if (viewModel.state.value.completedStep[counter] == false) {
             Row(
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically,
@@ -58,85 +58,109 @@ fun SContent(viewmodel: RecipeWithKeyIngredientsAndSteps) {
                         .background(SlightlyLessLightGray)
                         .padding(vertical = 10.dp)
                         .pointerInput(Unit) {
-                        detectTapGestures(
-                            onTap = {completedStep[counter] = !completedStep[counter]}
-                        )
-                    }
+                            detectTapGestures(
+                                onTap = { viewModel.CompletedStep(counter)
+                                viewModel.Recompose()}
+                            )
+                        }
                 } else {
                     Modifier
                         .fillMaxWidth()
                         .padding(vertical = 10.dp)
                         .pointerInput(Unit) {
-                        detectTapGestures(
-                            onTap = {completedStep[counter] = !completedStep[counter]}
-                        )
-                    }
-                }
-            ) {
-                if (viewmodel.steps[counter].stepImage == "0") {
-                    Text(
-                        text = "${counter}.",
-                        fontWeight = FontWeight.ExtraBold,
-                        fontSize = 20.sp,
-                        modifier = Modifier.padding(horizontal = 15.dp)
-                    )
-                    Text(
-                        text = viewmodel.steps[counter].stepText,
-                        fontWeight = FontWeight.Medium,
-                        fontSize = 20.sp
-                    )
-                }
-                if (viewmodel.steps[counter].stepImage != "0") {
-                    Column(
-                        modifier = Modifier
-                            .padding(top = 0.dp),
-                        horizontalAlignment = Alignment.End,
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            text = "${counter}.",
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 20.sp,
-                            modifier = Modifier.padding(horizontal = 15.dp)
-                        )
-                    }
-                    Column(Modifier.width(222.dp)) {
-                        Text(
-                            text = viewmodel.steps[counter].stepText,
-                            fontWeight = FontWeight.Medium,
-                            fontSize = 20.sp
-                        )
-                    }
-                    Column(
-                        modifier = Modifier
-                            .padding(bottom = 0.dp)
-                            .fillMaxWidth(),
-                        horizontalAlignment = Alignment.End,
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        Card(
-                            modifier = Modifier
-                                .padding(PaddingValues(end = 15.dp))
-                                .width(100.dp)
-                                .height(100.dp),
-                            backgroundColor = LightGray,
-                            shape = Shapes.large,
-                            elevation = 0.dp
-                        ) {
-                            Image(
-                                painter = painterResource(id = LocalContext.current.resources.getIdentifier(viewmodel.steps[counter].stepImage, "drawable", LocalContext.current.packageName)),
-                                contentDescription = null,
-                                modifier = Modifier.padding(15.dp)
+                            detectTapGestures(
+                                onTap = { viewModel.CompletedStep(counter)
+                                    viewModel.Recompose()}
                             )
                         }
-
-                    }
-
                 }
-
+            ) {
+                stepToDo(viewmodel, counter)
             }
+        } else {
+            Row(
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .background(Color.Black.copy(0.6f))
+                        .padding(vertical = 10.dp)
+                        .pointerInput(Unit) {
+                            detectTapGestures(
+                                onTap = { viewModel.CompletedStep(counter)
+                                    viewModel.Recompose()}
+                            )
+                        }
+            ) {
+                stepToDo(viewmodel, counter)
+            }
+        }
         }
     }
 }
 
+@Composable
+fun stepToDo(viewmodel: RecipeWithKeyIngredientsAndSteps, counter: Int){
+    if (viewmodel.steps[counter].stepImage == "0") {
+        Text(
+            text = "${counter}.",
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 20.sp,
+            modifier = Modifier.padding(horizontal = 15.dp)
+        )
+        Text(
+            text = viewmodel.steps[counter].stepText,
+            fontWeight = FontWeight.Medium,
+            fontSize = 20.sp
+        )
+    }
+    if (viewmodel.steps[counter].stepImage != "0") {
+        Column(
+            modifier = Modifier
+                .padding(top = 0.dp),
+            horizontalAlignment = Alignment.End,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "${counter}.",
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(horizontal = 15.dp)
+            )
+        }
+        Column(Modifier.width(222.dp)) {
+            Text(
+                text = viewmodel.steps[counter].stepText,
+                fontWeight = FontWeight.Medium,
+                fontSize = 20.sp
+            )
+        }
+        Column(
+            modifier = Modifier
+                .padding(bottom = 0.dp)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.End,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Card(
+                modifier = Modifier
+                    .padding(PaddingValues(end = 15.dp))
+                    .width(100.dp)
+                    .height(100.dp),
+                backgroundColor = LightGray,
+                shape = Shapes.large,
+                elevation = 0.dp
+            ) {
+                Image(
+                    painter = painterResource(id = LocalContext.current.resources.getIdentifier(viewmodel.steps[counter].stepImage, "drawable", LocalContext.current.packageName)),
+                    contentDescription = null,
+                    modifier = Modifier.padding(15.dp)
+                )
+            }
 
+        }
+
+    }
+
+}

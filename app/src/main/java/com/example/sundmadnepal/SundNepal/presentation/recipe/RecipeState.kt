@@ -11,7 +11,7 @@ import com.example.sundmadnepal.SundNepal.data.*
 data class RecipeState(
     val recipes: List<Recipe> = emptyList(),
     val recipeswithKey: List<RecipeWithKeyIngredientsAndSteps> = emptyList(),
-    val multiplier: Int = 1,
+
 
     val fillerRecipe: Recipe = Recipe("","","","","",""),
     val fillerKeyIngredients: List<KeyIngredient> = emptyList(),
@@ -20,7 +20,10 @@ data class RecipeState(
     val keyIngredientsWithImage: MutableList<KeyIngredient> = mutableListOf(),
     val recipeWithSteps: RecipeWithKeyIngredientsAndSteps = RecipeWithKeyIngredientsAndSteps(recipe,fillerSteps),
 
-    val completedStep: List<Boolean> = emptyList(),
+    //UI
+    val completedStep: MutableList<Boolean> = mutableListOf(),
+    val multiplier: Int = 1,
+    val recompose: Int = 17
 
 
 

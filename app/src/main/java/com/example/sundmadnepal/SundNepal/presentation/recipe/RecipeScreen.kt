@@ -60,7 +60,7 @@ private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavContro
                         .padding(vertical = 10.dp)
                         .pointerInput(Unit) {
                             detectTapGestures(
-                                onTap = {viewModel.getSpecificRecipe(recipe)
+                                onTap = { viewModel.getSpecificRecipe(recipe)
                                     navController.navigate(Screen.AboutScreen.route) }
                             )
                         }

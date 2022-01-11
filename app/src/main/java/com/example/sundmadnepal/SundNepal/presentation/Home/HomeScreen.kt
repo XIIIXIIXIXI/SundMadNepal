@@ -63,7 +63,7 @@ fun HomeScreen(navController: NavController, viewModel: RecipesViewModel){
             }
         } else {
             Text(
-                text = "Empty Database",
+                text = "Home Screen",
                 fontSize = 60.sp
             )
         }/*

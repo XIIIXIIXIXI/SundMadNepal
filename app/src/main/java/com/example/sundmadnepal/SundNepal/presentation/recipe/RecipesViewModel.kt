@@ -176,9 +176,37 @@ class RecipesViewModel @Inject constructor(
         _state.value = _state.value.copy(
             recipeWithSteps = _state.value.recipeswithKey[number]
         )
-        val hi = number
+        val steps: MutableList<Boolean> = mutableListOf()
+        for (step in _state.value.recipeWithSteps.steps.indices){
+            steps.add(false)
+        }
+        _state.value = _state.value.copy(
+            completedStep = steps
+        )
+        val hi = 2
     }
 
+    fun CompletedStep(stepNumber: Int){
+        val steps: MutableList<Boolean> =  _state.value.completedStep
+        val bol = !_state.value.completedStep[stepNumber]
+        steps[stepNumber] = bol
+        _state.value = _state.value.copy(
+            completedStep = steps
+        )
+        val hi = 3
+    }
+
+    fun Recompose(){
+        if (_state.value.recompose != 17){
+            _state.value = _state.value.copy(
+                recompose = 17
+            )
+        } else {
+            _state.value = _state.value.copy(
+                recompose = 18
+            )
+        }
+    }
 
 /*
     private fun getRecipeWithKeyIngredientsAndStepsByName(name: String) {
