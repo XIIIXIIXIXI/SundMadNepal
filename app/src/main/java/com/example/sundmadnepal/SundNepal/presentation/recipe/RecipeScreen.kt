@@ -56,7 +56,6 @@ private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavContro
                 modifier = if (recipe % 2 == 0 && recipe != viewmodel.recipeswithKey.size) {
                     Modifier
                         .fillMaxWidth()
-                        .background(SlightlyLessLightGray)
                         .padding(vertical = 10.dp)
                         .pointerInput(Unit) {
                             detectTapGestures(
@@ -67,6 +66,7 @@ private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavContro
                 } else {
                     Modifier
                         .fillMaxWidth()
+                        .background(SlightlyLessLightGray)
                         .padding(vertical = 10.dp)
                         .pointerInput(Unit) {
                             detectTapGestures(
@@ -95,7 +95,7 @@ private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavContro
                         Image(
                             painterResource(id = LocalContext.current.resources.getIdentifier(viewmodel.recipeswithKey[recipe].recipe.recipe.image, "drawable", LocalContext.current.packageName)),
                             contentDescription = null,
-                            modifier = Modifier.padding(15.dp)
+                            modifier = Modifier.padding(0.dp)
                         )
 
                     }

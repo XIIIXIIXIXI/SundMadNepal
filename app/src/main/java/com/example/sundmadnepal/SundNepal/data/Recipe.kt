@@ -114,10 +114,12 @@ val Cake = Recipe2(
         KeyIngredients2("garlic", "g garlic", 100,"Cake"),
         KeyIngredients2("spinach", "g spinach", 50,"Cake"),
         KeyIngredients2("carrot", "carrot", 3,"Cake"),
-        KeyIngredients2("pasta", "g pasta", 250,"Cake")
+        KeyIngredients2("lentil", "g pasta", 250,"Cake")
     ),
     stepss = listOf(
-        stepss(stepText = "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.", R.drawable.tomato),
+        stepss(stepText = "Put the lemons in a blender and bltiz along with half of the sugar, half the ice cubes and water.",
+            R.drawable.tomato
+        ),
         stepss(stepText = "Strain the juice into a jug to get rid of any bits.", 0),
         stepss(stepText = "Put the lemon pulp back into the food processor. Add the rest of the sugar, ice cubes and water and blitz again.", 0),
         stepss(stepText = "Strain it into the jug with the first lot of juice and discard the pulp.", 0),

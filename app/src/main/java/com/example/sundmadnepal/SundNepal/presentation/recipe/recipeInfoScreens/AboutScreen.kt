@@ -139,10 +139,11 @@ fun Content(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
 
 @Composable
 fun KeyIngredients(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
+    println(viewModel.state.value.keyIngredientsWithImage)
     Grid(items =viewModel.state.value.keyIngredientsWithImage  , nColoumn = 3){
             KeyIngredientCard(
                 ikon = it.image,
-                undertitle = it.amount.toString(),
+                //undertitle = it.amount.toString(),
                 title = it.title,
                 modifier = Modifier
             )
@@ -153,7 +154,7 @@ fun KeyIngredients(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel
 @Composable
 fun KeyIngredientCard(
     ikon: String,
-    undertitle: String,
+    //undertitle: String,
     title: String,
     modifier: Modifier
 ) {
@@ -170,13 +171,13 @@ fun KeyIngredientCard(
         elevation = 0.dp
         ){
             Image(
-                painterResource(id = LocalContext.current.resources.getIdentifier(ikon, "drawable", LocalContext.current.packageName)),
+                painter = painterResource(id = LocalContext.current.resources.getIdentifier(ikon, "drawable", LocalContext.current.packageName)),
                 contentDescription = null,
             modifier = Modifier.padding(17.dp)
             )
         }
         Text(title, fontWeight = Medium, fontSize = 15.sp, modifier = Modifier.width(100.dp))
-        Text(undertitle, modifier = Modifier.width(100.dp), fontSize = 15.sp, color = com.example.sundmadnepal.ui.theme.DarkGray)
+        //Text(undertitle, modifier = Modifier.width(100.dp), fontSize = 15.sp, color = com.example.sundmadnepal.ui.theme.DarkGray)
     }
 }
 
