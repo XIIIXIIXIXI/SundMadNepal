@@ -13,11 +13,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,13 +30,68 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadnepal.SundNepal.data.Cake
+import com.example.sundmadnepal.SundNepal.data.Recipe
+import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredientsAndSteps
 import com.example.sundmadnepal.SundNepal.presentation.Home.DefaultButton
+import com.example.sundmadnepal.SundNepal.presentation.recipe.Content
+import com.example.sundmadnepal.SundNepal.presentation.recipe.MainPicture
 import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipesViewModel
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
+import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarRecipe
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
+import com.example.sundmadnepal.ui.theme.CollapsedHeight
+import com.example.sundmadnepal.ui.theme.ExpendedHeight
 import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
 import com.google.common.reflect.Reflection.getPackageName
 
+/*
+@Composable
+fun HomeScreen(navController: NavController, viewModel: RecipesViewModel){
+    val recipe = viewModel.state.value.recipeswithKey
+    BottomNavigationBarHome(navController = navController)
+
+    Box(modifier = Modifier.padding(PaddingValues(0.dp, 0.dp, 0.dp, 56.dp))) {
+        TopBar(recipe)
+    }
+}
+
+
+@Composable
+private fun TopBar(recipe: List<RecipeWithKeyIngredientsAndSteps>){
+    TopAppBar(
+        contentPadding = PaddingValues(),
+        backgroundColor = Color.White,
+        modifier = Modifier.height(
+            40.dp
+        )
+    ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
+            Box(Modifier.height(40.dp),
+            ) {
+                Text(
+                "My recipes",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(horizontal = 17.dp)
+                )
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+/*
 @Composable
 fun HomeScreen(navController: NavController, viewModel: RecipesViewModel){
     //BottomNavigationBarHome(navController = navController)
@@ -108,3 +165,4 @@ private fun HomeScreenContent(navController: NavController){
     }
 
 
+*/

@@ -14,7 +14,7 @@ private val DarkColorPalette = darkColors(
 
 private val LightColorPalette = lightColors(
     primary = Black, //for text
-    primaryVariant = Purple700,
+    primaryVariant = green, //for background
     secondary = Teal200,
     background = White,
     //navBar

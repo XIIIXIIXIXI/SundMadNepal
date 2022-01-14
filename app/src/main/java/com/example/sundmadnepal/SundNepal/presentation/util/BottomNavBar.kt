@@ -104,13 +104,8 @@ fun BottomNavigationBarHome(navController: NavController) {
                 items = listOf(
                     BottomNavItem(
                         name = "Home",
-                        route = "home_screen",
-                        icon = Icons.Default.Home
-                    ),
-                    BottomNavItem(
-                        name = "Recipes",
                         route = "recipeMenu_screen",
-                        icon = Icons.Default.Build
+                        icon = Icons.Default.Home
                     ),
                     BottomNavItem(
                         name = "HealthInfo",

@@ -56,7 +56,7 @@ private fun RecipeScreenContent(
         topBar = { TopCBar(viewmodel.recipeswithKey.size) } )
     {
         Surface {
-            LazyColumn {
+            LazyColumn(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
                 items(viewmodel.recipeswithKey.size) { recipeNumber ->
                     MainCard(
                         viewmodel.recipeswithKey[recipeNumber].recipe.recipe.image,

@@ -43,18 +43,14 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                 val viewModel: RecipesViewModel = hiltViewModel()
                             NavHost(navController = navController,
-                        startDestination = Screen.HomeScreen.route
+                        startDestination = Screen.RecipeMenu.route
                     ){
 
-                            composable(route = Screen.HomeScreen.route) {
-                                HomeScreen(navController, viewModel)
+                            composable(route = Screen.RecipeMenu.route) {
+                                RecipeMenu(navController)
                             }
-
                             composable(route = Screen.RecipeScreen.route) {
                                 RecipeScreen(navController = navController, viewModel)
-                            }
-                            composable(route = Screen.RecipeMenu.route) {
-                                RecipeMenu(navController = navController)
                             }
                             composable(route = Screen.AboutScreen.route){
                                 AboutScreen(navController = navController, viewModel)

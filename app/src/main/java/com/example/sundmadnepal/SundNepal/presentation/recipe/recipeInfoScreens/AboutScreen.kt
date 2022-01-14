@@ -10,13 +10,19 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color.Companion.Gray
+import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.graphics.Color.Companion.White
+import androidx.compose.ui.graphics.Color.Companion.Yellow
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -34,15 +40,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
-import com.example.sundmadnepal.HomeScreen
+
 import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.data.*
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarRecipe
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
-import com.example.sundmadnepal.ui.theme.CollapsedHeight
-import com.example.sundmadnepal.ui.theme.ExpendedHeight
-import com.example.sundmadnepal.ui.theme.Shapes
-import com.example.sundmadnepal.ui.theme.SundMadNepalTheme
+import com.example.sundmadnepal.ui.theme.*
 
 @Composable
 fun AboutScreen( navController: NavController, viewModel: RecipesViewModel){
@@ -111,16 +114,14 @@ fun MainPicture(recipe: RecipeWithKeyIngredients) {
         }
     }
     Row(
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = Arrangement.End,
         modifier = Modifier
             .height(CollapsedHeight)
             .fillMaxWidth()
             .padding(horizontal = 17.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        //Text("hi")
-        //Text("hi")
-        //Text("hi")
+        FavoriteButton(ikon = Icons.Default.Star)
     }
 }
 
@@ -130,10 +131,17 @@ fun Content(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
         item {
             KeyInfo(recipe)
             Information(recipe)
-
+            KeyIngrediensHeader()
             KeyIngredients(recipe, viewModel)
             //
         }
+    }
+}
+
+@Composable
+private fun FavoriteButton(ikon: ImageVector){
+    Button(onClick = { }, shape = Shapes.small, colors = ButtonDefaults.buttonColors(backgroundColor = White, contentColor = Gray)) {
+        Icon(ikon, contentDescription = null)
     }
 }
 
@@ -166,7 +174,7 @@ fun KeyIngredientCard(
             .padding(bottom = 7.dp)
             .width(100.dp)
             .height(100.dp),
-        backgroundColor = com.example.sundmadnepal.ui.theme.LightGray,
+        backgroundColor = White,
         shape = Shapes.large,
         elevation = 0.dp
         ){
@@ -178,6 +186,27 @@ fun KeyIngredientCard(
         }
         Text(title, fontWeight = Medium, fontSize = 15.sp, modifier = Modifier.width(100.dp))
         //Text(undertitle, modifier = Modifier.width(100.dp), fontSize = 15.sp, color = com.example.sundmadnepal.ui.theme.DarkGray)
+    }
+}
+
+@Composable
+private fun KeyIngrediensHeader(){
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 5.dp, vertical = 10.dp)
+            .height(40.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center
+    ){
+        Text(
+            "Key Ingredients",
+            fontSize = 30.sp,
+            fontWeight = Bold,
+            modifier = Modifier
+                .padding(horizontal = 0.dp)
+                .scale(1f)
+        )
     }
 }
 

@@ -1,6 +1,7 @@
 import android.media.Image
 import android.media.ImageReader
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 
 import androidx.compose.material.*
@@ -39,7 +40,7 @@ fun HealthInfoScreen(navController: NavController){
 @Composable
 private fun HealthScreenContent(navController: NavController){
 
-    Column(modifier = Modifier.height(603.dp)) {
+    Column(modifier = Modifier.height(693.dp).background(MaterialTheme.colors.primaryVariant)) {
         Text(text = "Health Information",
             textAlign = TextAlign.Center,
             fontSize = 30.sp,
