@@ -84,7 +84,11 @@ fun BottomNavigationBarRecipe(navController: NavController) {
                     )
                 ), navController,
                 onItemClick = {
-                    navController.navigate(it.route)
+                    navController.navigate(it.route){
+                        popUpTo(Screen.RecipeScreen.route){
+                            inclusive = false
+                        }
+                    }
                 }
             )
         }

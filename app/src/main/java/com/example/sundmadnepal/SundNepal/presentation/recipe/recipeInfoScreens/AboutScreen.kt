@@ -118,9 +118,9 @@ fun MainPicture(recipe: RecipeWithKeyIngredients) {
             .padding(horizontal = 17.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text("hi")
-        Text("hi")
-        Text("hi")
+        //Text("hi")
+        //Text("hi")
+        //Text("hi")
     }
 }
 

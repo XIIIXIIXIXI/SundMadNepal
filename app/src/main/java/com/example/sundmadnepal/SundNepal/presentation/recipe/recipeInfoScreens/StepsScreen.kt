@@ -46,14 +46,9 @@ fun SMainFragment(viewmodel: RecipeWithKeyIngredientsAndSteps, navController: Na
 
     BottomNavigationBarRecipe(navController = navController)
     TopAppBar{ StepDoneOutOf(viewModel) }
-
-
         Box(modifier = Modifier.padding(PaddingValues(0.dp, 50.dp, 0.dp, 38.dp))) {
             SContent(viewmodel, viewModel)
         }
-
-
-
 
 }
 

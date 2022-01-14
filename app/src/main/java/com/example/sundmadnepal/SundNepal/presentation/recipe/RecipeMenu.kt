@@ -6,6 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.BookmarkAdded
 import androidx.compose.material.icons.filled.WheelchairPickup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,16 +36,18 @@ fun RecipeMenu(navController: NavController){
         Spacer(modifier = Modifier.height(20.dp))
         DefaultButton(
             text = "My Recipes",
-            icon = Icons.Default.Book
+            icon = Icons.Default.BookmarkAdded
         ){
 
         }
         Spacer(modifier = Modifier.height(20.dp))
         DefaultButton(
             text = "See Recipes",
-            icon = Icons.Default.WheelchairPickup
+            icon = Icons.Default.Book
         ){
-            navController.navigate(Screen.RecipeScreen.route)
+            navController.navigate(Screen.RecipeScreen.route){
+
+            }
         }
     }
 }
