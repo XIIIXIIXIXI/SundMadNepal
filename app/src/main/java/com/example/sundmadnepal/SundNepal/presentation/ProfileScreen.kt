@@ -1,5 +1,6 @@
 package com.example.sundmadnepal
 
+//import android.graphics.Color
 import android.text.Layout
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,7 +13,11 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Cyan
+import androidx.compose.ui.graphics.Color.Companion.Red
+
+
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,12 +40,15 @@ fun ProfileScreen(
 }
 
 @Composable
-fun GardenTips(){
+private fun GardenTips(){
     var infoOpened by remember{ mutableStateOf(0)}
+    val color1 = ButtonDefaults.buttonColors(backgroundColor = Color(193, 93, 223))
+    val color2 = ButtonDefaults.buttonColors(backgroundColor = Color.Black)
     LazyColumn (){
         item {
-            Button(onClick = { infoOpened = if(infoOpened != 1) 1 else 0 },
-                Modifier
+            Button(onClick = { infoOpened = if(infoOpened != 1) 1 else 0 }
+                , colors = if(infoOpened == 1) color1 else color2,
+                modifier = Modifier
                     .size(410.dp, 50.dp)
                     .padding(5.dp)) {
                 Text(text = "How to make your own garden", fontSize = 20.sp, textAlign = TextAlign.Center)
@@ -49,27 +57,33 @@ fun GardenTips(){
         }
         item {
             Button(onClick = {infoOpened = if(infoOpened != 2) 2 else 0 },
-                Modifier
+                colors = if(infoOpened == 2) color1 else color2,
+                modifier = Modifier
                     .size(410.dp, 50.dp)
-                    .padding(5.dp)) {
+                    .padding(5.dp)
+            ) {
                 Text(text = "How to make the Compost:", fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             CompostInfo(infoOpened)
         }
         item {
             Button(onClick = {infoOpened = if(infoOpened != 3) 3 else 0 },
-                Modifier
+                colors = if(infoOpened == 3) color1 else color2,
+                modifier = Modifier
                     .size(410.dp, 50.dp)
-                    .padding(5.dp)) {
+                    .padding(5.dp)
+            ) {
                 Text(text = "How to make organic insecticides:", fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             InsecticidesInfo(infoOpened)
         }
         item {
             Button(onClick = {infoOpened = if(infoOpened != 4) 4 else 0 },
-                Modifier
+                colors = if(infoOpened == 4) color1 else color2,
+                modifier = Modifier
                     .size(410.dp, 50.dp)
-                    .padding(5.dp)) {
+                    .padding(5.dp)
+            ) {
                 Text(text = "Suggested Vegetables to grow:", fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             ThingToGrowInfo(infoOpened)
@@ -77,8 +91,20 @@ fun GardenTips(){
     }
 }
 
+/*
 @Composable
-fun GardenInfo(infoOpened : Int) {
+private fun PopUpButton(infoOpened: Int, text: String){
+    Button(onClick = { infoOpeneds = if(infoOpeneds != 1) 1 else 0 }
+        , colors = ButtonDefaults.buttonColors(backgroundColor = Color(193, 93, 223)),
+        modifier = Modifier
+            .size(410.dp, 50.dp)
+            .padding(5.dp)) {
+        Text(text = text, fontSize = 20.sp, textAlign = TextAlign.Center)
+    }
+}*/
+
+@Composable
+private fun GardenInfo(infoOpened : Int) {
     if(infoOpened == 1) {
             //Text(text = "How to make your own garden", fontSize = 25.sp)
             Text(
@@ -97,7 +123,7 @@ fun GardenInfo(infoOpened : Int) {
     }
 }
 @Composable
-fun CompostInfo(infoOpened : Int) {
+private fun CompostInfo(infoOpened : Int) {
     if(infoOpened == 2) {
         //Text(text = "How to make the Compost:", fontSize = 25.sp)
         Text(
@@ -113,7 +139,7 @@ fun CompostInfo(infoOpened : Int) {
     }
 }
 @Composable
-fun InsecticidesInfo(infoOpened : Int) {
+private fun InsecticidesInfo(infoOpened : Int) {
     if(infoOpened == 3) {
         //Text(text = "How to make organic insecticides:", fontSize = 25.sp)
         Text(
@@ -133,7 +159,7 @@ fun InsecticidesInfo(infoOpened : Int) {
 }
 
 @Composable
-fun ThingToGrowInfo(infoOpened : Int) {
+private fun ThingToGrowInfo(infoOpened : Int) {
     if(infoOpened == 4) {
         //Text(text = "Suggestions for what to grow in your garden:", fontSize = 25.sp)
         Text(
