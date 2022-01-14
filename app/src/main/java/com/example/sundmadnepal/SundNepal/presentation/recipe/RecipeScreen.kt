@@ -1,12 +1,11 @@
 package com.example.sundmadnepal
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -16,6 +15,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
@@ -34,6 +34,7 @@ import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.LightGray
 import com.example.sundmadnepal.ui.theme.Shapes
 import com.example.sundmadnepal.ui.theme.SlightlyLessLightGray
+import org.checkerframework.checker.units.qual.h
 
 @Composable
 fun RecipeScreen(
@@ -45,6 +46,82 @@ fun RecipeScreen(
 
 }
 
+@Composable
+private fun RecipeScreenContent(
+    viewmodel: RecipeState,
+    navController: NavController,
+    viewModel: RecipesViewModel
+) {
+    Scaffold (
+        topBar = { TopCBar(viewmodel.recipeswithKey.size) } )
+    {
+        Surface {
+            LazyColumn {
+                items(viewmodel.recipeswithKey.size) { recipeNumber ->
+                    MainCard(
+                        viewmodel.recipeswithKey[recipeNumber].recipe.recipe.image,
+                        viewmodel.recipeswithKey[recipeNumber].recipe.recipe.recipeName
+                    ){
+                        viewModel.getSpecificRecipe(recipeNumber)
+                        navController.navigate(Screen.AboutScreen.route)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MainCard(
+    image: String,
+    title: String,
+    onClick: () -> Unit){
+    Card(
+
+        backgroundColor = SlightlyLessLightGray,
+        elevation = 7.dp,
+        shape = RoundedCornerShape(21.dp),
+        modifier = Modifier
+            .padding(15.dp)
+            .height(150.dp)
+            .fillMaxWidth()
+            .clickable { onClick.invoke() },
+        border = BorderStroke(3.dp, Color.Gray)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 19.dp, end = 19.dp, top = 11.dp, bottom = 11.dp),
+            horizontalArrangement = Arrangement.Start
+        ) {
+            Image(
+                painterResource(id = LocalContext.current.resources.getIdentifier(image, "drawable", LocalContext.current.packageName)),
+                contentDescription = null,
+                modifier = Modifier.size(130.dp)
+            )
+            Spacer(modifier = Modifier.width(19.dp))
+            Text(text = title, modifier = Modifier.fillMaxWidth().padding(end = 11.dp), fontSize = 19.sp)
+        }
+    }
+}
+
+@Composable
+private fun TopCBar(recipes: Int) {
+    TopAppBar(
+        backgroundColor = Color.DarkGray,
+        contentPadding = PaddingValues(start = 19.dp),
+    ) {
+        Text(
+            text = "Showing $recipes recipes",
+            fontSize = 23.sp,
+            color = Color.White
+        )
+    }
+}
+
+
+/*
 @Composable
 private fun RecipeScreenContent(viewmodel: RecipeState, navController: NavController, viewModel: RecipesViewModel) {
     LazyColumn() {
@@ -128,5 +205,5 @@ private fun RecipesPrim(recipes: List<Recipe>, navController: NavController){
 }
 */
 
-
+*/
 
