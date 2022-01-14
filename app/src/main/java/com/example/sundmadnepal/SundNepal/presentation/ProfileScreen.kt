@@ -1,9 +1,7 @@
 package com.example.sundmadnepal
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxSize
+import android.text.Layout
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -17,52 +15,72 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
+import org.intellij.lang.annotations.JdkConstants
 
 @Composable
 fun ProfileScreen(
     navController: NavController
 ) {
-    var infoOpened by remember{ mutableStateOf(0)}
+    Scaffold(
+        bottomBar = { BottomNavigationBarHome(navController = navController) }) {
+    }
     Column() {
-        Text(text = "Tips and Tricks",textAlign = TextAlign.Center,
-            fontSize = 30.sp)
-        LazyColumn {
-            item {
-                Button(onClick = {infoOpened = 1}) {
-                    Text(text = "How to make your own garden", fontSize = 20.sp)
-                }
-                GardenInfo(infoOpened)
+        //Text(text = "Tips and Tricks",textAlign = TextAlign.Center, fontSize = 30.sp)
+        GardenTips()
+    }
+}
+
+@Composable
+fun GardenTips(){
+    var infoOpened by remember{ mutableStateOf(0)}
+    LazyColumn (){
+        item {
+            Button(onClick = { infoOpened = if(infoOpened != 1) 1 else 0 },
+                Modifier
+                    .size(410.dp, 50.dp)
+                    .padding(5.dp)) {
+                Text(text = "How to make your own garden", fontSize = 20.sp, textAlign = TextAlign.Center)
             }
-            item {
-                Button(onClick = {infoOpened = 2}) {
-                    Text(text = "How to make the Compost:", fontSize = 20.sp)
-                }
-                CompostInfo(infoOpened)
+            GardenInfo(infoOpened)
+        }
+        item {
+            Button(onClick = {infoOpened = if(infoOpened != 2) 2 else 0 },
+                Modifier
+                    .size(410.dp, 50.dp)
+                    .padding(5.dp)) {
+                Text(text = "How to make the Compost:", fontSize = 20.sp, textAlign = TextAlign.Center)
             }
-            item {
-                Button(onClick = {infoOpened = 3}) {
-                    Text(text = "How to make organic insecticides:", fontSize = 20.sp)
-                }
-                InsecticidesInfo(infoOpened)
+            CompostInfo(infoOpened)
+        }
+        item {
+            Button(onClick = {infoOpened = if(infoOpened != 3) 3 else 0 },
+                Modifier
+                    .size(410.dp, 50.dp)
+                    .padding(5.dp)) {
+                Text(text = "How to make organic insecticides:", fontSize = 20.sp, textAlign = TextAlign.Center)
             }
-            item {
-                Button(onClick = {infoOpened = 4}) {
-                    Text(text = "Suggestions for what to grow in your garden:", fontSize = 20.sp)
-                }
-                ThingToGrowInfo(infoOpened)
+            InsecticidesInfo(infoOpened)
+        }
+        item {
+            Button(onClick = {infoOpened = if(infoOpened != 4) 4 else 0 },
+                Modifier
+                    .size(410.dp, 50.dp)
+                    .padding(5.dp)) {
+                Text(text = "Suggested Vegetables to grow:", fontSize = 20.sp, textAlign = TextAlign.Center)
             }
+            ThingToGrowInfo(infoOpened)
         }
     }
-    BottomNavigationBarHome(navController = navController)
 }
+
 @Composable
 fun GardenInfo(infoOpened : Int) {
     if(infoOpened == 1) {
-        Column {
-            Text(text = "How to make your own garden", fontSize = 25.sp)
+            //Text(text = "How to make your own garden", fontSize = 25.sp)
             Text(
                 text = "Making your own garden means you can have a healthy life without spending lots of money\n" +
                         "Even if you only have very little space you can still grow vegetables\n"
@@ -75,13 +93,13 @@ fun GardenInfo(infoOpened : Int) {
                         "\n4. Soil be prepared in 8 to 10 days\n" +
                         "\n5. Then make a high land for the crops growing.\n"
             )
-        }
+
     }
 }
 @Composable
 fun CompostInfo(infoOpened : Int) {
     if(infoOpened == 2) {
-        Text(text = "How to make the Compost:", fontSize = 25.sp)
+        //Text(text = "How to make the Compost:", fontSize = 25.sp)
         Text(
             text = "Compost size of 2m*2m(L*B)\n 1. to make compost we need Cow’s urine, leaves , bushes with leaves, ash and Cow dungl.\n" +
                     "\t - make pit according to how much land you have.\n" +
@@ -97,7 +115,7 @@ fun CompostInfo(infoOpened : Int) {
 @Composable
 fun InsecticidesInfo(infoOpened : Int) {
     if(infoOpened == 3) {
-        Text(text = "How to make organic insecticides:", fontSize = 25.sp)
+        //Text(text = "How to make organic insecticides:", fontSize = 25.sp)
         Text(
             text = "First make it in 50 liter drum\n" +
                     "It will be useful for all season vegetables  and use it by mixing 7 liter of water in 1 liter organic insecticides\n"
@@ -117,7 +135,7 @@ fun InsecticidesInfo(infoOpened : Int) {
 @Composable
 fun ThingToGrowInfo(infoOpened : Int) {
     if(infoOpened == 4) {
-        Text(text = "Suggestions for what to grow in your garden:", fontSize = 25.sp)
+        //Text(text = "Suggestions for what to grow in your garden:", fontSize = 25.sp)
         Text(
             text = "Sarg: It is healthy and easy and grows all year around.\n" +
                     "\n" +
@@ -130,7 +148,6 @@ fun ThingToGrowInfo(infoOpened : Int) {
                     "Cabbage : It is rich in Vitamin K.\n" +
                     "\n" +
                     "Bitter gourd : It helps in lowering blood pressure.\n" +
-                    "\n" +
                     "\n" +
                     "Tomato : it is rich in Vitamin A and C\n" +
                     "\n" +
