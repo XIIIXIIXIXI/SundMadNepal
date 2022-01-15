@@ -55,7 +55,7 @@ class RecipesViewModel @Inject constructor(
     private fun addRecipe(){
         viewModelScope.launch {
             val recipe: Recipe = Recipe( recipeName = "Cake", image =  "R.drawable.lasagna", energy = "50", prepTime = "30min.",  healthy = "6/10",
-                information = "A freshly baked cake smothered in frosting makes an irresistible homemade dessert.")
+                information = "A freshly baked cake smothered in frosting makes an irresistible homemade dessert.", favorite = 0)
 
                val keyIngredient = listOf(
                     KeyIngredient("tomato", "tomato", 4,"Cake"),
@@ -183,6 +183,9 @@ class RecipesViewModel @Inject constructor(
         _state.value = _state.value.copy(
             completedStep = steps
         )
+        _state.value = _state.value.copy(
+            rememberRecipeNumber = number
+        )
         val hi = 2
     }
 
@@ -204,6 +207,35 @@ class RecipesViewModel @Inject constructor(
         } else {
             _state.value = _state.value.copy(
                 recompose = 18
+            )
+        }
+    }
+
+    fun updateFavorite(recipeName: String){
+        viewModelScope.launch {
+            if (_state.value.isFavorite == 0){
+                repository.UpdateFavorite(1, recipeName)
+            }else{
+                repository.UpdateFavorite(0,recipeName)
+            }
+        }
+
+    }
+
+
+    fun InitializeFavorite(favorite: Int){
+        _state.value = _state.value.copy(
+            isFavorite = favorite
+        )
+    }
+    fun ChangeLocalFavorite(favorite: Int){
+        if (favorite == 0){
+            _state.value = _state.value.copy(
+                isFavorite = 1
+            )
+        }else{
+            _state.value = _state.value.copy(
+                isFavorite = 0
             )
         }
     }

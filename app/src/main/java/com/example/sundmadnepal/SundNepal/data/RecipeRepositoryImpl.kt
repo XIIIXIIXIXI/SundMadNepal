@@ -25,12 +25,16 @@ class RecipeRepositoryImpl(
     override suspend fun addRecipe(recipe: Recipe) {
         dao.addRecipe(recipe)
     }
+
+
     override suspend fun addKeyIngredient(keyIngredient: List<KeyIngredient>){
         for (element in keyIngredient){
             dao.addKeyIngredient(element)
         }
 
     }
+
+
     override  fun getRecipeWithKeyIngredients(): Flow<List<RecipeWithKeyIngredients>> {
         return dao.getRecipeWithKeyIngredients()
     }
@@ -53,6 +57,10 @@ class RecipeRepositoryImpl(
 
     override fun getRecipeWithKeyIngredientsAndStepsByName(recipeName: String) :RecipeWithKeyIngredientsAndSteps{
        return dao.getRecipeWithKeyIngredientsAndStepsByName(recipeName)
+    }
+
+    override suspend fun UpdateFavorite(isFavorite: Int, recipeName: String) {
+        dao.updateFavorite(isFavorite, recipeName)
     }
 
 }

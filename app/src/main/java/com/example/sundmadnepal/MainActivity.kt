@@ -37,9 +37,6 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             SundMadNepalTheme {
-
-
-
                     val navController = rememberNavController()
                 val viewModel: RecipesViewModel = hiltViewModel()
                             NavHost(navController = navController,

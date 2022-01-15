@@ -13,7 +13,7 @@ data class RecipeState(
     val recipeswithKey: List<RecipeWithKeyIngredientsAndSteps> = emptyList(),
 
 
-    val fillerRecipe: Recipe = Recipe("","","","","",""),
+    val fillerRecipe: Recipe = Recipe("","","","","","", 0),
     val fillerKeyIngredients: List<KeyIngredient> = emptyList(),
     val fillerSteps: List<Steps> = emptyList(),
     val recipe: RecipeWithKeyIngredients = RecipeWithKeyIngredients(fillerRecipe, fillerKeyIngredients),
@@ -23,7 +23,9 @@ data class RecipeState(
     //UI
     val completedStep: MutableList<Boolean> = mutableListOf(),
     val multiplier: Int = 1,
-    val recompose: Int = 17
+    val recompose: Int = 17,
+    val rememberRecipeNumber: Int = 0,
+    val isFavorite: Int = 0
 
 
 

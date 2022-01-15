@@ -28,6 +28,7 @@ data class Recipe(
     val energy: String,
     val healthy: String,
     val information: String,
+    val favorite: Int
     //val keyIngrediens: List<KeyIngredient>,
     //val steps: List<steps>
 )

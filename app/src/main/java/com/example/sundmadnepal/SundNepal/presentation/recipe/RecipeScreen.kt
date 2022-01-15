@@ -63,6 +63,7 @@ private fun RecipeScreenContent(
                         viewmodel.recipeswithKey[recipeNumber].recipe.recipe.recipeName
                     ){
                         viewModel.getSpecificRecipe(recipeNumber)
+                        viewModel.InitializeFavorite(viewmodel.recipeswithKey[recipeNumber].recipe.recipe.favorite)
                         navController.navigate(Screen.AboutScreen.route)
                     }
                 }

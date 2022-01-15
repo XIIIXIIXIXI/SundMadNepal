@@ -15,6 +15,7 @@ interface RecipeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRecipe(recipe: Recipe)
 
+
     @Query("SELECT * FROM recipe")
     fun getRecipes(): Flow<List<Recipe>>
 
@@ -37,6 +38,10 @@ interface RecipeDao {
 
 
     @Transaction
+    @Query("UPDATE recipe SET favorite= :isFavorite WHERE recipeName = :recipeName")
+    suspend fun updateFavorite(isFavorite: Int, recipeName: String)
+
+    @Transaction
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSteps(steps: Steps)
 
@@ -52,4 +57,6 @@ interface RecipeDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertRecipeKeyIngredientCrossRef(recipeKeyIngredientCrossRef: RecipeKeyIngredientCrossRef)
+
+
 }

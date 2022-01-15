@@ -35,4 +35,6 @@ interface RecipeRepository {
 
     fun getRecipeWithKeyIngredientsAndStepsByName(recipeName: String) :RecipeWithKeyIngredientsAndSteps
 
+    suspend fun UpdateFavorite(isFavorite: Int, recipeName: String)
+
 }
