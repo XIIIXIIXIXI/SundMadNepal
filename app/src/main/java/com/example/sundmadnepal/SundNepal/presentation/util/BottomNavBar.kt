@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -20,6 +21,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.Navigation
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.sundmadnepal.R
 
 @Composable
 fun BottomNavigationBar(
@@ -68,17 +70,17 @@ fun BottomNavigationBarRecipe(navController: NavController) {
             BottomNavigationBar(
                 items = listOf(
                     BottomNavItem(
-                        name = "About",
+                        name = stringResource(id = R.string.navigate_about),
                         route = "about_screen",
                         icon = Icons.Default.Info
                     ),
                     BottomNavItem(
-                        name = "Ingredients",
+                        name = stringResource(id = R.string.navigate_ingredients),
                         route = "ingredient_screen",
                         icon = Icons.Default.ShoppingCart
                     ),
                     BottomNavItem(
-                        name = "Steps",
+                        name =  stringResource(id = R.string.navigate_steps),
                         route = "steps_screen",
                         icon = Icons.Default.Menu
                     )
@@ -103,17 +105,17 @@ fun BottomNavigationBarHome(navController: NavController) {
             BottomNavigationBar(
                 items = listOf(
                     BottomNavItem(
-                        name = "Home",
+                        name = stringResource(id = R.string.navigate_home),
                         route = "recipeMenu_screen",
                         icon = Icons.Default.Home
                     ),
                     BottomNavItem(
-                        name = "HealthInfo",
+                        name = stringResource(id = R.string.navigate_health_info),
                         route = "HealthInfo_screen",
                         icon = Icons.Default.Favorite
                     ),
                     BottomNavItem(
-                        name = "Profile",
+                        name = stringResource(id = R.string.navigate_profile),
                         route = "profile_screen",
                         icon = Icons.Default.Person
                     )

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recipe_menu_title">Healthy Food Nepal</string>
+    <string name="recipe_menu_see_recipes">See Recipes</string>
+    <string name="recipe_menu_add_recipe">Add Recipe</string>
+    <string name="recipe_menu_my_recipes">My Recipes</string>
+    <string name="recipe_menu_favorite_recipes">Favorite Recipes</string>
+</resources>

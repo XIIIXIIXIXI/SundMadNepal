@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
@@ -22,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.data.Cake
 import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredients
 import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredientsAndSteps
@@ -64,7 +66,7 @@ private fun StepDoneOutOf(viewModel: RecipesViewModel){
 
         ) {
             Text(
-                text = "$count out of ${viewModel.state.value.completedStep.size} steps done",
+                text = "$count ${stringResource(id = R.string.steps_out_of)} ${viewModel.state.value.completedStep.size} ${stringResource(id = R.string.steps_steps_done)}",
                 color = White,
                 fontSize = 23.sp,
             )

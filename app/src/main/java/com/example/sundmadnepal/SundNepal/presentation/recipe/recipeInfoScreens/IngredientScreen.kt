@@ -13,11 +13,13 @@ import androidx.compose.material.icons.filled.RemoveCircle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.data.Cake
 import com.example.sundmadnepal.SundNepal.data.RecipeWithKeyIngredients
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarRecipe
@@ -87,7 +89,7 @@ fun ScaleBar(viewmodel: RecipesViewModel, viewModel: RecipesViewModel) {
                 tint = MaterialTheme.colors.onBackground
             )
         }
-        Text(text = "Servings: ${viewModel.state.value.multiplier}",
+        Text(text = "${stringResource(id = R.string.ingredient_servings)}: ${viewModel.state.value.multiplier}",
             fontSize = 24.sp, color = MaterialTheme.colors.onBackground,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(top = 5.dp)
