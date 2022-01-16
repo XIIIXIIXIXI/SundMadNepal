@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
@@ -46,7 +47,7 @@ fun IContent(viewmodel: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
                 modifier = if (it % 2 == 0 && it != viewmodel.keyIngrediens.size){
                     Modifier
                         .fillMaxWidth()
-                        .background(SlightlyLessLightGray)
+                        .background(MaterialTheme.colors.onSurface)
                         .padding(vertical = 10.dp)
                 }else{
                     Modifier
@@ -55,13 +56,13 @@ fun IContent(viewmodel: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
                 }) {
                 Text(
                     undertitle.toString(),
-                    fontSize = 20.sp,
+                    fontSize = 20.sp, color = MaterialTheme.colors.onBackground,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(horizontal = 15.dp)
                 )
                 Text(
                     viewmodel.keyIngrediens[it].unit,
-                    fontSize = 19.sp,
+                    fontSize = 19.sp, color = MaterialTheme.colors.onBackground,
                     fontWeight = FontWeight.Normal,
                     modifier = Modifier.padding(top = 2.dp)
                 )
@@ -83,11 +84,11 @@ fun ScaleBar(viewmodel: RecipesViewModel, viewModel: RecipesViewModel) {
             Icon(
                 imageVector = Icons.Default.RemoveCircle, contentDescription = null,
                 modifier = Modifier.height(25.dp),
-                tint = Color.Black
+                tint = MaterialTheme.colors.onBackground
             )
         }
         Text(text = "Servings: ${viewModel.state.value.multiplier}",
-            fontSize = 24.sp,
+            fontSize = 24.sp, color = MaterialTheme.colors.onBackground,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(top = 5.dp)
         )
@@ -96,7 +97,7 @@ fun ScaleBar(viewmodel: RecipesViewModel, viewModel: RecipesViewModel) {
             Icon(
                 imageVector = Icons.Default.AddCircle, contentDescription = null,
                 modifier = Modifier.height(25.dp),
-                tint = Color.Black,
+                tint = MaterialTheme.colors.onBackground,
             )
         }
     }

@@ -48,12 +48,14 @@ fun FavoriteScreen(
                 Text(
                     "Nothing added to your favorite yet",
                     fontSize = 27.sp,
+                    color = MaterialTheme.colors.onBackground,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(horizontal = 17.dp)
                 )
                 Text(
                     "When you add a favorite recipe it will be shown here",
                     fontSize = 27.sp,
+                    color = MaterialTheme.colors.onBackground,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(horizontal = 17.dp)
                 )}

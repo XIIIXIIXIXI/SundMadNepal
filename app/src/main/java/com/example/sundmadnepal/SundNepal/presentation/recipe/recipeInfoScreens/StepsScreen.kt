@@ -5,10 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Card
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +30,7 @@ import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarR
 import com.example.sundmadnepal.ui.theme.LightGray
 import com.example.sundmadnepal.ui.theme.Shapes
 import com.example.sundmadnepal.ui.theme.SlightlyLessLightGray
+import com.example.sundmadnepal.ui.theme.White
 
 
 @Composable
@@ -67,8 +65,8 @@ private fun StepDoneOutOf(viewModel: RecipesViewModel){
         ) {
             Text(
                 text = "$count out of ${viewModel.state.value.completedStep.size} steps done",
+                color = White,
                 fontSize = 23.sp,
-                color = Color.White
             )
         }
     }
@@ -86,7 +84,7 @@ fun SContent(viewmodel: RecipeWithKeyIngredientsAndSteps, viewModel: RecipesView
                 modifier = if (counter % 2 == 0 && counter != viewmodel.steps.size) {
                     Modifier
                         .fillMaxWidth()
-                        .background(SlightlyLessLightGray)
+                        .background(MaterialTheme.colors.onSurface)
                         .padding(vertical = 10.dp)
                         .pointerInput(Unit) {
                             detectTapGestures(
@@ -144,11 +142,13 @@ fun stepToDo(viewmodel: RecipeWithKeyIngredientsAndSteps, counter: Int){
             text = "${counter}.",
             fontWeight = FontWeight.ExtraBold,
             fontSize = 20.sp,
+            color = MaterialTheme.colors.onBackground,
             modifier = Modifier.padding(horizontal = 15.dp)
         )
         Text(
             text = viewmodel.steps[counter].stepText,
             fontWeight = FontWeight.Medium,
+            color = MaterialTheme.colors.onBackground,
             fontSize = 20.sp
         )
     }
@@ -163,6 +163,7 @@ fun stepToDo(viewmodel: RecipeWithKeyIngredientsAndSteps, counter: Int){
                 text = "${counter}.",
                 fontWeight = FontWeight.ExtraBold,
                 fontSize = 20.sp,
+                color = MaterialTheme.colors.onBackground,
                 modifier = Modifier.padding(horizontal = 15.dp)
             )
         }
@@ -170,6 +171,7 @@ fun stepToDo(viewmodel: RecipeWithKeyIngredientsAndSteps, counter: Int){
             Text(
                 text = viewmodel.steps[counter].stepText,
                 fontWeight = FontWeight.Medium,
+                color = MaterialTheme.colors.onBackground,
                 fontSize = 20.sp
             )
         }

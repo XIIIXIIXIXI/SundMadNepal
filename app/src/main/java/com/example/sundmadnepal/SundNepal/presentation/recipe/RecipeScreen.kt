@@ -102,7 +102,7 @@ private fun MainCard(
                 modifier = Modifier.size(130.dp)
             )
             Spacer(modifier = Modifier.width(19.dp))
-            Text(text = title, modifier = Modifier.fillMaxWidth().padding(end = 11.dp), fontSize = 19.sp)
+            Text(text = title, modifier = Modifier.fillMaxWidth().padding(end = 11.dp), fontSize = 19.sp, color = MaterialTheme.colors.onBackground)
         }
     }
 }

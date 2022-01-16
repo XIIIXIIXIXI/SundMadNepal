@@ -112,15 +112,15 @@ fun MainPicture(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
             Column(
                 Modifier
                     .fillMaxWidth()
-                    .height(CollapsedHeight),
-                verticalArrangement = Arrangement.Center
+                    .height(CollapsedHeight).background(MaterialTheme.colors.background),
+                verticalArrangement = Arrangement.Center,
             ) {
                 Text(
-                    recipe.recipe.recipeName,
+                    recipe.recipe.recipeName, color = MaterialTheme.colors.onBackground,
                     fontSize = 27.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(horizontal = 17.dp),
-                    color = MaterialTheme.colors.onBackground
+
                 )
             }
         }
@@ -215,7 +215,7 @@ fun KeyIngredientCard(
                 modifier = Modifier.padding(17.dp)
             )
         }
-        Text(title, fontWeight = Medium, fontSize = 15.sp, modifier = Modifier.width(100.dp))
+        Text(title, color = MaterialTheme.colors.onBackground, fontWeight = Medium, fontSize = 15.sp, modifier = Modifier.width(100.dp))
         //Text(undertitle, modifier = Modifier.width(100.dp), fontSize = 15.sp, color = com.example.sundmadnepal.ui.theme.DarkGray)
     }
 }
@@ -231,7 +231,7 @@ private fun KeyIngrediensHeader() {
         horizontalArrangement = Arrangement.Center
     ) {
         Text(
-            "Key Ingredients",
+            "Key Ingredients", color = MaterialTheme.colors.onBackground,
             fontSize = 30.sp,
             fontWeight = Bold,
             modifier = Modifier
@@ -268,6 +268,7 @@ fun Information(recipe: RecipeWithKeyIngredients) {
     Text(
         recipe.recipe.information,
         modifier = Modifier.padding(horizontal = 17.dp, vertical = 17.dp),
+        color = MaterialTheme.colors.onBackground,
         fontWeight = Medium
     )
 }
@@ -294,7 +295,7 @@ fun IconColoumn(ikon: ImageVector, text: String) {
             modifier = Modifier.height(25.dp),
             tint = Red
         )
-        Text(text, fontWeight = Bold)
+        Text(text, fontWeight = Bold, color = MaterialTheme.colors.onBackground)
     }
 }
 

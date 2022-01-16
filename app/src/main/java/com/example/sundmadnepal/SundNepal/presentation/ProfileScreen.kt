@@ -2,6 +2,7 @@ package com.example.sundmadnepal
 
 //import android.graphics.Color
 import android.text.Layout
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
@@ -33,7 +34,7 @@ fun ProfileScreen(
     Scaffold(
         bottomBar = { BottomNavigationBarHome(navController = navController) }) {
     }
-    Column() {
+    Column(modifier = Modifier.background(MaterialTheme.colors.primaryVariant).fillMaxWidth().height(694.dp)) {
         //Text(text = "Tips and Tricks",textAlign = TextAlign.Center, fontSize = 30.sp)
         GardenTips()
     }

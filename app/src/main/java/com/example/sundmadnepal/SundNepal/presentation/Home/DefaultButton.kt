@@ -21,12 +21,12 @@ fun DefaultButton(
 ) {
     Button(onClick,
         modifier = Modifier.fillMaxWidth(0.5f),
-        colors = ButtonDefaults.buttonColors(MaterialTheme.colors.onBackground)
+        colors = ButtonDefaults.buttonColors(MaterialTheme.colors.background)
     ) {
         Row(
             modifier = Modifier.align(alignment = CenterVertically).fillMaxWidth(0.9f), Arrangement.SpaceBetween
         ){
-            Text(text, color = MaterialTheme.colors.primary)
+            Text(text, color = MaterialTheme.colors.onBackground)
             Spacer(Modifier.size(ButtonDefaults.IconSpacing))
             Icon(
                 icon,
