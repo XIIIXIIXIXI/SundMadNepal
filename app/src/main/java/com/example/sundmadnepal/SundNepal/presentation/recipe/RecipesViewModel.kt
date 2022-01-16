@@ -23,9 +23,7 @@ class RecipesViewModel @Inject constructor(
 
 
     init {
-        //addRecipe()
         getRecipeWithkeyIngredientsAndSteps()
-        //getRecipeWithKeyIngredientsAndStepsByName("Vegetable Lasagna")
     }
 
 
@@ -238,6 +236,18 @@ class RecipesViewModel @Inject constructor(
                 isFavorite = 0
             )
         }
+    }
+    fun getFavorite(){
+        var favorite: MutableList<Favorite> = mutableListOf()
+        for (i in _state.value.recipeswithKey.indices){
+            if (_state.value.recipeswithKey[i].recipe.recipe.favorite == 1){
+                    favorite.add(Favorite(_state.value.recipeswithKey[i].recipe.recipe, i))
+
+            }
+        }
+        _state.value = _state.value.copy(
+            favorites = favorite
+        )
     }
 
 /*

@@ -79,7 +79,7 @@ private fun MainCard(
     onClick: () -> Unit){
     Card(
 
-        backgroundColor = SlightlyLessLightGray,
+        backgroundColor = MaterialTheme.colors.onSurface,
         elevation = 7.dp,
         shape = RoundedCornerShape(21.dp),
         modifier = Modifier

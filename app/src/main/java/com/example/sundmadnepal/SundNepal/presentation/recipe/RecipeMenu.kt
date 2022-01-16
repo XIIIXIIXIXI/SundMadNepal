@@ -21,7 +21,7 @@ import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.green
 
 @Composable
-fun RecipeMenu(navController: NavController) {
+fun RecipeMenu(navController: NavController, viewModel: RecipesViewModel) {
         BottomNavigationBarHome(navController = navController)
         Column(
             modifier = Modifier
@@ -66,7 +66,8 @@ fun RecipeMenu(navController: NavController) {
                     text = "Favorite Recipes",
                     icon = Icons.Default.Favorite
                 ) {
-
+                    viewModel.getFavorite()
+                    navController.navigate(Screen.FavoriteScreen.route)
                 }
             }
         }

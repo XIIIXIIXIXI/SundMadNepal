@@ -31,62 +31,67 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen().apply {
-            setKeepVisibleCondition{
+            setKeepVisibleCondition {
                 viewModel.isLoading.value
             }
         }
         setContent {
             SundMadNepalTheme {
-                    val navController = rememberNavController()
+                val navController = rememberNavController()
                 val viewModel: RecipesViewModel = hiltViewModel()
-                            NavHost(navController = navController,
-                        startDestination = Screen.ProfileScreen.route
-                    ){
+                NavHost(
+                    navController = navController,
+                    startDestination = Screen.ProfileScreen.route
+                ) {
 
-                            composable(route = Screen.RecipeMenu.route) {
-                                RecipeMenu(navController)
-                            }
-                            composable(route = Screen.RecipeScreen.route) {
-                                RecipeScreen(navController = navController, viewModel)
-                            }
-                            composable(route = Screen.AboutScreen.route){
-                                AboutScreen(navController = navController, viewModel)
-                            }
-                                composable(route = Screen.IngredientScreen.route){
-                                    IngredientScreen(viewModel, navController)
-                                }
-                                composable(route = Screen.StepsScreen.route){
-                                    StepsScreen(viewModel, navController)
-                                }
-
-                            composable(route = Screen.ProfileScreen.route) {
-                                ProfileScreen(navController = navController)
-                            }
-
-                            // Health Screens
-                            composable(route = Screen.HealthInfoScreen.route) {
-                                HealthInfoScreen(navController = navController)
-                            }
-                            composable(route = Screen.HealthAdult.route) {
-                                HealthAdult(/*navController = navController*/)
-                            }
-
-                            composable(route = Screen.HealthBaby.route) {
-                                HealthBaby(/*navController = navController*/)
-                            }
-
-                            composable(route = Screen.HealthChildren.route) {
-                                HealthChildren(/*navController = navController*/)
-                            }
-                            composable(route = Screen.HealthPregnant.route) {
-                                HealthPregnant(/*navController = navController*/)
-                            }
-
+                    composable(route = Screen.RecipeMenu.route) {
+                        RecipeMenu(navController, viewModel)
                     }
+                    composable(route = Screen.RecipeScreen.route) {
+                        RecipeScreen(navController = navController, viewModel)
+                    }
+                    composable(route = Screen.FavoriteScreen.route) {
+                        viewModel.getFavorite()
+                        FavoriteScreen(navController = navController, viewModel = viewModel)
+                    }
+                    composable(route = Screen.AboutScreen.route) {
+                        AboutScreen(navController = navController, viewModel)
+                    }
+                    composable(route = Screen.IngredientScreen.route) {
+                        IngredientScreen(viewModel, navController)
+                    }
+                    composable(route = Screen.StepsScreen.route) {
+                        StepsScreen(viewModel, navController)
+                    }
+
+                    composable(route = Screen.ProfileScreen.route) {
+                        ProfileScreen(navController = navController)
+                    }
+
+                    // Health Screens
+                    composable(route = Screen.HealthInfoScreen.route) {
+                        HealthInfoScreen(navController = navController)
+                    }
+                    composable(route = Screen.HealthAdult.route) {
+                        HealthAdult(/*navController = navController*/)
+                    }
+
+                    composable(route = Screen.HealthBaby.route) {
+                        HealthBaby(/*navController = navController*/)
+                    }
+
+                    composable(route = Screen.HealthChildren.route) {
+                        HealthChildren(/*navController = navController*/)
+                    }
+                    composable(route = Screen.HealthPregnant.route) {
+                        HealthPregnant(/*navController = navController*/)
+                    }
+
                 }
             }
         }
     }
+}
 
 
 /*

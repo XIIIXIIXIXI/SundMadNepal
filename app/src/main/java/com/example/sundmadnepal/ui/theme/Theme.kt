@@ -8,8 +8,9 @@ import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primaryVariant = Black,
+    secondary = Teal200,
+    onSurface = DarkGray
 )
 
 private val LightColorPalette = lightColors(
@@ -18,8 +19,8 @@ private val LightColorPalette = lightColors(
     secondary = Teal200,
     background = White,
     //navBar
-    onBackground = OffWhite //for navBar
-
+    onSecondary = OffWhite, //for navBar
+    onSurface = SlightlyLessLightGray //for recipe Card
     /* Other default colors to override
     background = Color.White,
     surface = Color.White,

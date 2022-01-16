@@ -79,7 +79,10 @@ data class RecipeWithKeyIngredientsAndSteps(
     val steps: List<Steps>
 )
 
-
+data class Favorite(
+    val recipe: Recipe,
+    val number: Int
+)
 
 
 data class Recipe2(

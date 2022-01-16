@@ -103,7 +103,7 @@ fun MainPicture(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
                                         0.7f,
                                         Transparent
                                     ),
-                                    Pair(1f, White)
+                                    Pair(1f, MaterialTheme.colors.background)
                                 )
                             )
                         )
@@ -119,7 +119,8 @@ fun MainPicture(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
                     recipe.recipe.recipeName,
                     fontSize = 27.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(horizontal = 17.dp)
+                    modifier = Modifier.padding(horizontal = 17.dp),
+                    color = MaterialTheme.colors.onBackground
                 )
             }
         }
@@ -132,7 +133,7 @@ fun MainPicture(recipe: RecipeWithKeyIngredients, viewModel: RecipesViewModel) {
             .padding(horizontal = 17.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        FavoriteButton(ikon = Icons.Default.Star, viewModel.state.value.isFavorite) {
+        FavoriteButton(ikon = Icons.Default.Favorite, viewModel.state.value.isFavorite) {
             viewModel.updateFavorite(recipe.recipe.recipeName)
             viewModel.ChangeLocalFavorite(viewModel.state.value.isFavorite)
             //viewModel.getSpecificRecipe(viewModel.state.value.rememberRecipeNumber)
