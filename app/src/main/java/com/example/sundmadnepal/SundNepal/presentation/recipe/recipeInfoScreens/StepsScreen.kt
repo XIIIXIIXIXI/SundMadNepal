@@ -66,7 +66,7 @@ private fun StepDoneOutOf(viewModel: RecipesViewModel){
 
         ) {
             Text(
-                text = "$count ${stringResource(id = R.string.steps_out_of)} ${viewModel.state.value.completedStep.size} ${stringResource(id = R.string.steps_steps_done)}",
+                text = if (count == 0){" ✔ TAP TO COMPLETE STEP"}else{"$count ${stringResource(id = R.string.steps_out_of)} ${viewModel.state.value.completedStep.size} ${stringResource(id = R.string.steps_steps_done)}"},
                 color = White,
                 fontSize = 23.sp,
             )
