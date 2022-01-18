@@ -2,6 +2,7 @@ package com.example.sundmadnepal
 
 //import android.graphics.Color
 import android.text.Layout
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,9 +12,13 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.Cyan
 import androidx.compose.ui.graphics.Color.Companion.Red
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 
 
 import androidx.compose.ui.text.style.TextAlign
@@ -48,8 +53,9 @@ fun ProfileScreen(
 @Composable
 private fun GardenTips(navController : NavController){
     var infoOpened by remember{ mutableStateOf(0)}
-    val color1 = ButtonDefaults.buttonColors(backgroundColor = Color(193, 93, 223))
-    val color2 = ButtonDefaults.buttonColors(backgroundColor = Color.Black)
+    //val color1 = ButtonDefaults.buttonColors(backgroundColor = Color(193, 93, 223))
+    val color2 = ButtonDefaults.buttonColors(backgroundColor = Color.White)
+    val color1 = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray)
     LazyColumn (modifier = Modifier
         .background(MaterialTheme.colors.primaryVariant)
         .fillMaxWidth()
@@ -61,7 +67,7 @@ private fun GardenTips(navController : NavController){
                 modifier = Modifier
                     .size(410.dp, 53.dp)
                     .padding(5.dp)) {
-                Text(text = "How to make your own garden", fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = "How to make your own garden", color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             GardenInfo(infoOpened)
         }
@@ -72,7 +78,7 @@ private fun GardenTips(navController : NavController){
                     .size(410.dp, 53.dp)
                     .padding(5.dp)
             ) {
-                Text(text = "How to make the Compost:", fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = "How to make the Compost:", color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             CompostInfo(infoOpened)
         }
@@ -83,7 +89,7 @@ private fun GardenTips(navController : NavController){
                     .size(410.dp, 53.dp)
                     .padding(5.dp)
             ) {
-                Text(text = "How to make organic insecticides:", fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = "How to make organic insecticides:", color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             InsecticidesInfo(infoOpened)
         }
@@ -94,7 +100,7 @@ private fun GardenTips(navController : NavController){
                     .size(410.dp, 53.dp)
                     .padding(5.dp)
             ) {
-                Text(text = "Suggested Vegetables to grow:", fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = "Suggested Vegetables to grow:", color = Black, fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             ThingToGrowInfo(infoOpened)
         }
@@ -122,14 +128,52 @@ private fun GardenInfo(infoOpened : Int) {
                 text = "Making your own garden means you can have a healthy life without spending lots of money\n" +
                         "Even if you only have very little space you can still grow vegetables\n"
             )
-            Text(
-                text = "Preparing the Soil: \n" +
-                        "\n1. dig the soil to make it loose.\n" +
-                        "\n2. Prepare the soil: mix compost with soil add compost in soil and leave it for 8 to 10 days.\n" +
-                        "\n3. Moisturize the soil\n" +
-                        "\n4. Soil be prepared in 8 to 10 days\n" +
-                        "\n5. Then make a high land for the crops growing.\n"
-            )
+        Text(text = "Preparing the Soil:")
+        Image(
+            painterResource(R.drawable.garden1),
+            contentDescription = "Unprepared garden",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
+        )
+        Text(text = "1. dig the soil to make it loose.")
+        Image(
+            painterResource(R.drawable.gardencompost),
+            contentDescription = "Compost garden",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
+        )
+        Text(text = "2. Prepare the soil: mix compost with soil add compost in soil and leave it for 8 to 10 days.")
+        Image(
+            painterResource(R.drawable.gardenwater),
+            contentDescription = "Watering the garden",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
+        )
+        Text(text = "3. Moisturize the soil\n")
+        Text(text = "4. Soil be prepared in 8 to 10 days")
+        Image(
+            painterResource(R.drawable.gardenhighland1),
+            contentDescription = "High land garden",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
+        )
+        Text(text = "5. Then make a high land for the crops growing.\n")
+        Image(
+            painterResource(R.drawable.gardenhighland2),
+            contentDescription = "High land garden 2",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
+        )
 
     }
 }
@@ -137,16 +181,44 @@ private fun GardenInfo(infoOpened : Int) {
 private fun CompostInfo(infoOpened : Int) {
     if(infoOpened == 2) {
         //Text(text = "How to make the Compost:", fontSize = 25.sp)
-        Text(
-            text = "Compost size of 2m*2m(L*B)\n 1. to make compost we need Cow’s urine, leaves , bushes with leaves, ash and Cow dungl.\n" +
-                    "\t - make pit according to how much land you have.\n" +
-                    "\n" +
-                    "2. put layer by layer elements in the pit, firstly, put Bushes with leaves then cow dung, then Urine and ash. repeat until the pit is full.\n" +
-                    "\n" +
-                    "3. Put a stick that reach the bottom  of pit and cover it with Soil.\n" +
-                    "\n" +
-                    "4. Your compost Pit will be ready in 30 to 35 days.\n"
+        Text(text = "Compost size of 2m*2m(L*B)\n ")
+        Image(
+            painterResource(R.drawable.composta),
+            contentDescription = "Scaling land for compost",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
         )
+        Text(text = "1. to make compost we need Cow’s urine, leaves , bushes with leaves, ash and Cow dungl.\n" +
+                    "\t - make pit according to how much land you have.")
+        Image(
+            painterResource(R.drawable.compostb),
+            contentDescription = "Layering the compost",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
+        )
+        Text(text = "2. put layer by layer elements in the pit, firstly, put Bushes with leaves then cow dung, then Urine and ash. repeat until the pit is full.")
+        Image(
+            painterResource(R.drawable.compostc),
+            contentDescription = "",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
+        )
+        Text(text = "3. Put a stick that reach the bottom  of pit and cover it with Soil.")
+        Image(
+            painterResource(R.drawable.compostd),
+            contentDescription = "Covering with soil",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(10.dp)
+                .size(175.dp)
+        )
+        Text(text = "4. Your compost Pit will be ready in 30 to 35 days.\n")
     }
 }
 @Composable
@@ -173,7 +245,14 @@ private fun InsecticidesInfo(infoOpened : Int) {
 private fun ThingToGrowInfo(infoOpened : Int) {
     if(infoOpened == 4) {
         //Text(text = "Suggestions for what to grow in your garden:", fontSize = 25.sp)
-        Text(
+        Image(
+            painterResource(R.drawable.spinachfield),
+            contentDescription = "Spinachfield",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(200.dp)
+        )
+            Text(
             text = "Sarg: It is healthy and easy and grows all year around.\n" +
                     "\n" +
                     "Pumpkin: Rich in vitamin A\n" +
@@ -192,8 +271,7 @@ private fun ThingToGrowInfo(infoOpened : Int) {
                     "\n" +
                     "Cucumber : it is rich in Vitamin K\n" +
                     "\n" +
-                    "Eggplant : it is rich in minerals and fibers\n" + " hahahaha \n hahaha"
-
+                    "Eggplant : it is rich in minerals and fibers\n"
         )
     }
 }

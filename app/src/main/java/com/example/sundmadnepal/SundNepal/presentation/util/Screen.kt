@@ -11,7 +11,7 @@ sealed class Screen (val route: String){
     object FavoriteScreen: Screen ("favorite_screen")
 
 
-    object HealthInfoScreen: Screen("healthInfo_screen")
+    object HealthInfoScreen: Screen("HealthInfo_screen")
     object HealthAdult: Screen("healthAdult_screen")
     object HealthBaby: Screen("healthBaby_screen")
     object HealthChildren: Screen("healthChildren_screen")
