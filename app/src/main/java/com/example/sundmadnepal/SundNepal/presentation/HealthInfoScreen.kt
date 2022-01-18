@@ -31,7 +31,9 @@ import java.util.*
 
 @Composable
 fun HealthInfoScreen(navController: NavController){
-    Column() {
+    Column(modifier = Modifier
+        //.size(412.dp,600.dp)
+    ) {
         HealthScreenContent(navController)
         BottomNavigationBarHome(navController = navController)
     }
@@ -40,7 +42,9 @@ fun HealthInfoScreen(navController: NavController){
 @Composable
 private fun HealthScreenContent(navController: NavController){
 
-    Column(modifier = Modifier.height(693.dp).background(MaterialTheme.colors.primaryVariant)) {
+    Column(modifier = Modifier
+        .height(603.dp)
+        .background(MaterialTheme.colors.primaryVariant)) {
         Text(text = "Health Information",
             textAlign = TextAlign.Center,
             fontSize = 30.sp,

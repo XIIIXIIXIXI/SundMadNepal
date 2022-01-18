@@ -22,7 +22,6 @@ import com.example.sundmadnepal.ui.theme.green
 
 @Composable
 fun RecipeMenu(navController: NavController, viewModel: RecipesViewModel) {
-        BottomNavigationBarHome(navController = navController)
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -34,7 +33,7 @@ fun RecipeMenu(navController: NavController, viewModel: RecipesViewModel) {
                 modifier = Modifier
                     .background(MaterialTheme.colors.primaryVariant)
                     .fillMaxWidth()
-                    .height(633.dp),
+                    .height(545.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -70,6 +69,7 @@ fun RecipeMenu(navController: NavController, viewModel: RecipesViewModel) {
                     navController.navigate(Screen.FavoriteScreen.route)
                 }
             }
+            BottomNavigationBarHome(navController = navController)
         }
 }
 
