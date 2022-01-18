@@ -250,7 +250,9 @@ private fun ThingToGrowInfo(infoOpened : Int) {
             contentDescription = "Spinachfield",
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .size(200.dp)
+                .size(225.dp)
+                .scale(1.3f)
+                .offset(65.dp,40.dp)
         )
             Text(
             text = "Sarg: It is healthy and easy and grows all year around.\n" +
