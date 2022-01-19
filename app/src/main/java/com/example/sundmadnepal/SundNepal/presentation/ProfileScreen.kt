@@ -59,7 +59,7 @@ private fun GardenTips(navController : NavController){
     LazyColumn (modifier = Modifier
         .background(MaterialTheme.colors.primaryVariant)
         .fillMaxWidth()
-        .height(603.dp)
+        .fillMaxHeight(0.93f)
     ){
         item {
             Button(onClick = { infoOpened = if(infoOpened != 1) 1 else 0 }

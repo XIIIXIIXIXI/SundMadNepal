@@ -17,7 +17,6 @@ import androidx.navigation.NavController
 import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.presentation.Home.DefaultButton
 import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarHome
-import com.example.sundmadnepal.SundNepal.presentation.util.ImageCover
 import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 import com.example.sundmadnepal.ui.theme.Purple200
 import com.example.sundmadnepal.ui.theme.green
@@ -35,7 +34,7 @@ fun RecipeMenu(navController: NavController, viewModel: RecipesViewModel) {
                 modifier = Modifier
                     .background(MaterialTheme.colors.primaryVariant)
                     .fillMaxWidth()
-                    .height(543.dp),
+                    .fillMaxHeight(0.93f),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {

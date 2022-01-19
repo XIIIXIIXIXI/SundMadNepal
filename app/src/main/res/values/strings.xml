@@ -8,10 +8,14 @@
     <string name="ingredient_servings">Servings</string>
     <string name="navigate_home">Home</string>
     <string name="navigate_health_info">Health Info</string>
-    <string name="navigate_profile">Profile</string>
+    <string name="navigate_profile">Tips</string>
     <string name="navigate_about">About</string>
     <string name="navigate_ingredients">Ingredients</string>
     <string name="navigate_steps">Steps</string>
     <string name="steps_out_of">out of</string>
     <string name="steps_steps_done">steps done</string>
+    <string name="recipe_showing">Showing</string>
+    <string name="recipe_recipes">recipes</string>
+    <string name="recipe_about_KeyIngredients">Key Ingredients</string>
+    <string name="recipe_steps_tapToCompleteStep">✔ TAP TO COMPLETE STEP</string>
 </resources>

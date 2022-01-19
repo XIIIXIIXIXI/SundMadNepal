@@ -18,11 +18,13 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.sundmadnepal.R
 import com.example.sundmadnepal.SundNepal.data.Cake
 import com.example.sundmadnepal.SundNepal.data.Recipe
 import com.example.sundmadnepal.SundNepal.presentation.recipe.RecipeState
@@ -132,17 +134,12 @@ private fun MainCard(
                     modifier = Modifier.size(130.dp)
                 )
                 Icon(imageVector = Icons.Default.Favorite, contentDescription = null, tint = Color.Red, modifier = Modifier.size(35.dp))
+
             }
-
             Spacer(modifier = Modifier.width(19.dp))
-            Text(text = title, modifier = Modifier
-                .fillMaxWidth()
-                .padding(end = 11.dp), fontSize = 19.sp)
+            Text(text = title, modifier = Modifier.fillMaxWidth().padding(end = 11.dp), fontSize = 19.sp, color = MaterialTheme.colors.onBackground)
+
         }
-
-
-
-
     }
 }
 
@@ -153,7 +150,7 @@ private fun TopCBar(recipes: Int) {
         contentPadding = PaddingValues(start = 19.dp),
     ) {
         Text(
-            text = "Showing $recipes recipes",
+            text = "${stringResource(id = R.string.recipe_showing)} $recipes ${stringResource(id = R.string.recipe_recipes)}",
             fontSize = 23.sp,
             color = Color.White
         )

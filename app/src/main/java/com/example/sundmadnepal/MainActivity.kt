@@ -43,7 +43,6 @@ class MainActivity : ComponentActivity() {
                     navController = navController,
                     startDestination = Screen.ProfileScreen.route
                 ) {
-
                     composable(route = Screen.RecipeMenu.route) {
                         RecipeMenu(navController, viewModel)
                     }

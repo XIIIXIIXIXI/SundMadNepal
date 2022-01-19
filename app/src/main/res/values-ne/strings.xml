@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="recipe_menu_title">Healthy Food Nepal</string>
-    <string name="recipe_menu_see_recipes">See Recipes</string>
-    <string name="recipe_menu_add_recipe">Add Recipe</string>
-    <string name="recipe_menu_my_recipes">My Recipes</string>
-    <string name="recipe_menu_favorite_recipes">Favorite Recipes</string>
+    <string name="app_name">SundMadNepal</string>
+    <string name="recipe_menu_title">नेपालमा स्वस्थ खाना</string>
+    <string name="recipe_menu_see_recipes">नुख्खाहरु हेर्नुहोस्</string>
+    <string name="recipe_menu_add_recipe">नुख्खाहरु थप्नुहोस्</string>
+    <string name="recipe_menu_my_recipes">मेरो नुख्खाहरु</string>
+    <string name="recipe_menu_favorite_recipes">मनपर्ने नुख्खाहरु</string>
+    <string name="ingredient_servings">सेवाहरू</string>
+    <string name="navigate_home">घर</string>
+    <string name="navigate_health_info">स्वास्थ्य जानकारी</string>
+    <string name="navigate_profile">सुझावहरू</string>
+    <string name="navigate_about">बारे</string>
+    <string name="navigate_ingredients">सामाग्री</string>
+    <string name="navigate_steps">चरणहरू</string>
+    <string name="steps_out_of">बाहिर</string>
+    <string name="steps_steps_done">कदमहरू गरियो</string>
+    <string name="recipe_showing">देखाउँदै</string>
+    <string name="recipe_recipes">व्यञ्जनहरु</string>
+    <string name="recipe_about_KeyIngredients">मुख्य सामाग्री</string>
+    <string name="recipe_steps_tapToCompleteStep">✔ चरण पूरा गर्न ट्याप गर्नुहोस्</string>
 </resources>

@@ -9,10 +9,12 @@ import com.example.sundmadnepal.SundNepal.data.*
  * take the information and display it.
  */
 data class RecipeState(
+    //Main parent viewStates
     val recipes: List<Recipe> = emptyList(),
     val recipeswithKey: List<RecipeWithKeyIngredientsAndSteps> = emptyList(),
 
 
+    //Used for faster calls for specific items in a recipe.
     val fillerRecipe: Recipe = Recipe("","","","","","", 0),
     val fillerKeyIngredients: List<KeyIngredient> = emptyList(),
     val fillerSteps: List<Steps> = emptyList(),
@@ -27,7 +29,4 @@ data class RecipeState(
     val recompose: Int = 17,
     val rememberRecipeNumber: Int = 0,
     val isFavorite: Int = 0
-
-
-
     )

@@ -58,8 +58,6 @@ data class RecipeWithKeyIngredients(
     val keyIngrediens: List<KeyIngredient>
 )
 
-
-
 @Entity
 data class Steps(
     @PrimaryKey(autoGenerate = true)

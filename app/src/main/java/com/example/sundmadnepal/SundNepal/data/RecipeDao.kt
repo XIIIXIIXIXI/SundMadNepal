@@ -15,15 +15,11 @@ interface RecipeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRecipe(recipe: Recipe)
 
-
     @Query("SELECT * FROM recipe")
     fun getRecipes(): Flow<List<Recipe>>
 
     @Query("Select * FROM recipe WHERE recipeName = :recipeName")
     suspend fun getRecipeByName(recipeName: String): Recipe?
-/*
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertKeyIngredients(keyIngredients: KeyIngredients)*/
 
     @Transaction
     @Query("SELECT * FROM recipe")

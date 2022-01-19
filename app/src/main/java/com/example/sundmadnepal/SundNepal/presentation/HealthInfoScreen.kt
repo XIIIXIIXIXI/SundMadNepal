@@ -43,7 +43,8 @@ fun HealthInfoScreen(navController: NavController){
 private fun HealthScreenContent(navController: NavController){
 
     Column(modifier = Modifier
-        .height(603.dp)
+        .fillMaxWidth()
+        .fillMaxHeight(0.93f)
         .background(MaterialTheme.colors.primaryVariant)) {
         Text(text = "Health Information",
             textAlign = TextAlign.Center,

@@ -21,6 +21,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -114,8 +115,7 @@ private fun TopCBar(recipes: Int) {
         contentPadding = PaddingValues(start = 19.dp),
     ) {
         Text(
-            text = "Showing $recipes recipes",
-            fontSize = 23.sp,
+            text = "${stringResource(id = R.string.recipe_showing)} $recipes ${stringResource(id = R.string.recipe_recipes)}",
             color = Color.White
         )
     }

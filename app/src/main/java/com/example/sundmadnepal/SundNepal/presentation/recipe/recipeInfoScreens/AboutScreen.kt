@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.font.FontWeight.Companion.Medium
@@ -231,7 +232,7 @@ private fun KeyIngrediensHeader() {
         horizontalArrangement = Arrangement.Center
     ) {
         Text(
-            "Key Ingredients", color = MaterialTheme.colors.onBackground,
+            stringResource(id = R.string.recipe_about_KeyIngredients), color = MaterialTheme.colors.onBackground,
             fontSize = 30.sp,
             fontWeight = Bold,
             modifier = Modifier

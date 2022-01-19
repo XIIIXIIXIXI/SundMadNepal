@@ -23,6 +23,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.sundmadnepal.R
 
+/**
+ * inspiration from here https://developer.android.com/jetpack/compose/navigation#bottom-nav
+ */
+
 @Composable
 fun BottomNavigationBar(
     items: List<BottomNavItem>,
