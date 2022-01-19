@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,7 +28,7 @@ import com.example.sundmadnepal.SundNepal.presentation.util.BottomNavigationBarH
 @Composable
 fun HealthAdult(/*navController: NavController*/) {
     Column(modifier = Modifier.padding(10.dp,0.dp)) {
-        Text(text = "Health information for adults",textAlign = TextAlign.Center,
+        Text(text = stringResource(id = R.string.healthadult_title),textAlign = TextAlign.Center,
             fontSize = 30.sp, color = MaterialTheme.colors.onBackground)
         LazyColumn {
             item { 
@@ -55,8 +56,7 @@ fun GeneralInfo(){
             Modifier.size(170.dp,170.dp)
         )
     }
-    Text(text = "To ensure a healthy and nutritional diet, Your meals throughout the day should resemble the picture with the checkmark above.\n " +
-            "Eat at least four types of food every day (including grains and legumes, nuts, vegetables and livestock sources (milk, eggs, fish, meat).", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.generalinfo1), color = MaterialTheme.colors.onBackground)
 
     Row(
         modifier = Modifier.padding(75.dp,0.dp,0.dp,0.dp)
@@ -77,8 +77,7 @@ fun GeneralInfo(){
                 .padding(10.dp)
         )
     }
-    Text(text = "Care should be taken to clean hands, nails and body. " +
-                "\nWash hands thoroughly with soap and water after using the toilet and before eating.", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.generalinfo2), color = MaterialTheme.colors.onBackground)
 
 
 }
@@ -89,13 +88,8 @@ private fun FemaleInfo(){
         contentDescription = "Woman",
         Modifier.size(120.dp)
     )
-    Text(text = "Females:",fontSize = 20.sp, color = MaterialTheme.colors.onBackground)
-
-    Text(text = "Females differ to the males in that the amount of calories required on a daily basis is lower than their male counterparts. Please follow the amount described below for optimal health-benefits:", color = MaterialTheme.colors.onBackground)
-    Text(text = "19–30 years ~ 2,000–2,400 calories", color = MaterialTheme.colors.onBackground)
-    Text(text = "31–59 years ~ 1,800–2,200 calories", color = MaterialTheme.colors.onBackground)
-    Text(text = "60+ years ~ 1,600–2,000 calories", color = MaterialTheme.colors.onBackground)
-    Text(text = "Furthermore females should keep prioritize foods which contain Vitamin A and Iron", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthadult_female_title),fontSize = 20.sp, color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthadult_female_calories), color = MaterialTheme.colors.onBackground)
     Image(painter = painterResource(id = R.drawable.vitamina),
         contentDescription = "vitaminA",
         Modifier
@@ -103,10 +97,7 @@ private fun FemaleInfo(){
             .height(200.dp)
 
     )
-    Text(text = "Vitamin A dense foods:\n Green Vegetables: Spinach, Chamsur, Radish Leaf, Beet Munta, Zucchini, Latte, Bethe, Poi Greens etc.\n" +
-            "Fruits and vegetables: ripe mangoes, nuts, carrots, ripe peas, haluwaved etc.\n" +
-            "From the forest and around the water: Neuro, Stinging nettle, Aldo, Simrayo Jaluko etc.\n" +
-            "Animal food: liver, eggs, small fish, milk etc.\n", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthadult_female_vitamina), color = MaterialTheme.colors.onBackground)
     Image(painter = painterResource(id = R.drawable.iron),
         contentDescription = "iron",
         Modifier
@@ -115,15 +106,7 @@ private fun FemaleInfo(){
             .scale(1.4f, 1f)
     )
     // https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.yummytoddlerfood.com%2Firon-rich-foods-for-kids%2F&psig=AOvVaw2GOByfgq1wFEqewaBniNY8&ust=1641550741008000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKDi7pjznPUCFQAAAAAdAAAAABAD
-    Text(text = "Iron dense foods include:\n" +
-            "Green vegetables, " +
-            "Beans (found more in sprouts), " +
-            "Gundruk, " +
-            "Kodo, " +
-            "Beaten rice, " +
-            "Cauliflower leaves " +
-            "Bananas, Meat, Eggs, Fish.\n" +
-            "As well as Food cooked in an iron pot"
+    Text(text = stringResource(id = R.string.healthadult_female_iron)
         , color = MaterialTheme.colors.onBackground)
 }
 
@@ -134,15 +117,8 @@ private fun MaleInfo(){
         contentDescription = "man",
         Modifier.size(120.dp)
     )
-    Text(text = "Males:",fontSize = 20.sp, color = MaterialTheme.colors.onBackground)
-    Text(text = "19–30 years ~ 2,400–3,000 calories", color = MaterialTheme.colors.onBackground)
-    Text(text = "31–59 years ~ 2,200–3,000 calories", color = MaterialTheme.colors.onBackground)
-    Text(text = "60+ years ~ 2,000–2,600 calories\n", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthadult_male_title),fontSize = 20.sp, color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthadult_male_calories), color = MaterialTheme.colors.onBackground)
 
-    Text(text = "Furthermore it's common for the average male to be these essential elements:", color = MaterialTheme.colors.onBackground)
-    Text("Vitamin D, Magnesium, Vitamin B12 and Potassium\n", color = MaterialTheme.colors.onBackground)
-    Text("Vitamin D reduces inflammation and strengthens the skeleton, the vitamin is produced when spending time in the sun but can be supplemented by adding oily fish, meats, eggs and dairy to your diet.\n", color = MaterialTheme.colors.onBackground)
-    Text(text = "Magnesium is another common element is which many males are lacking. Low levels of magnesium may increase your risk of heart disease, magnesium dense foods include: spinach, nuts, seeds and whole grains\n", color = MaterialTheme.colors.onBackground)
-    Text(text = "Vitamin B12 is used for DNA synthesis, energy production, and nerve function. Food sources dense in B12 include: Meats, Fish and dairy products\n", color = MaterialTheme.colors.onBackground)
-    Text(text = "Potassium benefits nerve function and muscle contraction, Potassium rich foods include: Vegetables, milk, yogurt, beans, nuts and fish such as: Tuna, Halibut, Cod and Trout", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthadult_male_info), color = MaterialTheme.colors.onBackground)
 }

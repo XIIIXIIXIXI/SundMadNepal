@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -26,7 +27,7 @@ import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 @Composable
 fun HealthChildren(/*navController: NavController*/) {
     Column(modifier = Modifier.padding(10.dp,0.dp)) {
-        Text(text = "Health information for Children",textAlign = TextAlign.Center,
+        Text(text = stringResource(id = R.string.healthchildren_title),textAlign = TextAlign.Center,
             fontSize = 30.sp, color = MaterialTheme.colors.onBackground)
         LazyColumn {
             item {
@@ -41,44 +42,44 @@ fun HealthChildren(/*navController: NavController*/) {
 }
 @Composable
 private fun ChildrenInfo() {
-    Text(text = "Children", fontSize = 25.sp, color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthchildren_title2), fontSize = 25.sp, color = MaterialTheme.colors.onBackground)
     Row() {
         Column() {
-            Text(text = "Age in years", color = MaterialTheme.colors.onBackground)
-            Text(text = "4-8", color = MaterialTheme.colors.onBackground)
-            Text(text = "9-13", color = MaterialTheme.colors.onBackground)
-            Text(text = "14-18", color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_age), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_age1), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_age2), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_age3), color = MaterialTheme.colors.onBackground)
         }
         Column(modifier = Modifier.padding(30.dp,0.dp,0.dp,0.dp)) {
-            Text(text = "Male KCAL", color = MaterialTheme.colors.onBackground)
-            Text(text = "1400-1600", color = MaterialTheme.colors.onBackground)
-            Text(text = "1800-2200", color = MaterialTheme.colors.onBackground)
-            Text(text = "2400-2800", color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_male_kcal), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_male_kcal1), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_male_kcal2), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_male_kcal3), color = MaterialTheme.colors.onBackground)
         }
         Column(modifier = Modifier.padding(40.dp,0.dp,0.dp,0.dp)) {
-            Text(text = "Female KCAL", color = MaterialTheme.colors.onBackground)
-            Text(text = "1400-1600", color = MaterialTheme.colors.onBackground)
-            Text(text = "1600-2000", color = MaterialTheme.colors.onBackground)
-            Text(text = "2000", color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_female_kcal), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_female_kcal1), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_female_kcal2), color = MaterialTheme.colors.onBackground)
+            Text(text = stringResource(id = R.string.healthchildren_female_kcal3), color = MaterialTheme.colors.onBackground)
         }
     }
-    Text(text = "\n Furthermore children's diet should include foods which contain Calcium and Fiber", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthchildren_info), color = MaterialTheme.colors.onBackground)
     Row(Modifier.padding(75.dp,0.dp,0.dp,0.dp)) {
         Image(painter = painterResource(id = R.drawable.cleanwaterbig),
             contentDescription = "Clean water",
             Modifier.size(200.dp,200.dp)
         )
     }
-    Text(text = "Another commonly neglected part of a childs diet is ensuring proper hydration, proper hydration improves cognitive function", color = MaterialTheme.colors.onBackground)
-    Text(text = "\n Calcium plays a big part in developing strong, health bones and teeth. Calcium dense foods include: Milk, soy-milk, sardines, cereals  and oatmeal", color = MaterialTheme.colors.onBackground)
-    Text(text = "\n Fiber is key to prevent prevent heart disease and other conditions, it also helps digestion and prevents constipation", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthchildren_info1), color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthchildren_info2), color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthchildren_info3), color = MaterialTheme.colors.onBackground)
     Row(Modifier.padding(75.dp,0.dp,0.dp,0.dp)) {
         Image(painter = painterResource(id = R.drawable.nosnacks),
             contentDescription = "No snacks",
             Modifier.size(200.dp,200.dp)
         )
     }
-    Text(text = "Limiting snacks is a great way to ensure stable blood sugar ", color = MaterialTheme.colors.onBackground)
+    Text(text = stringResource(id = R.string.healthchildren_info4), color = MaterialTheme.colors.onBackground)
 }
 
 

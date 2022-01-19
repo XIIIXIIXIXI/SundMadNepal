@@ -59,7 +59,7 @@ private fun GardenTips(navController : NavController){
                 modifier = Modifier
                     .size(410.dp, 53.dp)
                     .padding(5.dp)) {
-                Text(text = stringResource(id = R.string.how_to_garden), color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = stringResource(id = R.string.profile_how_to_garden), color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             GardenInfo(infoOpened)
         }
@@ -71,7 +71,7 @@ private fun GardenTips(navController : NavController){
                     .size(410.dp, 53.dp)
                     .padding(5.dp)
             ) {
-                Text(text = "How to make the Compost:", color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = stringResource(id = R.string.profile_how_to_compost), color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             CompostInfo(infoOpened)
         }
@@ -82,7 +82,7 @@ private fun GardenTips(navController : NavController){
                     .size(410.dp, 53.dp)
                     .padding(5.dp)
             ) {
-                Text(text = "How to make organic insecticides:", color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = stringResource(id = R.string.profile_how_to_make_insecticides), color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             InsecticidesInfo(infoOpened)
         }
@@ -93,7 +93,7 @@ private fun GardenTips(navController : NavController){
                     .size(410.dp, 53.dp)
                     .padding(5.dp)
             ) {
-                Text(text = "Suggested Vegetables to grow:", color = Black, fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = stringResource(id = R.string.profile_suggested_vegetables), color = Black, fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             ThingToGrowInfo(infoOpened)
         }
@@ -117,10 +117,9 @@ private fun PopUpButton(infoOpened: Int, text: String){
 private fun GardenInfo(infoOpened : Int) {
     if(infoOpened == 1) {
             //Text(text = "How to make your own garden", fontSize = 25.sp)
-            Text(text = "Making your own garden means you can have a healthy life without spending lots of money\n" +
-                        "Even if you only have very little space you can still grow vegetables\n"
+                Text(text = stringResource(id = R.string.profile_how_to_garden_info)
                 , color = MaterialTheme.colors.onBackground)
-        Text(text = "Preparing the Soil:", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_garden_prep), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.garden1),
             contentDescription = "Unprepared garden",
@@ -129,7 +128,7 @@ private fun GardenInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "1. dig the soil to make it loose.", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_garden1), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.gardencompost),
             contentDescription = "Compost garden",
@@ -138,7 +137,7 @@ private fun GardenInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "2. Prepare the soil: mix compost with soil add compost in soil and leave it for 8 to 10 days.", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_garden2), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.gardenwater),
             contentDescription = "Watering the garden",
@@ -147,8 +146,8 @@ private fun GardenInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "3. Moisturize the soil\n", color = MaterialTheme.colors.onBackground)
-        Text(text = "4. Soil be prepared in 8 to 10 days", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_garden3), color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_garden4), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.gardenhighland1),
             contentDescription = "High land garden",
@@ -157,7 +156,7 @@ private fun GardenInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "5. Then make a high land for the crops growing.\n", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_garden5), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.gardenhighland2),
             contentDescription = "High land garden 2",
@@ -173,7 +172,7 @@ private fun GardenInfo(infoOpened : Int) {
 private fun CompostInfo(infoOpened : Int) {
     if(infoOpened == 2) {
         //Text(text = "How to make the Compost:", fontSize = 25.sp)
-        Text(text = "Compost size of 2m*2m(L*B)\n ", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_compost_size), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.composta),
             contentDescription = "Scaling land for compost",
@@ -182,8 +181,7 @@ private fun CompostInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "1. to make compost we need Cow’s urine, leaves , bushes with leaves, ash and Cow dungl.\n" +
-                    "\t - make pit according to how much land you have.", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_compost1), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.compostb),
             contentDescription = "Layering the compost",
@@ -192,7 +190,7 @@ private fun CompostInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "2. put layer by layer elements in the pit, firstly, put Bushes with leaves then cow dung, then Urine and ash. repeat until the pit is full.", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_compost2), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.compostc),
             contentDescription = "",
@@ -201,7 +199,7 @@ private fun CompostInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "3. Put a stick that reach the bottom  of pit and cover it with Soil." , color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_compost3), color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.compostd),
             contentDescription = "Covering with soil",
@@ -210,7 +208,7 @@ private fun CompostInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "4. Your compost Pit will be ready in 30 to 35 days.\n", color = MaterialTheme.colors.onBackground)
+        Text(text = stringResource(id = R.string.profile_how_to_compost4), color = MaterialTheme.colors.onBackground)
     }
 }
 @Composable
@@ -218,17 +216,7 @@ private fun InsecticidesInfo(infoOpened : Int) {
     if(infoOpened == 3) {
         //Text(text = "How to make organic insecticides:", fontSize = 25.sp)
         Text(
-            text = "First make it in 50 liter drum\n" +
-                    "It will be useful for all season vegetables  and use it by mixing 7 liter of water in 1 liter organic insecticides\n"
-                    + "\ncollect Sweet , bitter , spicy , sour which have this taste. \n" +
-                    "Like : Garlic , onion , Chilli , bones, Salt.\n" +
-                    "\nWhat amount you need according to that you can make it. Like if you need 10 liter then you can add half gram of ingredients with Cow’s urine. \n" +
-                    "\n" +
-                    "Put all of ingredients in drum and cover it.\n" +
-                    "\n" +
-                    "After 4 to 5 days open the drum and move the liquid  with a stick.\n" +
-                    "\n" +
-                    "your Organic Insecticides will be ready to use in 25 to 30 days.\n"
+            text = stringResource(id = R.string.profile_how_to_make_insecticides_steps)
             , color = MaterialTheme.colors.onBackground)
     }
 }
@@ -246,25 +234,7 @@ private fun ThingToGrowInfo(infoOpened : Int) {
                 .offset(75.dp,20.dp)
         )
             Text(
-            text = "Sarg: It is healthy and easy and grows all year around.\n" +
-                    "\n" +
-                    "Pumpkin: Rich in vitamin A\n" +
-                    "\n" +
-                    "Onion: Needed for most foods. Needs frequent watering.\n" +
-                    "\n" +
-                    "Cauliflower : it helps in Heart disease. It has Choline and Sulforaphane.\n" +
-                    "\n" +
-                    "Cabbage : It is rich in Vitamin K.\n" +
-                    "\n" +
-                    "Bitter gourd : It helps in lowering blood pressure.\n" +
-                    "\n" +
-                    "Tomato : it is rich in Vitamin A and C\n" +
-                    "\n" +
-                    "Carrot : It is rich in Vitamin A\n" +
-                    "\n" +
-                    "Cucumber : it is rich in Vitamin K\n" +
-                    "\n" +
-                    "Eggplant : it is rich in minerals and fibers\n"
+            text = stringResource(id = R.string.profile_suggested_vegetables1)
                 , color = MaterialTheme.colors.onBackground)
     }
 }

@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -52,12 +53,12 @@ private fun HealthScreenContent(navController: NavController){
             modifier = Modifier.width(400.dp)
         )
     Row(verticalAlignment = Alignment.CenterVertically) {
-        buttonImage(navController,"healthAdult_screen", "Adult",R.drawable.adult)
-        buttonImage(navController,"healthPregnant_screen", "While Pregnant",R.drawable.pregnant)
+        buttonImage(navController,"healthAdult_screen", stringResource(id = R.string.healthinfoscreen_adult),R.drawable.adult)
+        buttonImage(navController,"healthPregnant_screen", stringResource(id = R.string.healthinfoscreen_pregnant),R.drawable.pregnant)
     }
         Row(verticalAlignment = Alignment.CenterVertically) {
-            buttonImage(navController,"healthBaby_screen", "Baby",R.drawable.baby)
-            buttonImage(navController,"healthChildren_screen", "Children",R.drawable.children)
+            buttonImage(navController,"healthBaby_screen", stringResource(id = R.string.healthinfoscreen_baby),R.drawable.baby)
+            buttonImage(navController,"healthChildren_screen", stringResource(id = R.string.healthinfoscreen_children),R.drawable.children)
         }
     }
 

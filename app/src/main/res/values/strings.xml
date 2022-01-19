@@ -18,5 +18,196 @@
     <string name="recipe_recipes">recipes</string>
     <string name="recipe_about_KeyIngredients">Key Ingredients</string>
     <string name="recipe_steps_tapToCompleteStep">✔ TAP TO COMPLETE STEP</string>
-    <string name="how_to_garden">How to make your own garden</string>
+
+    <!--Profile-->
+    <string name="profile_how_to_garden">How to make your own garden:</string>
+    <string name="profile_how_to_compost">How to make the Compost:</string>
+    <string name="profile_how_to_make_insecticides">How to make organic insecticides:</string>
+    <string name="profile_suggested_vegetables">Suggested Vegetables to grow:</string>
+
+
+    <string name="profile_how_to_garden_info">Making your own garden means you can have a healthy life without spending lots of money\n Even if you only have very little space you can still grow vegetables\n</string>
+    <string name="profile_how_to_garden_prep">Preparing the Soil:</string>
+    <string name="profile_how_to_garden1">1. dig the soil to make it loose.</string>
+    <string name="profile_how_to_garden2">2. Prepare the soil: mix compost with soil add compost in soil and leave it for 8 to 10 days.</string>
+    <string name="profile_how_to_garden3">3. Moisturize the soil</string>
+    <string name="profile_how_to_garden4">4. Soil be prepared in 8 to 10 days</string>
+    <string name="profile_how_to_garden5">5. Then make a high land for the crops growing.</string>
+
+    <string name="profile_how_to_compost_size">Compost size of 2m*2m(L*B)</string>
+    <string name="profile_how_to_compost1">1. to make compost we need Cow’s urine, leaves , bushes with leaves, ash and Cow dungl.\n \t - make pit according to how much land you have.</string>
+    <string name="profile_how_to_compost2">2. put layer by layer elements in the pit, firstly, put Bushes with leaves then cow dung, then Urine and ash. repeat until the pit is full.</string>
+    <string name="profile_how_to_compost3">3. Put a stick that reach the bottom  of pit and cover it with Soil.</string>
+    <string name="profile_how_to_compost4">4. Your compost Pit will be ready in 30 to 35 days.</string>
+
+    <string name="profile_how_to_make_insecticides_steps">First make it in 50 liter drum\n
+                    It will be useful for all season vegetables  and use it by mixing 7 liter of water in 1 liter organic insecticides\n
+                    \n collect Sweet , bitter , spicy , sour which have this taste. \n
+                    Like : Garlic , onion , Chilli , bones, Salt.\n
+                    \nWhat amount you need according to that you can make it. Like if you need 10 liter then you can add half gram of ingredients with Cow’s urine. \n
+                    \n Put all of ingredients in drum and cover it.\n
+                    \n
+                    After 4 to 5 days open the drum and move the liquid  with a stick.\n
+                    \n
+                    your Organic Insecticides will be ready to use in 25 to 30 days.\n</string>
+
+    <string name="profile_suggested_vegetables1">Sarg: It is healthy and easy and grows all year around.\n
+                    \n
+                    Pumpkin: Rich in vitamin A\n
+                    \n
+                    Onion: Needed for most foods. Needs frequent watering.\n
+                    \n
+                    Cauliflower : it helps in Heart disease. It has Choline and Sulforaphane.\n
+                    \n
+                    Cabbage : It is rich in Vitamin K.\n
+                    \n
+                    Bitter gourd : It helps in lowering blood pressure.\n
+                    \n
+                    Tomato : it is rich in Vitamin A and C\n
+                    \n
+                    Carrot : It is rich in Vitamin A\n
+                    \n
+                    Cucumber : it is rich in Vitamin K\n
+                    \n
+                    Eggplant : it is rich in minerals and fibers\n</string>
+
+    <!--GENERALINFO-->
+    <string name="generalinfo1">To ensure a healthy and nutritional diet, Your meals throughout the day should resemble the picture with the checkmark above.\n
+            Eat at least four types of food every day (including grains and legumes, nuts, vegetables and livestock sources (milk, eggs, fish, meat).</string>
+    <string name="generalinfo2">Care should be taken to clean hands, nails and body.
+                \nWash hands thoroughly with soap and water after using the toilet and before eating.</string>
+
+
+    <!--HEALTHADULT-->
+    <string name="healthadult_title">Health information for adults</string>
+    <string name="healthadult_female_title">Females:</string>
+    <string name="healthadult_female_calories">Females differ to the males in that the amount of calories required on a daily basis is lower than their male counterparts. Please follow the amount described below for optimal health-benefits:
+    \n19–30 years ~ 2,000–2,400 calories
+    \n31–59 years ~ 1,800–2,200 calories
+    \n60+ years ~ 1,600–2,000 calories
+    \nFurthermore females should keep prioritize foods which contain Vitamin A and Iron</string>
+    <string name="healthadult_female_vitamina">Vitamin A dense foods:\nGreen Vegetables: Spinach, Chamsur, Radish Leaf, Beet Munta, Zucchini, Latte, Bethe, Poi Greens etc.\n
+        Fruits and vegetables: ripe mangoes, nuts, carrots, ripe peas, haluwaved etc.\n
+        From the forest and around the water: Neuro, Stinging nettle, Aldo, Simrayo Jaluko etc.\n
+        Animal food: liver, eggs, small fish, milk etc.\n</string>
+    <string name="healthadult_female_iron">Iron dense foods include:\n
+        Green vegetables,
+        Beans (found more in sprouts),
+        Gundruk,
+        Kodo,
+        Beaten rice,
+        Cauliflower leaves
+        Bananas, Meat, Eggs, Fish.\n
+        As well as Food cooked in an iron pot</string>
+
+    <string name="healthadult_male_title">Males:</string>
+    <string name="healthadult_male_calories">19–30 years ~ 2,400–3,000 calories
+    \n31–59 years ~ 2,200–3,000 calories
+    \n60+ years ~ 2,000–2,600 calories\n</string>
+    <string name="healthadult_male_info">Furthermore its common for the average male to be these essential elements:
+    \nVitamin D, Magnesium, Vitamin B12 and Potassium\n
+    \nVitamin D reduces inflammation and strengthens the skeleton, the vitamin is produced when spending time in the sun but can be supplemented by adding oily fish, meats, eggs and dairy to your diet.\n
+    \nMagnesium is another common element is which many males are lacking. Low levels of magnesium may increase your risk of heart disease, magnesium dense foods include: spinach, nuts, seeds and whole grains\n
+    \nVitamin B12 is used for DNA synthesis, energy production, and nerve function. Food sources dense in B12 include: Meats, Fish and dairy products\n
+    \nPotassium benefits nerve function and muscle contraction, Potassium rich foods include: Vegetables, milk, yogurt, beans, nuts and fish such as: Tuna, Halibut, Cod and Trout</string>
+
+    <!--HEALTHPREGNANT-->
+    <string name="healthpregnant_title">Health information for Pregnant Women</string>
+    <string name="healthpregnant_title2">Pregnancy</string>
+    <string name="healthpregnant_meal">Pregnant women should eat one more balanced meal than usual. </string>
+    <string name="healthpregnant_health">Regular health check-ups should be done at least 4 times (4, 6, 8, 9 months) and TT vaccination should be done.</string>
+    <string name="healthpregnant_health2">After 3 months of pregnancy: go to the health facility and take anti-parasitic medicine.</string>
+    <string name="healthpregnant_iron">From the first 3 months of pregnancy to the 45th day after childbirth: one tablet of iron should be taken once.</string>
+    <string name="healthpregnant_rest">Get enough rest. You should not work very hard, you should not lift heavy weights and you should rest in between work.</string>
+
+
+    <!--HEALTHCHILDREN-->
+    <string name="healthchildren_title">Health information for Children:</string>
+    <string name="healthchildren_title2">Children</string>
+
+    <string name="healthchildren_age">Age in years</string>
+    <string name="healthchildren_age1">4\-8</string>
+    <string name="healthchildren_age2">9\-13</string>
+    <string name="healthchildren_age3">14\-18</string>
+
+    <string name="healthchildren_male_kcal">Male KCAL</string>
+    <string name="healthchildren_male_kcal1">1400\-1600</string>
+    <string name="healthchildren_male_kcal2">1800\-2200</string>
+    <string name="healthchildren_male_kcal3">2400\-2800</string>
+
+    <string name="healthchildren_female_kcal">Female KCAL</string>
+    <string name="healthchildren_female_kcal1">1400\-1600</string>
+    <string name="healthchildren_female_kcal2">1600\-2000</string>
+    <string name="healthchildren_female_kcal3">2000</string>
+
+    <string name="healthchildren_info"> Furthermore children\'s diet should include foods which contain Calcium and Fiber</string>
+    <string name="healthchildren_info1">\nAnother commonly neglected part of a childs diet is ensuring proper hydration, proper hydration improves cognitive function</string>
+    <string name="healthchildren_info2">\n Calcium plays a big part in developing strong, health bones and teeth. Calcium dense foods include: Milk, soy-milk, sardines, cereals  and oatmeal</string>
+    <string name="healthchildren_info3">\n Fiber is key to prevent heart disease and other conditions, it also helps digestion and prevents constipation</string>
+    <string name="healthchildren_info4">Limiting snacks is a great way to ensure stable blood sugar</string>
+
+    <!--HEALTHBABY-->
+    <string name="healthbaby_title">Health information for babies</string>
+
+    <string name="healthbaby_nationalimmunization">National immunization schedule</string>
+    <string name="healthbaby_vaccine">Vaccine</string>
+    <string name="healthbaby_vaccine1">1. BCG</string>
+    <string name="healthbaby_vaccine2">2. DPT Hepatitis B HemoPhilos</string>
+    <string name="healthbaby_vaccine3">3. OPV (Oral polio Vaccine)</string>
+    <string name="healthbaby_vaccine4">4. PCV</string>
+    <string name="healthbaby_vaccine5">5. Rota Virus</string>
+    <string name="healthbaby_vaccine6">6. FIPV\n (Fractional Injectable Polio vaccine)</string>
+    <string name="healthbaby_vaccine7">7. MR (Measles Rebula)</string>
+    <string name="healthbaby_vaccine8">8. JE (Japanese Encephditis)</string>
+
+    <string name="healthbaby_vaccine_age">Age</string>
+    <string name="healthbaby_vaccine_age1">At birth</string>
+    <string name="healthbaby_vaccine_age2">At weeks: 6,10,14</string>
+    <string name="healthbaby_vaccine_age3">At weeks: 6,10,14</string>
+    <string name="healthbaby_vaccine_age4">At weeks: 6,10 And Month: 9.</string>
+    <string name="healthbaby_vaccine_age5">At weeks: 6,10</string>
+    <string name="healthbaby_vaccine_age6">At weeks: 6,14</string>
+    <string name="healthbaby_vaccine_age7">At Months: 9, 15</string>
+    <string name="healthbaby_vaccine_age8">At Month: 12</string>
+
+
+
+    <string name="healthbaby_firstperiod_title">0\-6 months</string>
+    <string name="healthbaby_firstperiod">The child should be examined at the health institution on the third day within 24 hours of birth and at 4 months.</string>
+    <string name="healthbaby_firstperiod1">The first yellow milk of the mother should be fed as soon as possible (within 1 hour) after the birth of the newborn baby.</string>
+    <string name="healthbaby_firstperiod2">From birth to 6 months the baby does not need to be fed water as it is exclusively breast milk.\n" +
+                "Starting breastfeeding as soon as you are born helps to keep the milk constant.\n</string>
+    <string name="healthbaby_firstperiod3">Newborns should be breastfed at least 10 times a day, day and night.\n" +
+                "Feed from one breast only after feeding in another way.\n</string>
+
+
+    <string name="healthbaby_secondperiod_title">6\-9 months</string>
+    <string name="healthbaby_secondperiod">After the child reaches 6 months and 9 months, go to the health institution for examination</string>
+    <string name="healthbaby_secondperiod1">After the completion of 6 months (180 days), breast milk should be fed with different foods till the completion of two years. \n
+                \n
+                When starting different feeding, feed 2 to 3 tablespoons at a time and then increase to 1 cup of tea (125 ml) at a time.\n</string>
+    <string name="healthbaby_secondperiod2">Different foods should be prepared daily by mixing at least 4 groups of food (grains, nuts, animal foods, fruits and vegetables).
+            \nOnly salt with two children logo should be used when preparing food.</string>
+    <string name="healthbaby_secondperiod3">Baby food should be soft and fluffy.</string>
+    <string name="healthbaby_secondperiod4">Always use clean or boiled water.</string>
+    <string name="healthbaby_secondperiod5">Wash hands thoroughly with soap and water before cooking and after feeding.</string>
+
+    <string name="healthbaby_thirdperiod_title">9\-12 months</string>
+    <string name="healthbaby_thirdperiod">In addition to breastfeeding, feed the baby 3 times a day (2 meals and 1 oatmeal), one glass of tea (125 ml) different food and 1 meal.\n
+            Fruits can be included in the lunch\n</string>
+    <string name="healthbaby_thirdperiod1">Discourage eating less nutritious food available in the market.\n
+            It will make your child less healthy\n</string>
+
+
+    <string name="healthbaby_fourthperiod_title">12\-24 months</string>
+    <string name="healthbaby_fourthperiod">In addition to breastfeeding, 3 times a day (3 meals only), two teaspoons of glass (250 ml) of supplementary food and 2 meals should be fed.</string>
+    <string name="healthbaby_fourthperiod1"> Each meal should include the three food groups.\n
+            Snacks should include seasonal fruits and eggs if possible. Beans are also good for snack.\n
+            Eating fresh home-cooked food (meat, eggs and fish) should be encouraged.\n</string>
+
+    <!--HEALTHINFOSCREEN-->
+    <string name="healthinfoscreen_adult">Adult</string>
+    <string name="healthinfoscreen_pregnant">While pregnant</string>
+    <string name="healthinfoscreen_baby">Baby</string>
+    <string name="healthinfoscreen_children">Children</string>
 </resources>
