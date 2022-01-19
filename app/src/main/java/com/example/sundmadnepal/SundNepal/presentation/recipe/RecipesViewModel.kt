@@ -26,6 +26,39 @@ class RecipesViewModel @Inject constructor(
         addRecipe()
     }
 
+    //Add recipes
+    fun setName(name: String){
+        if (name.isNotEmpty()){
+            _state.value.addRecipe = _state.value.addRecipe.copy(
+                recipeName = name
+            )
+            _state.value = _state.value.copy(
+                recipeNameAccepted = true
+            )
+        }
+    }
+    fun setInformation(name: String){
+        if (name.isNotEmpty()){
+            _state.value.addRecipe = _state.value.addRecipe.copy(
+                information = name
+            )
+            _state.value = _state.value.copy(
+                recipeInformationAccepted = true
+            )
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     private fun getRecipeWithkeyIngredientsAndSteps() {
         repository.getRecipeWithKeyIngredientsAndSteps()
 
@@ -35,6 +68,33 @@ class RecipesViewModel @Inject constructor(
                 )
             }
             .launchIn(viewModelScope)
+
+        val hi = 2
+
+    }
+    fun setImage(){
+        val keyImage: MutableList<String> = mutableListOf()
+
+        for (i in _state.value.recipeswithKey.indices){
+            for (image in _state.value.recipeswithKey[i].recipe.keyIngrediens.indices){
+                if (_state.value.recipeswithKey[i].recipe.keyIngrediens[image].image != "0"){
+                    keyImage.add(_state.value.recipeswithKey[i].recipe.keyIngrediens[image].image)
+                }
+            }
+        }
+        _state.value = _state.value.copy(
+            keyImages = keyImage
+        )
+    }
+    fun setChosenImage(ingredient: String){
+        val chosenIngredient: MutableList<String> = mutableListOf()
+        for (image in _state.value.chosenIngredient){
+            chosenIngredient.add(image)
+        }
+        chosenIngredient.add(ingredient)
+        _state.value = _state.value.copy(
+            chosenIngredient = chosenIngredient
+        )
     }
 
     fun getSpecificRecipe(number: Int){
@@ -63,6 +123,7 @@ class RecipesViewModel @Inject constructor(
         _state.value = _state.value.copy(
             rememberRecipeNumber = number
         )
+
         val hi = 2
     }
 
@@ -137,6 +198,17 @@ class RecipesViewModel @Inject constructor(
         } else {
             _state.value = _state.value.copy(
                 recompose = 18
+            )
+        }
+    }
+    fun AddRecipeRecompose(){
+        if (_state.value.addRecipeRecompose != 1){
+            _state.value = _state.value.copy(
+                recompose = 1
+            )
+        } else {
+            _state.value = _state.value.copy(
+                recompose = 0
             )
         }
     }

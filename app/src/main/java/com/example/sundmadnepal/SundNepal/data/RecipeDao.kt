@@ -32,6 +32,9 @@ interface RecipeDao {
     @Query("SELECT * FROM recipe WHERE recipeName = :recipeName")
     fun getRecipeWithKeyIngredientsAndStepsByName(recipeName: String) :RecipeWithKeyIngredientsAndSteps
 
+    @Query("SELECT  image FROM keyingredient")
+    fun getImages(): Flow<List<String>>
+
 
     @Transaction
     @Query("UPDATE recipe SET favorite= :isFavorite WHERE recipeName = :recipeName")

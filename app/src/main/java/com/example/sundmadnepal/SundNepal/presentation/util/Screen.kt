@@ -9,6 +9,10 @@ sealed class Screen (val route: String){
     object IngredientScreen: Screen( "ingredient_screen")
     object StepsScreen: Screen ("steps_screen")
     object FavoriteScreen: Screen ("favorite_screen")
+    object AddRecipe: Screen("addRecipe_screen")
+    object ChooseKeyIngredient: Screen("chooseKeyIngredient_screen")
+    object AddRecipeIngredient: Screen("addRecipeIngredient_screen")
+    object AddRecipeSteps: Screen("addRecipeSteps_screen")
 
 
     object HealthInfoScreen: Screen("HealthInfo_screen")

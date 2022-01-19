@@ -41,8 +41,20 @@ class MainActivity : ComponentActivity() {
                 val viewModel: RecipesViewModel = hiltViewModel()
                 NavHost(
                     navController = navController,
-                    startDestination = Screen.ProfileScreen.route
+                    startDestination = Screen.RecipeMenu.route
                 ) {
+                    composable(route = Screen.AddRecipe.route){
+                        AddRecipe(viewModel, navController)
+                    }
+                    composable(route = Screen.ChooseKeyIngredient.route){
+                        ChooseKeyIngredient(viewModel = viewModel, navController)
+                    }
+                    composable(route = Screen.AddRecipeIngredient.route){
+                        AddRecipeIngredient()
+                    }
+                    composable(route = Screen.AddRecipeSteps.route){
+                        AddRecipeSteps()
+                    }
                     composable(route = Screen.RecipeMenu.route) {
                         RecipeMenu(navController, viewModel)
                     }

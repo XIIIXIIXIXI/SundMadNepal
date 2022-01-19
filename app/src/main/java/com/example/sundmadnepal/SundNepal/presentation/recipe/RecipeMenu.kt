@@ -52,7 +52,7 @@ fun RecipeMenu(navController: NavController, viewModel: RecipesViewModel) {
                     text = stringResource(id = R.string.recipe_menu_add_recipe),
                     icon = Icons.Default.Add
                 ) {
-                    //AddRecipeScreen
+                    navController.navigate(Screen.AddRecipe.route)
                 }
                 Spacer(modifier = Modifier.height(20.dp))
                 DefaultButton(

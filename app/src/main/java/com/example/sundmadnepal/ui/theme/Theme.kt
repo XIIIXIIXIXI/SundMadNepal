@@ -4,23 +4,27 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
+import androidx.compose.material.primarySurface
 import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
-    primaryVariant = Black,
+    primaryVariant = SlightlyLessDark,
     secondary = Teal200,
     onSurface = DarkGray
 )
 
 private val LightColorPalette = lightColors(
     primary = Black, //for text
-    primaryVariant = green, //for background
+    primaryVariant = Teal200, //for background
     secondary = Teal200,
     background = White,
     //navBar
     onSecondary = OffWhite, //for navBar
     onSurface = SlightlyLessLightGray //for recipe Card
+
+    // add recipe
+
     /* Other default colors to override
     background = Color.White,
     surface = Color.White,
