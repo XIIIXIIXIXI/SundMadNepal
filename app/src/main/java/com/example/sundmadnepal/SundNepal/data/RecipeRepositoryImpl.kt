@@ -63,4 +63,8 @@ class RecipeRepositoryImpl(
         dao.updateFavorite(isFavorite, recipeName)
     }
 
+    override fun getImages(): Flow<List<String>>{
+        return dao.getImages()
+    }
+
 }

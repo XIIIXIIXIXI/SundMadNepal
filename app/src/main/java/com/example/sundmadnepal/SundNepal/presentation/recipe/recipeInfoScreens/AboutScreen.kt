@@ -66,7 +66,6 @@ fun MainFragment(
     Box(modifier = Modifier.padding(PaddingValues(0.dp, 0.dp, 0.dp, 56.dp))) {
         Content(recipe, viewModel)
         MainPicture(recipe, viewModel)
-
     }
 }
 

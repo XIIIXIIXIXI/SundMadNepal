@@ -37,4 +37,6 @@ interface RecipeRepository {
 
     suspend fun UpdateFavorite(isFavorite: Int, recipeName: String)
 
+    fun getImages(): Flow<List<String>>
+
 }

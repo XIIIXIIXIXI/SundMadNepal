@@ -133,5 +133,36 @@ fun BottomNavigationBarHome(navController: NavController) {
     }
 }
 
+@Composable
+fun BottomNavigationBarAddRecipe(navController: NavController) {
+    Scaffold(
+        bottomBar = {
+            BottomNavigationBar(
+                items = listOf(
+                    BottomNavItem(
+                        name = "About",
+                        route = "addRecipe_screen",
+                        icon = Icons.Default.Article
+                    ),
+                    BottomNavItem(
+                        name = "Ingredients",
+                        route = "addRecipeIngredient_screen",
+                        icon = Icons.Default.Fastfood
+                    ),
+                    BottomNavItem(
+                        name = "steps",
+                        route = "addRecipeSteps_screen",
+                        icon = Icons.Default.Settings
+                    )
+                ), navController,
+                onItemClick = {
+                    navController.navigate(it.route)
+                }
+            )
+        }
+    ) {
+    }
+}
+
 
 
