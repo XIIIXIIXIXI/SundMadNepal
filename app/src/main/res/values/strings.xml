@@ -18,4 +18,5 @@
     <string name="recipe_recipes">recipes</string>
     <string name="recipe_about_KeyIngredients">Key Ingredients</string>
     <string name="recipe_steps_tapToCompleteStep">✔ TAP TO COMPLETE STEP</string>
+    <string name="how_to_garden">How to make your own garden</string>
 </resources>

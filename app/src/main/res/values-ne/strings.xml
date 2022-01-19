@@ -19,4 +19,8 @@
     <string name="recipe_recipes">व्यञ्जनहरु</string>
     <string name="recipe_about_KeyIngredients">मुख्य सामाग्री</string>
     <string name="recipe_steps_tapToCompleteStep">✔ चरण पूरा गर्न ट्याप गर्नुहोस्</string>
+
+
+
+    <string name="how_to_garden">How to make your own garden</string>
 </resources>

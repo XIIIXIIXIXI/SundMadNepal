@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color.Companion.Cyan
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 
 
 import androidx.compose.ui.text.style.TextAlign
@@ -34,18 +35,9 @@ import org.intellij.lang.annotations.JdkConstants
 fun ProfileScreen(
     navController: NavController
 ) {
-    Column(/*modifier = Modifier
-        .background(MaterialTheme.colors.primaryVariant)
-        .fillMaxWidth()
-        .height(694.dp)
-        //.fillMaxHeight()){
-        .size(412.dp, 694.dp)*/)
+    Column()
     {
-        //Text(text = "Tips and Tricks",textAlign = TextAlign.Center, fontSize = 30.sp)
-        //Column() {
             GardenTips(navController = navController)
-            //BottomNavigationBarHome(navController = navController)
-        //}
     }
 }
 
@@ -53,13 +45,13 @@ fun ProfileScreen(
 @Composable
 private fun GardenTips(navController : NavController){
     var infoOpened by remember{ mutableStateOf(0)}
-    //val color1 = ButtonDefaults.buttonColors(backgroundColor = Color(193, 93, 223))
     val color2 = ButtonDefaults.buttonColors(backgroundColor = Color.White)
     val color1 = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray)
     LazyColumn (modifier = Modifier
         .background(MaterialTheme.colors.primaryVariant)
         .fillMaxWidth()
         .fillMaxHeight(0.93f)
+        .padding(10.dp,0.dp)
     ){
         item {
             Button(onClick = { infoOpened = if(infoOpened != 1) 1 else 0 }
@@ -67,10 +59,11 @@ private fun GardenTips(navController : NavController){
                 modifier = Modifier
                     .size(410.dp, 53.dp)
                     .padding(5.dp)) {
-                Text(text = "How to make your own garden", color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
+                Text(text = stringResource(id = R.string.how_to_garden), color = Black,fontSize = 20.sp, textAlign = TextAlign.Center)
             }
             GardenInfo(infoOpened)
         }
+
         item {
             Button(onClick = {infoOpened = if(infoOpened != 2) 2 else 0 },
                 colors = if(infoOpened == 2) color1 else color2,
@@ -124,11 +117,10 @@ private fun PopUpButton(infoOpened: Int, text: String){
 private fun GardenInfo(infoOpened : Int) {
     if(infoOpened == 1) {
             //Text(text = "How to make your own garden", fontSize = 25.sp)
-            Text(
-                text = "Making your own garden means you can have a healthy life without spending lots of money\n" +
+            Text(text = "Making your own garden means you can have a healthy life without spending lots of money\n" +
                         "Even if you only have very little space you can still grow vegetables\n"
-            )
-        Text(text = "Preparing the Soil:")
+                , color = MaterialTheme.colors.onBackground)
+        Text(text = "Preparing the Soil:", color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.garden1),
             contentDescription = "Unprepared garden",
@@ -137,7 +129,7 @@ private fun GardenInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "1. dig the soil to make it loose.")
+        Text(text = "1. dig the soil to make it loose.", color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.gardencompost),
             contentDescription = "Compost garden",
@@ -146,7 +138,7 @@ private fun GardenInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "2. Prepare the soil: mix compost with soil add compost in soil and leave it for 8 to 10 days.")
+        Text(text = "2. Prepare the soil: mix compost with soil add compost in soil and leave it for 8 to 10 days.", color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.gardenwater),
             contentDescription = "Watering the garden",
@@ -155,8 +147,8 @@ private fun GardenInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "3. Moisturize the soil\n")
-        Text(text = "4. Soil be prepared in 8 to 10 days")
+        Text(text = "3. Moisturize the soil\n", color = MaterialTheme.colors.onBackground)
+        Text(text = "4. Soil be prepared in 8 to 10 days", color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.gardenhighland1),
             contentDescription = "High land garden",
@@ -165,7 +157,7 @@ private fun GardenInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "5. Then make a high land for the crops growing.\n")
+        Text(text = "5. Then make a high land for the crops growing.\n", color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.gardenhighland2),
             contentDescription = "High land garden 2",
@@ -181,7 +173,7 @@ private fun GardenInfo(infoOpened : Int) {
 private fun CompostInfo(infoOpened : Int) {
     if(infoOpened == 2) {
         //Text(text = "How to make the Compost:", fontSize = 25.sp)
-        Text(text = "Compost size of 2m*2m(L*B)\n ")
+        Text(text = "Compost size of 2m*2m(L*B)\n ", color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.composta),
             contentDescription = "Scaling land for compost",
@@ -191,7 +183,7 @@ private fun CompostInfo(infoOpened : Int) {
                 .size(175.dp)
         )
         Text(text = "1. to make compost we need Cow’s urine, leaves , bushes with leaves, ash and Cow dungl.\n" +
-                    "\t - make pit according to how much land you have.")
+                    "\t - make pit according to how much land you have.", color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.compostb),
             contentDescription = "Layering the compost",
@@ -200,7 +192,7 @@ private fun CompostInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "2. put layer by layer elements in the pit, firstly, put Bushes with leaves then cow dung, then Urine and ash. repeat until the pit is full.")
+        Text(text = "2. put layer by layer elements in the pit, firstly, put Bushes with leaves then cow dung, then Urine and ash. repeat until the pit is full.", color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.compostc),
             contentDescription = "",
@@ -209,7 +201,7 @@ private fun CompostInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "3. Put a stick that reach the bottom  of pit and cover it with Soil.")
+        Text(text = "3. Put a stick that reach the bottom  of pit and cover it with Soil." , color = MaterialTheme.colors.onBackground)
         Image(
             painterResource(R.drawable.compostd),
             contentDescription = "Covering with soil",
@@ -218,7 +210,7 @@ private fun CompostInfo(infoOpened : Int) {
                 .padding(10.dp)
                 .size(175.dp)
         )
-        Text(text = "4. Your compost Pit will be ready in 30 to 35 days.\n")
+        Text(text = "4. Your compost Pit will be ready in 30 to 35 days.\n", color = MaterialTheme.colors.onBackground)
     }
 }
 @Composable
@@ -237,7 +229,7 @@ private fun InsecticidesInfo(infoOpened : Int) {
                     "After 4 to 5 days open the drum and move the liquid  with a stick.\n" +
                     "\n" +
                     "your Organic Insecticides will be ready to use in 25 to 30 days.\n"
-        )
+            , color = MaterialTheme.colors.onBackground)
     }
 }
 
@@ -251,8 +243,7 @@ private fun ThingToGrowInfo(infoOpened : Int) {
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(225.dp)
-                .scale(1.3f)
-                .offset(65.dp,40.dp)
+                .offset(75.dp,20.dp)
         )
             Text(
             text = "Sarg: It is healthy and easy and grows all year around.\n" +
@@ -274,6 +265,6 @@ private fun ThingToGrowInfo(infoOpened : Int) {
                     "Cucumber : it is rich in Vitamin K\n" +
                     "\n" +
                     "Eggplant : it is rich in minerals and fibers\n"
-        )
+                , color = MaterialTheme.colors.onBackground)
     }
 }

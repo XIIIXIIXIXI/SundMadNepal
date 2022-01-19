@@ -23,6 +23,7 @@ class RecipesViewModel @Inject constructor(
 
     init {
         getRecipeWithkeyIngredientsAndSteps()
+        addRecipe()
     }
 
     private fun getRecipeWithkeyIngredientsAndSteps() {
@@ -67,7 +68,7 @@ class RecipesViewModel @Inject constructor(
 
     private fun addRecipe(){
         viewModelScope.launch {
-            val recipe: Recipe = Recipe( recipeName = "Cake", image =  "R.drawable.lasagna", energy = "50", prepTime = "30min.",  healthy = "6/10",
+            val recipe: Recipe = Recipe( recipeName = "Cake", image =  "lasagna", energy = "50", prepTime = "30min.",  healthy = "6/10",
                 information = "A freshly baked cake smothered in frosting makes an irresistible homemade dessert.", favorite = 0)
 
             val keyIngredient = listOf(
@@ -87,7 +88,6 @@ class RecipesViewModel @Inject constructor(
                 RecipeKeyIngredientCrossRef("Cake", "spinach"),
                 RecipeKeyIngredientCrossRef("Cake", "carrot"),
                 RecipeKeyIngredientCrossRef("Cake", "pasta")
-
             )
             recipeKeyIngredientRelations.forEach{repository.insertRecipeKeyIngredientCrossRef(it)}
         }

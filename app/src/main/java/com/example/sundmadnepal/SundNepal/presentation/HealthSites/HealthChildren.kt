@@ -25,9 +25,9 @@ import com.example.sundmadnepal.SundNepal.presentation.util.Screen
 @Preview
 @Composable
 fun HealthChildren(/*navController: NavController*/) {
-    Column() {
+    Column(modifier = Modifier.padding(10.dp,0.dp)) {
         Text(text = "Health information for Children",textAlign = TextAlign.Center,
-            fontSize = 30.sp)
+            fontSize = 30.sp, color = MaterialTheme.colors.onBackground)
         LazyColumn {
             item {
                 GeneralInfo()
@@ -41,44 +41,44 @@ fun HealthChildren(/*navController: NavController*/) {
 }
 @Composable
 private fun ChildrenInfo() {
-    Text(text = "Children", fontSize = 25.sp)
+    Text(text = "Children", fontSize = 25.sp, color = MaterialTheme.colors.onBackground)
     Row() {
         Column() {
-            Text(text = "Age in years")
-            Text(text = "4-8")
-            Text(text = "9-13")
-            Text(text = "14-18")
+            Text(text = "Age in years", color = MaterialTheme.colors.onBackground)
+            Text(text = "4-8", color = MaterialTheme.colors.onBackground)
+            Text(text = "9-13", color = MaterialTheme.colors.onBackground)
+            Text(text = "14-18", color = MaterialTheme.colors.onBackground)
         }
         Column(modifier = Modifier.padding(30.dp,0.dp,0.dp,0.dp)) {
-            Text(text = "Male KCAL")
-            Text(text = "1400-1600")
-            Text(text = "1800-2200")
-            Text(text = "2400-2800")
+            Text(text = "Male KCAL", color = MaterialTheme.colors.onBackground)
+            Text(text = "1400-1600", color = MaterialTheme.colors.onBackground)
+            Text(text = "1800-2200", color = MaterialTheme.colors.onBackground)
+            Text(text = "2400-2800", color = MaterialTheme.colors.onBackground)
         }
         Column(modifier = Modifier.padding(40.dp,0.dp,0.dp,0.dp)) {
-            Text(text = "Female KCAL")
-            Text(text = "1400-1600")
-            Text(text = "1600-2000")
-            Text(text = "2000")
+            Text(text = "Female KCAL", color = MaterialTheme.colors.onBackground)
+            Text(text = "1400-1600", color = MaterialTheme.colors.onBackground)
+            Text(text = "1600-2000", color = MaterialTheme.colors.onBackground)
+            Text(text = "2000", color = MaterialTheme.colors.onBackground)
         }
     }
-    Text(text = "\n Furthermore children's diet should include foods which contain Calcium and Fiber")
+    Text(text = "\n Furthermore children's diet should include foods which contain Calcium and Fiber", color = MaterialTheme.colors.onBackground)
     Row(Modifier.padding(75.dp,0.dp,0.dp,0.dp)) {
         Image(painter = painterResource(id = R.drawable.cleanwaterbig),
             contentDescription = "Clean water",
             Modifier.size(200.dp,200.dp)
         )
     }
-    Text(text = "Another commonly neglected part of a childs diet is ensuring proper hydration, proper hydration improves cognitive function")
-    Text(text = "\n Calcium plays a big part in developing strong, health bones and teeth. Calcium dense foods include: Milk, soy-milk, sardines, cereals  and oatmeal")
-    Text(text = "\n Fiber is key to prevent prevent heart disease and other conditions, it also helps digestion and prevents constipation")
+    Text(text = "Another commonly neglected part of a childs diet is ensuring proper hydration, proper hydration improves cognitive function", color = MaterialTheme.colors.onBackground)
+    Text(text = "\n Calcium plays a big part in developing strong, health bones and teeth. Calcium dense foods include: Milk, soy-milk, sardines, cereals  and oatmeal", color = MaterialTheme.colors.onBackground)
+    Text(text = "\n Fiber is key to prevent prevent heart disease and other conditions, it also helps digestion and prevents constipation", color = MaterialTheme.colors.onBackground)
     Row(Modifier.padding(75.dp,0.dp,0.dp,0.dp)) {
         Image(painter = painterResource(id = R.drawable.nosnacks),
             contentDescription = "No snacks",
             Modifier.size(200.dp,200.dp)
         )
     }
-    Text(text = "Limiting snacks is a great way to ensure stable blood sugar ")
+    Text(text = "Limiting snacks is a great way to ensure stable blood sugar ", color = MaterialTheme.colors.onBackground)
 }
 
 
