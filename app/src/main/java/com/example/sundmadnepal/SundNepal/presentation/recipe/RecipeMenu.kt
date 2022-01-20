@@ -34,7 +34,7 @@ fun RecipeMenu(navController: NavController, viewModel: RecipesViewModel) {
                 modifier = Modifier
                     .background(MaterialTheme.colors.primaryVariant)
                     .fillMaxWidth()
-                    .fillMaxHeight(0.93f),
+                    .fillMaxHeight(0.913f),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {

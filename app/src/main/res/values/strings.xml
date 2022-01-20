@@ -175,10 +175,10 @@
     <string name="healthbaby_firstperiod_title">0\-6 months</string>
     <string name="healthbaby_firstperiod">The child should be examined at the health institution on the third day within 24 hours of birth and at 4 months.</string>
     <string name="healthbaby_firstperiod1">The first yellow milk of the mother should be fed as soon as possible (within 1 hour) after the birth of the newborn baby.</string>
-    <string name="healthbaby_firstperiod2">From birth to 6 months the baby does not need to be fed water as it is exclusively breast milk.\n" +
-                "Starting breastfeeding as soon as you are born helps to keep the milk constant.\n</string>
-    <string name="healthbaby_firstperiod3">Newborns should be breastfed at least 10 times a day, day and night.\n" +
-                "Feed from one breast only after feeding in another way.\n</string>
+    <string name="healthbaby_firstperiod2">From birth to 6 months the baby does not need to be fed water as it is exclusively breast milk.\n
+                Starting breastfeeding as soon as you are born helps to keep the milk constant.\n</string>
+    <string name="healthbaby_firstperiod3">Newborns should be breastfed at least 10 times a day, day and night.\n
+                Feed from one breast only after feeding in another way.\n</string>
 
 
     <string name="healthbaby_secondperiod_title">6\-9 months</string>
