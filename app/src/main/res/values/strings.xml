@@ -210,4 +210,6 @@
     <string name="healthinfoscreen_pregnant">While pregnant</string>
     <string name="healthinfoscreen_baby">Baby</string>
     <string name="healthinfoscreen_children">Children</string>
+
+    <string name="healthinfoscreen_title">Health information</string>
 </resources>
