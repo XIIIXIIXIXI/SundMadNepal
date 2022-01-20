@@ -2,7 +2,7 @@
     <string name="app_name">SundMadNepal</string>
     <string name="recipe_menu_title">Healthy Food Nepal</string>
     <string name="recipe_menu_see_recipes">See Recipes</string>
-    <string name="recipe_menu_add_recipe">Add Recipe</string>
+    <string name="recipe_menu_add_recipe">Add Recipe </string>
     <string name="recipe_menu_my_recipes">My Recipes</string>
     <string name="recipe_menu_favorite_recipes">Favorite Recipes</string>
     <string name="ingredient_servings">Servings</string>

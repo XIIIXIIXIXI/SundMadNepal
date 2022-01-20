@@ -121,7 +121,7 @@ fun BottomNavigationBarHome(navController: NavController) {
                     BottomNavItem(
                         name = stringResource(id = R.string.navigate_profile),
                         route = "profile_screen",
-                        icon = Icons.Default.Person
+                        icon = Icons.Default.Help
                     )
                 ), navController,
                 onItemClick = {
@@ -156,11 +156,16 @@ fun BottomNavigationBarAddRecipe(navController: NavController) {
                     )
                 ), navController,
                 onItemClick = {
-                    navController.navigate(it.route)
+                    navController.navigate(it.route){
+                        popUpTo(Screen.RecipeMenu.route){
+                            inclusive = false
+                        }
+                    }
                 }
             )
         }
     ) {
+
     }
 }
 

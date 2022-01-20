@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -29,12 +30,12 @@ fun RecipeMenu(navController: NavController, viewModel: RecipesViewModel) {
                 .background(MaterialTheme.colors.primaryVariant),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text =  stringResource(id = R.string.recipe_menu_title), color = MaterialTheme.colors.primary, fontSize = 45.sp)
+            Text(text =  stringResource(id = R.string.recipe_menu_title), color = MaterialTheme.colors.primary, fontSize = 45.sp, fontFamily = FontFamily.Cursive)
             Column(
                 modifier = Modifier
                     .background(MaterialTheme.colors.primaryVariant)
                     .fillMaxWidth()
-                    .fillMaxHeight(0.913f),
+                    .fillMaxHeight(0.919f),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {

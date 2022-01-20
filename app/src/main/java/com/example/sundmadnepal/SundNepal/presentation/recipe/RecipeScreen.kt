@@ -116,7 +116,8 @@ private fun TopCBar(recipes: Int) {
     ) {
         Text(
             text = "${stringResource(id = R.string.recipe_showing)} $recipes ${stringResource(id = R.string.recipe_recipes)}",
-            color = Color.White
+            color = Color.White,
+            fontSize = 23.sp
         )
     }
 }

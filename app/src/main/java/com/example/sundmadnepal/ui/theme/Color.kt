@@ -14,6 +14,8 @@ val SlightlyLessLightGray = Color(0xFFE6E6E6)
 val DarkGray = Color(0xFFACACAC)
 val SlightlyLessDark = Color(0xFF2b2b2b)
 
+val greyIsh = Color(0xFFB5B6B5)
+
 val TopBar = Color(0xFFfC9280)
 val AddRecipeBackground = Color(0xFFf8abb3)
 val BottomBarBackground = Color(0xFFb76c6e)

@@ -50,7 +50,7 @@ private fun GardenTips(navController : NavController){
     LazyColumn (modifier = Modifier
         .background(MaterialTheme.colors.primaryVariant)
         .fillMaxWidth()
-        .fillMaxHeight(0.92f)
+        .fillMaxHeight(0.926f)
         .padding(10.dp,0.dp)
     ){
         item {
