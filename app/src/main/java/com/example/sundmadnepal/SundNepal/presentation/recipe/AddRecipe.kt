@@ -215,6 +215,9 @@ private fun RecipeNameRecipeInformation(viewModel: RecipesViewModel) {
     }
 }
 
+//this function is inspired by a function from here https://github.com/philipplackner/JetpackComposePokedex/blob/Part9-PokemonDetailScreen3/app/src/main/java/com/plcoding/jetpackcomposepokedex/pokemonlist/PokemonListScreen.kt
+// line 73
+
 @Composable
 fun SearchBar(
     modifier: Modifier = Modifier,
